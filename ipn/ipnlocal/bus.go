@@ -7,8 +7,8 @@ import (
 	"context"
 	"time"
 
-	"tailscale.com/ipn"
-	"tailscale.com/tstime"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/tstime"
 )
 
 type rateLimitingBusSender struct {

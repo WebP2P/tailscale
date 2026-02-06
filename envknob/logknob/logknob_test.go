@@ -8,10 +8,10 @@ import (
 	"fmt"
 	"testing"
 
-	"tailscale.com/envknob"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/netmap"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/netmap"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 var testKnob = NewLogKnob(

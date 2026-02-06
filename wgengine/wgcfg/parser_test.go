@@ -12,7 +12,7 @@ import (
 	"runtime"
 	"testing"
 
-	"tailscale.com/types/key"
+	"github.com/WebP2P/dexnet/types/key"
 )
 
 func noError(t *testing.T, err error) bool {

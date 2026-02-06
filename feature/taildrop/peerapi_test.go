@@ -18,13 +18,13 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"tailscale.com/client/tailscale/apitype"
-	"tailscale.com/ipn/ipnlocal"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/tstime"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/client/tailscale/apitype"
+	"github.com/WebP2P/dexnet/ipn/ipnlocal"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 // peerAPIHandler serves the PeerAPI for a source specific client.

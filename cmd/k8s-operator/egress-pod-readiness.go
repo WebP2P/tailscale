@@ -23,14 +23,14 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
-	tsapi "tailscale.com/k8s-operator/apis/v1alpha1"
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/tstime"
-	"tailscale.com/util/backoff"
-	"tailscale.com/util/httpm"
+	tsapi "github.com/WebP2P/dexnet/k8s-operator/apis/v1alpha1"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/util/backoff"
+	"github.com/WebP2P/dexnet/util/httpm"
 )
 
-const tsEgressReadinessGate = "tailscale.com/egress-services"
+const tsEgressReadinessGate = "github.com/WebP2P/dexnet/egress-services"
 
 // egressPodsReconciler is responsible for setting tailscale.com/egress-services condition on egress ProxyGroup Pods.
 // The condition is used as a readiness gate for the Pod, meaning that kubelet will not mark the Pod as ready before the

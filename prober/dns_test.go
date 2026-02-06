@@ -11,7 +11,7 @@ import (
 	"sync"
 	"testing"
 
-	"tailscale.com/syncs"
+	"github.com/WebP2P/dexnet/syncs"
 )
 
 func TestForEachAddr(t *testing.T) {

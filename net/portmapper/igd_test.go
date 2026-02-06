@@ -14,13 +14,13 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"tailscale.com/net/netaddr"
-	"tailscale.com/net/netmon"
-	"tailscale.com/syncs"
-	"tailscale.com/tstest"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/eventbus"
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/net/netaddr"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/eventbus"
+	"github.com/WebP2P/dexnet/util/testenv"
 )
 
 // TestIGD is an IGD (Internet Gateway Device) for testing. It supports fake

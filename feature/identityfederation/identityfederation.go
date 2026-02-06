@@ -16,10 +16,10 @@ import (
 	"time"
 
 	"golang.org/x/oauth2"
-	"tailscale.com/feature"
-	"tailscale.com/internal/client/tailscale"
-	"tailscale.com/ipn"
-	"tailscale.com/wif"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/internal/client/tailscale"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/wif"
 )
 
 func init() {

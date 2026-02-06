@@ -22,7 +22,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	"github.com/aws/aws-sdk-go-v2/service/sts"
 	"github.com/aws/smithy-go"
-	"tailscale.com/util/httpm"
+	"github.com/WebP2P/dexnet/util/httpm"
 )
 
 type Environment string

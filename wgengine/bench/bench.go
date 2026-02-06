@@ -18,7 +18,7 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 const PayloadSize = 1000

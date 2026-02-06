@@ -3,7 +3,7 @@
 
 //go:build go1.19
 
-package main // import "tailscale.com/cmd/tailscaled"
+package main // import "github.com/WebP2P/dexnet/cmd/tailscaled"
 
 // TODO: check if administrator, like tswin does.
 //
@@ -42,25 +42,25 @@ import (
 	"golang.org/x/sys/windows/svc/eventlog"
 	"golang.zx2c4.com/wintun"
 	"golang.zx2c4.com/wireguard/windows/tunnel/winipcfg"
-	"tailscale.com/drive/driveimpl"
-	"tailscale.com/envknob"
-	_ "tailscale.com/ipn/auditlog"
-	_ "tailscale.com/ipn/desktop"
-	"tailscale.com/logpolicy"
-	"tailscale.com/net/dns"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/tstun"
-	"tailscale.com/tsd"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/logid"
-	"tailscale.com/util/backoff"
-	"tailscale.com/util/osdiag"
-	"tailscale.com/util/syspolicy/pkey"
-	"tailscale.com/util/syspolicy/policyclient"
-	"tailscale.com/util/winutil"
-	"tailscale.com/util/winutil/gp"
-	"tailscale.com/version"
-	"tailscale.com/wf"
+	"github.com/WebP2P/dexnet/drive/driveimpl"
+	"github.com/WebP2P/dexnet/envknob"
+	_ "github.com/WebP2P/dexnet/ipn/auditlog"
+	_ "github.com/WebP2P/dexnet/ipn/desktop"
+	"github.com/WebP2P/dexnet/logpolicy"
+	"github.com/WebP2P/dexnet/net/dns"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/net/tstun"
+	"github.com/WebP2P/dexnet/tsd"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/logid"
+	"github.com/WebP2P/dexnet/util/backoff"
+	"github.com/WebP2P/dexnet/util/osdiag"
+	"github.com/WebP2P/dexnet/util/syspolicy/pkey"
+	"github.com/WebP2P/dexnet/util/syspolicy/policyclient"
+	"github.com/WebP2P/dexnet/util/winutil"
+	"github.com/WebP2P/dexnet/util/winutil/gp"
+	"github.com/WebP2P/dexnet/version"
+	"github.com/WebP2P/dexnet/wf"
 )
 
 func init() {

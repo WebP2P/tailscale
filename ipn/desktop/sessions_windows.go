@@ -13,10 +13,10 @@ import (
 	"unsafe"
 
 	"golang.org/x/sys/windows"
-	"tailscale.com/ipn/ipnauth"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/must"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/ipn/ipnauth"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/must"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // wtsManager is a [SessionManager] implementation for Windows.

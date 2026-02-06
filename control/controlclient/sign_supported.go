@@ -16,10 +16,10 @@ import (
 	"time"
 
 	"github.com/tailscale/certstore"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/util/syspolicy/pkey"
-	"tailscale.com/util/syspolicy/policyclient"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/util/syspolicy/pkey"
+	"github.com/WebP2P/dexnet/util/syspolicy/policyclient"
 )
 
 // getMachineCertificateSubject returns the exact name of a Subject that needs

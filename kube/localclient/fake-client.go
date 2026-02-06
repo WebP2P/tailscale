@@ -7,7 +7,7 @@ import (
 	"context"
 	"fmt"
 
-	"tailscale.com/ipn"
+	"github.com/WebP2P/dexnet/ipn"
 )
 
 type FakeLocalClient struct {

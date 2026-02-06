@@ -6,8 +6,8 @@
 package netmon
 
 import (
-	"tailscale.com/types/logger"
-	"tailscale.com/util/eventbus"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/eventbus"
 )
 
 func newOSMon(_ *eventbus.Bus, logf logger.Logf, m *Monitor) (osMon, error) {

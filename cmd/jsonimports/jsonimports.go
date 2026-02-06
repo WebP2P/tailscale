@@ -55,9 +55,9 @@ import (
 	"strings"
 	"sync"
 
-	"tailscale.com/syncs"
-	"tailscale.com/util/must"
-	"tailscale.com/util/safediff"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/util/must"
+	"github.com/WebP2P/dexnet/util/safediff"
 )
 
 func main() {

@@ -13,7 +13,7 @@ import (
 	"net/http"
 	"strings"
 
-	"tailscale.com/tsnet"
+	"github.com/WebP2P/dexnet/tsnet"
 )
 
 var (

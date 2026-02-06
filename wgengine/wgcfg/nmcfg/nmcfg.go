@@ -11,13 +11,13 @@ import (
 	"net/netip"
 	"strings"
 
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/logid"
-	"tailscale.com/types/netmap"
-	"tailscale.com/wgengine/wgcfg"
+	"github.com/WebP2P/dexnet/net/tsaddr"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/logid"
+	"github.com/WebP2P/dexnet/types/netmap"
+	"github.com/WebP2P/dexnet/wgengine/wgcfg"
 )
 
 func nodeDebugName(n tailcfg.NodeView) string {

@@ -12,7 +12,7 @@ import (
 	"net/http"
 	"os"
 
-	"tailscale.com/tailcfg"
+	"github.com/WebP2P/dexnet/tailcfg"
 )
 
 func main() {

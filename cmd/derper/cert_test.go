@@ -22,11 +22,11 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/derp/derphttp"
-	"tailscale.com/derp/derpserver"
-	"tailscale.com/net/netmon"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
+	"github.com/WebP2P/dexnet/derp/derphttp"
+	"github.com/WebP2P/dexnet/derp/derpserver"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/key"
 )
 
 // Verify that in --certmode=manual mode, we can use a bare IP address

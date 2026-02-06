@@ -9,16 +9,16 @@ import (
 	"net/netip"
 	"time"
 
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/net/dns"
-	"tailscale.com/net/packet"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/netmap"
-	"tailscale.com/wgengine/filter"
-	"tailscale.com/wgengine/router"
-	"tailscale.com/wgengine/wgcfg"
-	"tailscale.com/wgengine/wgint"
+	"github.com/WebP2P/dexnet/ipn/ipnstate"
+	"github.com/WebP2P/dexnet/net/dns"
+	"github.com/WebP2P/dexnet/net/packet"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/netmap"
+	"github.com/WebP2P/dexnet/wgengine/filter"
+	"github.com/WebP2P/dexnet/wgengine/router"
+	"github.com/WebP2P/dexnet/wgengine/wgcfg"
+	"github.com/WebP2P/dexnet/wgengine/wgint"
 )
 
 // Status is the Engine status.

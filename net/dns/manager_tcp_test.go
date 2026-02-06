@@ -15,12 +15,12 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	dns "golang.org/x/net/dns/dnsmessage"
-	"tailscale.com/health"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/tstest"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/eventbus/eventbustest"
+	"github.com/WebP2P/dexnet/health"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/net/tsdial"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/util/eventbus/eventbustest"
 )
 
 func mkDNSRequest(domain dnsname.FQDN, tp dns.Type, modify func(*dns.Builder)) []byte {

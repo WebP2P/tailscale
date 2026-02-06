@@ -24,11 +24,11 @@ import (
 
 	"golang.org/x/mod/modfile"
 	"golang.org/x/sync/errgroup"
-	"tailscale.com/client/tailscale"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/syncs"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest/natlab/vnet"
+	"github.com/WebP2P/dexnet/client/tailscale"
+	"github.com/WebP2P/dexnet/ipn/ipnstate"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstest/natlab/vnet"
 )
 
 var (

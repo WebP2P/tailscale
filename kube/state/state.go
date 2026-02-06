@@ -15,11 +15,11 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"tailscale.com/ipn"
-	"tailscale.com/kube/kubetypes"
-	klc "tailscale.com/kube/localclient"
-	"tailscale.com/tailcfg"
-	"tailscale.com/util/deephash"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	klc "github.com/WebP2P/dexnet/kube/localclient"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/util/deephash"
 )
 
 const (

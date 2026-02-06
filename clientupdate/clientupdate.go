@@ -27,14 +27,14 @@ import (
 	"strconv"
 	"strings"
 
-	"tailscale.com/envknob"
-	"tailscale.com/feature"
-	"tailscale.com/hostinfo"
-	"tailscale.com/types/lazy"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/cmpver"
-	"tailscale.com/version"
-	"tailscale.com/version/distro"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/hostinfo"
+	"github.com/WebP2P/dexnet/types/lazy"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/cmpver"
+	"github.com/WebP2P/dexnet/version"
+	"github.com/WebP2P/dexnet/version/distro"
 )
 
 const (

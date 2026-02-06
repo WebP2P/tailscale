@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"time"
 
-	"tailscale.com/tstime"
-	"tailscale.com/types/logid"
-	"tailscale.com/util/eventbus"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/types/logid"
+	"github.com/WebP2P/dexnet/util/eventbus"
 )
 
 // DefaultHost is the default host name to upload logs to when

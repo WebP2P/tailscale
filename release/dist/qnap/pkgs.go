@@ -17,7 +17,7 @@ import (
 	"slices"
 	"sync"
 
-	"tailscale.com/release/dist"
+	"github.com/WebP2P/dexnet/release/dist"
 )
 
 type target struct {
@@ -211,11 +211,11 @@ func (m *qnapBuilds) buildInnerPackage(b *dist.Build, goenv map[string]string) (
 		if err := b.BuildWebClientAssets(); err != nil {
 			return nil, err
 		}
-		ts, err := b.BuildGoBinary("tailscale.com/cmd/tailscale", goenv)
+		ts, err := b.BuildGoBinary("github.com/WebP2P/dexnet/cmd/tailscale", goenv)
 		if err != nil {
 			return nil, err
 		}
-		tsd, err := b.BuildGoBinary("tailscale.com/cmd/tailscaled", goenv)
+		tsd, err := b.BuildGoBinary("github.com/WebP2P/dexnet/cmd/tailscaled", goenv)
 		if err != nil {
 			return nil, err
 		}

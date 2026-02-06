@@ -9,8 +9,8 @@ import (
 	"runtime"
 	"testing"
 
-	"tailscale.com/net/netmon"
-	"tailscale.com/util/eventbus"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/util/eventbus"
 )
 
 type conn struct {

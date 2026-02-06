@@ -13,10 +13,10 @@ import (
 	"log"
 	"net/http"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/tka"
-	"tailscale.com/types/key"
-	"tailscale.com/types/tkatype"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tka"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/tkatype"
 )
 
 func serverError(w http.ResponseWriter, format string, a ...any) error {

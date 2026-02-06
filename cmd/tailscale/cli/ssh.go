@@ -17,11 +17,11 @@ import (
 	"strings"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/envknob"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/paths"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/ipn/ipnstate"
+	"github.com/WebP2P/dexnet/net/tsaddr"
+	"github.com/WebP2P/dexnet/paths"
+	"github.com/WebP2P/dexnet/version"
 )
 
 var sshCmd = &ffcli.Command{

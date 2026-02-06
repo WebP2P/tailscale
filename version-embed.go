@@ -1,8 +1,8 @@
 // Copyright (c) Tailscale Inc & contributors
 // SPDX-License-Identifier: BSD-3-Clause
 
-// Package tailscaleroot embeds VERSION.txt into the binary.
-package tailscaleroot
+// Package dexnetroot embeds VERSION.txt into the binary.
+package dexnetroot
 
 import (
 	_ "embed"

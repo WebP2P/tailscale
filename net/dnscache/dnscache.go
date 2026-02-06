@@ -18,14 +18,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/envknob"
-	"tailscale.com/net/netx"
-	"tailscale.com/syncs"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/cloudenv"
-	"tailscale.com/util/singleflight"
-	"tailscale.com/util/slicesx"
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/net/netx"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/cloudenv"
+	"github.com/WebP2P/dexnet/util/singleflight"
+	"github.com/WebP2P/dexnet/util/slicesx"
+	"github.com/WebP2P/dexnet/util/testenv"
 )
 
 var zaddr netip.Addr

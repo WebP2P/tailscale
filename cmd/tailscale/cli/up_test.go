@@ -7,7 +7,7 @@ import (
 	"flag"
 	"testing"
 
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // validUpFlags are the only flags that are valid for tailscale up. The up

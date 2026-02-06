@@ -11,15 +11,15 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/disco"
-	"tailscale.com/net/packet"
-	"tailscale.com/net/stun"
-	udprelay "tailscale.com/net/udprelay/endpoint"
-	"tailscale.com/syncs"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstime"
-	"tailscale.com/types/key"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/disco"
+	"github.com/WebP2P/dexnet/net/packet"
+	"github.com/WebP2P/dexnet/net/stun"
+	udprelay "github.com/WebP2P/dexnet/net/udprelay/endpoint"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // relayManager manages allocation, handshaking, and initial probing (disco

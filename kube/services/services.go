@@ -10,9 +10,9 @@ import (
 	"fmt"
 	"time"
 
-	"tailscale.com/client/local"
-	"tailscale.com/ipn"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // EnsureServicesNotAdvertised is a function that gets called on containerboot

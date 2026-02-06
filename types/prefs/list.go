@@ -11,9 +11,9 @@ import (
 	jsonv2 "github.com/go-json-experiment/json"
 	"github.com/go-json-experiment/json/jsontext"
 	"golang.org/x/exp/constraints"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/ptr"
-	"tailscale.com/types/views"
+	"github.com/WebP2P/dexnet/types/opt"
+	"github.com/WebP2P/dexnet/types/ptr"
+	"github.com/WebP2P/dexnet/types/views"
 )
 
 // BasicType is a constraint that allows types whose underlying type is a predeclared

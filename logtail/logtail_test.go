@@ -15,10 +15,10 @@ import (
 	"time"
 
 	"github.com/go-json-experiment/json/jsontext"
-	"tailscale.com/tstest"
-	"tailscale.com/tstime"
-	"tailscale.com/util/eventbus/eventbustest"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/util/eventbus/eventbustest"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 func TestFastShutdown(t *testing.T) {

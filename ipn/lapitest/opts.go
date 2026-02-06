@@ -9,12 +9,12 @@ import (
 	"fmt"
 	"testing"
 
-	"tailscale.com/control/controlclient"
-	"tailscale.com/ipn/ipnlocal"
-	"tailscale.com/tsd"
-	"tailscale.com/tstest"
-	"tailscale.com/types/lazy"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/control/controlclient"
+	"github.com/WebP2P/dexnet/ipn/ipnlocal"
+	"github.com/WebP2P/dexnet/tsd"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/types/lazy"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // Option is any optional configuration that can be passed to [NewServer] or [NewBackend].

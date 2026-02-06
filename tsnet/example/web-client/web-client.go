@@ -9,8 +9,8 @@ import (
 	"log"
 	"net/http"
 
-	"tailscale.com/client/web"
-	"tailscale.com/tsnet"
+	"github.com/WebP2P/dexnet/client/web"
+	"github.com/WebP2P/dexnet/tsnet"
 )
 
 var (

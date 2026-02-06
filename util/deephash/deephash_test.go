@@ -22,12 +22,12 @@ import (
 	qt "github.com/frankban/quicktest"
 	"go4.org/mem"
 	"go4.org/netipx"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/ptr"
-	"tailscale.com/util/deephash/testtype"
-	"tailscale.com/util/hashx"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/ptr"
+	"github.com/WebP2P/dexnet/util/deephash/testtype"
+	"github.com/WebP2P/dexnet/util/hashx"
+	"github.com/WebP2P/dexnet/version"
 )
 
 type appendBytes []byte

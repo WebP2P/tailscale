@@ -18,9 +18,9 @@ import (
 	"github.com/google/nftables"
 	"github.com/google/nftables/expr"
 	"golang.org/x/sys/unix"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/ptr"
+	"github.com/WebP2P/dexnet/net/tsaddr"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/ptr"
 )
 
 const (

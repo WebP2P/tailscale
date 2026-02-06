@@ -14,13 +14,13 @@ import (
 	"os"
 	"slices"
 
-	"tailscale.com/drive"
-	"tailscale.com/ipn"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/netmap"
-	"tailscale.com/types/views"
-	"tailscale.com/util/httpm"
+	"github.com/WebP2P/dexnet/drive"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/netmap"
+	"github.com/WebP2P/dexnet/types/views"
+	"github.com/WebP2P/dexnet/util/httpm"
 )
 
 func init() {

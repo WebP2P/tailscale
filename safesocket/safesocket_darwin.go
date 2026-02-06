@@ -21,7 +21,7 @@ import (
 	"time"
 
 	"golang.org/x/sys/unix"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/version"
 )
 
 func init() {

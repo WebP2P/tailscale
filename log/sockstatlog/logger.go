@@ -17,17 +17,17 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/feature/buildfeatures"
-	"tailscale.com/health"
-	"tailscale.com/logpolicy"
-	"tailscale.com/logtail"
-	"tailscale.com/logtail/filch"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/sockstats"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/logid"
-	"tailscale.com/util/eventbus"
-	"tailscale.com/util/mak"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/health"
+	"github.com/WebP2P/dexnet/logpolicy"
+	"github.com/WebP2P/dexnet/logtail"
+	"github.com/WebP2P/dexnet/logtail/filch"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/net/sockstats"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/logid"
+	"github.com/WebP2P/dexnet/util/eventbus"
+	"github.com/WebP2P/dexnet/util/mak"
 )
 
 // pollInterval specifies how often to poll for socket stats.

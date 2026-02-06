@@ -11,9 +11,9 @@ import (
 	"net/http"
 	"testing"
 
-	"tailscale.com/tstest/deptest"
-	"tailscale.com/tstest/nettest"
-	"tailscale.com/types/key"
+	"github.com/WebP2P/dexnet/tstest/deptest"
+	"github.com/WebP2P/dexnet/tstest/nettest"
+	"github.com/WebP2P/dexnet/types/key"
 )
 
 func TestGetServeConfigFromJSON(t *testing.T) {
@@ -67,7 +67,7 @@ func TestDeps(t *testing.T) {
 			// Make sure we don't again accidentally bring in a dependency on
 			// drive or its transitive dependencies
 			"testing":                        "do not use testing package in production code",
-			"tailscale.com/drive/driveimpl":  "https://github.com/tailscale/tailscale/pull/10631",
+			"github.com/WebP2P/dexnet/drive/driveimpl":  "https://github.com/tailscale/tailscale/pull/10631",
 			"github.com/studio-b12/gowebdav": "https://github.com/tailscale/tailscale/pull/10631",
 		},
 	}.Check(t)

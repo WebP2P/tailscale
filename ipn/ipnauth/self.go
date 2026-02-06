@@ -6,7 +6,7 @@ package ipnauth
 import (
 	"context"
 
-	"tailscale.com/ipn"
+	"github.com/WebP2P/dexnet/ipn"
 )
 
 // Self is a caller identity that represents the tailscaled itself and therefore

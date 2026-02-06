@@ -15,11 +15,11 @@ import (
 	"strings"
 
 	"go4.org/mem"
-	"tailscale.com/envknob"
-	"tailscale.com/hostinfo"
-	"tailscale.com/util/lineiter"
-	"tailscale.com/util/osuser"
-	"tailscale.com/version/distro"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/hostinfo"
+	"github.com/WebP2P/dexnet/util/lineiter"
+	"github.com/WebP2P/dexnet/util/osuser"
+	"github.com/WebP2P/dexnet/version/distro"
 )
 
 // userMeta is a wrapper around *user.User with extra fields.

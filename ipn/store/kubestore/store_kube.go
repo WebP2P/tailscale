@@ -14,16 +14,16 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/envknob"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/store"
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/kube/kubeapi"
-	"tailscale.com/kube/kubeclient"
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/mak"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/ipn/store"
+	"github.com/WebP2P/dexnet/ipn/store/mem"
+	"github.com/WebP2P/dexnet/kube/kubeapi"
+	"github.com/WebP2P/dexnet/kube/kubeclient"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/util/mak"
 )
 
 func init() {
@@ -496,7 +496,7 @@ func (s *Store) certSecretSelector() map[string]string {
 	return map[string]string{
 		kubetypes.LabelSecretType:   kubetypes.LabelSecretTypeCerts,
 		kubetypes.LabelManaged:      "true",
-		"tailscale.com/proxy-group": pgName,
+		"github.com/WebP2P/dexnet/proxy-group": pgName,
 	}
 }
 

@@ -18,7 +18,7 @@ import (
 
 	"github.com/dblohm7/wingoes"
 	"golang.org/x/sys/windows"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 var (

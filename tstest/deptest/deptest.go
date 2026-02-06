@@ -18,7 +18,7 @@ import (
 	"sync"
 	"testing"
 
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 type DepChecker struct {
@@ -87,11 +87,11 @@ func (c DepChecker) Check(t *testing.T) {
 	// Doing this in the general case requires network access at runtime
 	// (resolving a package path to its module, possibly doing the ?go-get=1
 	// meta tag dance), so we just check the common case of
-	// "tailscale.com/*" packages for now, with the assumption that all
-	// "tailscale.com/*" packages are in the same module, which isn't
+	// "github.com/WebP2P/dexnet/*" packages for now, with the assumption that all
+	// "github.com/WebP2P/dexnet/*" packages are in the same module, which isn't
 	// necessarily true in the general case.
 	for dep := range c.BadDeps {
-		if suf, ok := strings.CutPrefix(dep, "tailscale.com/"); ok {
+		if suf, ok := strings.CutPrefix(dep, "github.com/WebP2P/dexnet/"); ok {
 			pkgDir := filepath.Join(tsRoot(), suf)
 			if _, err := os.Stat(pkgDir); err != nil {
 				t.Errorf("listed BadDep %q doesn't seem to exist anymore: %v", dep, err)

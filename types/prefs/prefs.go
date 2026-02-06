@@ -23,7 +23,7 @@ import (
 
 	jsonv2 "github.com/go-json-experiment/json"
 	"github.com/go-json-experiment/json/jsontext"
-	"tailscale.com/types/opt"
+	"github.com/WebP2P/dexnet/types/opt"
 )
 
 var (

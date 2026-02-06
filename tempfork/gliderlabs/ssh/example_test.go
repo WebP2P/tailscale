@@ -5,7 +5,7 @@ import (
 	"io"
 	"os"
 
-	"tailscale.com/tempfork/gliderlabs/ssh"
+	"github.com/WebP2P/dexnet/tempfork/gliderlabs/ssh"
 )
 
 func ExampleListenAndServe() {

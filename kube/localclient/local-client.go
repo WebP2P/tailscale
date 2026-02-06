@@ -9,8 +9,8 @@ import (
 	"context"
 	"io"
 
-	"tailscale.com/client/local"
-	"tailscale.com/ipn"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/ipn"
 )
 
 // LocalClient is roughly a subset of the local.Client struct's methods, used

@@ -30,47 +30,47 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/yaml"
 
-	"tailscale.com/client/tailscale"
-	"tailscale.com/ipn"
-	tsoperator "tailscale.com/k8s-operator"
-	tsapi "tailscale.com/k8s-operator/apis/v1alpha1"
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/net/netutil"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/ptr"
-	"tailscale.com/util/mak"
+	"github.com/WebP2P/dexnet/client/tailscale"
+	"github.com/WebP2P/dexnet/ipn"
+	tsoperator "github.com/WebP2P/dexnet/k8s-operator"
+	tsapi "github.com/WebP2P/dexnet/k8s-operator/apis/v1alpha1"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/net/netutil"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/opt"
+	"github.com/WebP2P/dexnet/types/ptr"
+	"github.com/WebP2P/dexnet/util/mak"
 )
 
 const (
 	// Labels that the operator sets on StatefulSets and Pods. If you add a
 	// new label here, do also add it to tailscaleManagedLabels var to
 	// ensure that it does not get overwritten by ProxyClass configuration.
-	LabelParentType      = "tailscale.com/parent-resource-type"
-	LabelParentName      = "tailscale.com/parent-resource"
-	LabelParentNamespace = "tailscale.com/parent-resource-ns"
+	LabelParentType      = "github.com/WebP2P/dexnet/parent-resource-type"
+	LabelParentName      = "github.com/WebP2P/dexnet/parent-resource"
+	LabelParentNamespace = "github.com/WebP2P/dexnet/parent-resource-ns"
 
 	// LabelProxyClass can be set by users on tailscale Ingresses and Services that define cluster ingress or
 	// cluster egress, to specify that configuration in this ProxyClass should be applied to resources created for
 	// the Ingress or Service.
-	LabelAnnotationProxyClass = "tailscale.com/proxy-class"
+	LabelAnnotationProxyClass = "github.com/WebP2P/dexnet/proxy-class"
 
-	FinalizerName = "tailscale.com/finalizer"
+	FinalizerName = "github.com/WebP2P/dexnet/finalizer"
 
 	// Annotations settable by users on services.
-	AnnotationExpose             = "tailscale.com/expose"
-	AnnotationTags               = "tailscale.com/tags"
-	AnnotationHostname           = "tailscale.com/hostname"
-	annotationTailnetTargetIPOld = "tailscale.com/ts-tailnet-target-ip"
-	AnnotationTailnetTargetIP    = "tailscale.com/tailnet-ip"
+	AnnotationExpose             = "github.com/WebP2P/dexnet/expose"
+	AnnotationTags               = "github.com/WebP2P/dexnet/tags"
+	AnnotationHostname           = "github.com/WebP2P/dexnet/hostname"
+	annotationTailnetTargetIPOld = "github.com/WebP2P/dexnet/ts-tailnet-target-ip"
+	AnnotationTailnetTargetIP    = "github.com/WebP2P/dexnet/tailnet-ip"
 	// MagicDNS name of tailnet node.
-	AnnotationTailnetTargetFQDN = "tailscale.com/tailnet-fqdn"
+	AnnotationTailnetTargetFQDN = "github.com/WebP2P/dexnet/tailnet-fqdn"
 
-	AnnotationProxyGroup = "tailscale.com/proxy-group"
+	AnnotationProxyGroup = "github.com/WebP2P/dexnet/proxy-group"
 
 	// Annotations settable by users on ingresses.
-	AnnotationFunnel       = "tailscale.com/funnel"
-	AnnotationHTTPRedirect = "tailscale.com/http-redirect"
+	AnnotationFunnel       = "github.com/WebP2P/dexnet/funnel"
+	AnnotationHTTPRedirect = "github.com/WebP2P/dexnet/http-redirect"
 
 	// If set to true, set up iptables/nftables rules in the proxy forward
 	// cluster traffic to the tailnet IP of that proxy. This can only be set
@@ -83,17 +83,17 @@ const (
 	// container and will also run a privileged init container that enables
 	// forwarding.
 	// Eventually this behaviour might become the default.
-	AnnotationExperimentalForwardClusterTrafficViaL7IngresProxy = "tailscale.com/experimental-forward-cluster-traffic-via-ingress"
+	AnnotationExperimentalForwardClusterTrafficViaL7IngresProxy = "github.com/WebP2P/dexnet/experimental-forward-cluster-traffic-via-ingress"
 
 	// Annotations set by the operator on pods to trigger restarts when the
 	// hostname, IP, FQDN or tailscaled config changes. If you add a new
 	// annotation here, also add it to tailscaleManagedAnnotations var to
 	// ensure that it does not get removed when a ProxyClass configuration
 	// is applied.
-	podAnnotationLastSetClusterIP         = "tailscale.com/operator-last-set-cluster-ip"
-	podAnnotationLastSetClusterDNSName    = "tailscale.com/operator-last-set-cluster-dns-name"
-	podAnnotationLastSetTailnetTargetIP   = "tailscale.com/operator-last-set-ts-tailnet-target-ip"
-	podAnnotationLastSetTailnetTargetFQDN = "tailscale.com/operator-last-set-ts-tailnet-target-fqdn"
+	podAnnotationLastSetClusterIP         = "github.com/WebP2P/dexnet/operator-last-set-cluster-ip"
+	podAnnotationLastSetClusterDNSName    = "github.com/WebP2P/dexnet/operator-last-set-cluster-dns-name"
+	podAnnotationLastSetTailnetTargetIP   = "github.com/WebP2P/dexnet/operator-last-set-ts-tailnet-target-ip"
+	podAnnotationLastSetTailnetTargetFQDN = "github.com/WebP2P/dexnet/operator-last-set-ts-tailnet-target-fqdn"
 
 	proxyTypeEgress          = "egress_service"
 	proxyTypeIngressService  = "ingress_service"

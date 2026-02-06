@@ -15,7 +15,7 @@ import (
 
 	"golang.org/x/net/route"
 	"golang.org/x/sys/unix"
-	"tailscale.com/net/netmon"
+	"github.com/WebP2P/dexnet/net/netmon"
 )
 
 func TestRouteEntryFromMsg(t *testing.T) {

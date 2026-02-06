@@ -9,8 +9,8 @@ import (
 	"os"
 	"sync"
 
-	"tailscale.com/types/logger"
-	"tailscale.com/types/persist"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/persist"
 )
 
 // HookCanAutoUpdate is a hook for the clientupdate package

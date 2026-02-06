@@ -12,8 +12,8 @@ import (
 	"runtime"
 	"time"
 
-	"tailscale.com/feature"
-	"tailscale.com/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
 )
 
 type closeable interface {

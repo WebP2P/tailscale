@@ -21,12 +21,12 @@ import (
 	"k8s.io/client-go/tools/record"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/client/fake"
-	"tailscale.com/ipn"
-	tsapi "tailscale.com/k8s-operator/apis/v1alpha1"
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/tstest"
-	"tailscale.com/types/ptr"
-	"tailscale.com/util/mak"
+	"github.com/WebP2P/dexnet/ipn"
+	tsapi "github.com/WebP2P/dexnet/k8s-operator/apis/v1alpha1"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/types/ptr"
+	"github.com/WebP2P/dexnet/util/mak"
 )
 
 func TestTailscaleIngress(t *testing.T) {
@@ -90,7 +90,7 @@ func TestTailscaleIngress(t *testing.T) {
 
 	// Get the ingress and update it with expected changes
 	ing := ingress()
-	ing.Finalizers = append(ing.Finalizers, "tailscale.com/finalizer")
+	ing.Finalizers = append(ing.Finalizers, "github.com/WebP2P/dexnet/finalizer")
 	ing.Status.LoadBalancer = networkingv1.IngressLoadBalancerStatus{
 		Ingress: []networkingv1.IngressLoadBalancerIngress{
 			{Hostname: "foo.tailnetxyz.ts.net", Ports: []networkingv1.IngressPortStatus{{Port: 443, Protocol: "TCP"}}},
@@ -186,7 +186,7 @@ func TestTailscaleIngressHostname(t *testing.T) {
 
 	// Get the ingress and update it with expected changes
 	ing := ingress()
-	ing.Finalizers = append(ing.Finalizers, "tailscale.com/finalizer")
+	ing.Finalizers = append(ing.Finalizers, "github.com/WebP2P/dexnet/finalizer")
 	expectEqual(t, fc, ing)
 
 	// 3. Ingress proxy with capability version >= 110 advertises HTTPS endpoint
@@ -768,7 +768,7 @@ func ptrPathType(p networkingv1.PathType) *networkingv1.PathType {
 func ingressClass() *networkingv1.IngressClass {
 	return &networkingv1.IngressClass{
 		ObjectMeta: metav1.ObjectMeta{Name: "tailscale"},
-		Spec:       networkingv1.IngressClassSpec{Controller: "tailscale.com/ts-ingress"},
+		Spec:       networkingv1.IngressClassSpec{Controller: "github.com/WebP2P/dexnet/ts-ingress"},
 	}
 }
 

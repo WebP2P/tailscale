@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	"go4.org/netipx"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 func TestNext(t *testing.T) {

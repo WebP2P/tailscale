@@ -26,11 +26,11 @@ import (
 	"k8s.io/client-go/tools/record"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
-	tsoperator "tailscale.com/k8s-operator"
-	tsapi "tailscale.com/k8s-operator/apis/v1alpha1"
-	"tailscale.com/tstime"
-	"tailscale.com/util/clientmetric"
-	"tailscale.com/util/set"
+	tsoperator "github.com/WebP2P/dexnet/k8s-operator"
+	tsapi "github.com/WebP2P/dexnet/k8s-operator/apis/v1alpha1"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/util/clientmetric"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 const (

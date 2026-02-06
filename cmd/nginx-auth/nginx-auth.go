@@ -21,7 +21,7 @@ import (
 	"strings"
 
 	"github.com/coreos/go-systemd/activation"
-	"tailscale.com/client/tailscale"
+	"github.com/WebP2P/dexnet/client/tailscale"
 )
 
 var (

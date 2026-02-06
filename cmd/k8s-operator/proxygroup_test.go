@@ -26,17 +26,17 @@ import (
 	"k8s.io/client-go/tools/record"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/client/fake"
-	"tailscale.com/client/tailscale"
-	"tailscale.com/ipn"
-	kube "tailscale.com/k8s-operator"
-	tsoperator "tailscale.com/k8s-operator"
-	tsapi "tailscale.com/k8s-operator/apis/v1alpha1"
-	"tailscale.com/kube/k8s-proxy/conf"
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/ptr"
+	"github.com/WebP2P/dexnet/client/tailscale"
+	"github.com/WebP2P/dexnet/ipn"
+	kube "github.com/WebP2P/dexnet/k8s-operator"
+	tsoperator "github.com/WebP2P/dexnet/k8s-operator"
+	tsapi "github.com/WebP2P/dexnet/k8s-operator/apis/v1alpha1"
+	"github.com/WebP2P/dexnet/kube/k8s-proxy/conf"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/types/opt"
+	"github.com/WebP2P/dexnet/types/ptr"
 )
 
 const (
@@ -617,7 +617,7 @@ func TestProxyGroupWithStaticEndpoints(t *testing.T) {
 			pg := &tsapi.ProxyGroup{
 				ObjectMeta: metav1.ObjectMeta{
 					Name:       "test",
-					Finalizers: []string{"tailscale.com/finalizer"},
+					Finalizers: []string{"github.com/WebP2P/dexnet/finalizer"},
 				},
 				Spec: tsapi.ProxyGroupSpec{
 					Type:       tsapi.ProxyGroupTypeEgress,
@@ -818,7 +818,7 @@ func TestProxyGroup(t *testing.T) {
 	pg := &tsapi.ProxyGroup{
 		ObjectMeta: metav1.ObjectMeta{
 			Name:       "test",
-			Finalizers: []string{"tailscale.com/finalizer"},
+			Finalizers: []string{"github.com/WebP2P/dexnet/finalizer"},
 			Generation: 1,
 		},
 		Spec: tsapi.ProxyGroupSpec{

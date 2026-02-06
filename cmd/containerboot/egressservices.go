@@ -22,14 +22,14 @@ import (
 	"time"
 
 	"github.com/fsnotify/fsnotify"
-	"tailscale.com/client/local"
-	"tailscale.com/ipn"
-	"tailscale.com/kube/egressservices"
-	"tailscale.com/kube/kubeclient"
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/util/httpm"
-	"tailscale.com/util/linuxfw"
-	"tailscale.com/util/mak"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/kube/egressservices"
+	"github.com/WebP2P/dexnet/kube/kubeclient"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/util/httpm"
+	"github.com/WebP2P/dexnet/util/linuxfw"
+	"github.com/WebP2P/dexnet/util/mak"
 )
 
 const tailscaleTunInterface = "tailscale0"

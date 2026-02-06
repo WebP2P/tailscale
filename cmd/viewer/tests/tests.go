@@ -9,8 +9,8 @@ import (
 	"net/netip"
 
 	"golang.org/x/exp/constraints"
-	"tailscale.com/types/ptr"
-	"tailscale.com/types/views"
+	"github.com/WebP2P/dexnet/types/ptr"
+	"github.com/WebP2P/dexnet/types/views"
 )
 
 //go:generate go run tailscale.com/cmd/viewer --type=StructWithPtrs,StructWithoutPtrs,Map,StructWithSlices,OnlyGetClone,StructWithEmbedded,GenericIntStruct,GenericNoPtrsStruct,GenericCloneableStruct,StructWithContainers,StructWithTypeAliasFields,GenericTypeAliasStruct,StructWithMapOfViews --clone-only-type=OnlyGetClone

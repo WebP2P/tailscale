@@ -15,11 +15,11 @@ import (
 
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/registry"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/syspolicy/policyclient"
-	"tailscale.com/util/winutil"
-	"tailscale.com/util/winutil/gp"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/util/syspolicy/policyclient"
+	"github.com/WebP2P/dexnet/util/winutil"
+	"github.com/WebP2P/dexnet/util/winutil/gp"
 )
 
 const testGPRuleID = "{7B1B6151-84E6-41A3-8967-62F7F7B45687}"

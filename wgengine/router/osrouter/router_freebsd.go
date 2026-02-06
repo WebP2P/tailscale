@@ -4,9 +4,9 @@
 package osrouter
 
 import (
-	"tailscale.com/net/netmon"
-	"tailscale.com/types/logger"
-	"tailscale.com/wgengine/router"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/wgengine/router"
 )
 
 func init() {

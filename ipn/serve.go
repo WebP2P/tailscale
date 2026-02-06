@@ -15,12 +15,12 @@ import (
 	"strconv"
 	"strings"
 
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/ipn/ipnstate"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/ipproto"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/util/mak"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // ServeConfigKey returns a StateKey that stores the

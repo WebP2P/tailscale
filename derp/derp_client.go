@@ -16,10 +16,10 @@ import (
 
 	"go4.org/mem"
 	"golang.org/x/time/rate"
-	"tailscale.com/syncs"
-	"tailscale.com/tstime"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // Client is a DERP client.

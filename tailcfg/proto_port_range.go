@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"tailscale.com/types/ipproto"
-	"tailscale.com/util/vizerror"
+	"github.com/WebP2P/dexnet/types/ipproto"
+	"github.com/WebP2P/dexnet/util/vizerror"
 )
 
 var (

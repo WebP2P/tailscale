@@ -17,13 +17,13 @@ import (
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"go4.org/mem"
 	"golang.org/x/crypto/blake2s"
-	"tailscale.com/disco"
-	"tailscale.com/net/packet"
-	"tailscale.com/tstime/mono"
-	"tailscale.com/types/key"
-	"tailscale.com/types/views"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/usermetric"
+	"github.com/WebP2P/dexnet/disco"
+	"github.com/WebP2P/dexnet/net/packet"
+	"github.com/WebP2P/dexnet/tstime/mono"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/views"
+	"github.com/WebP2P/dexnet/util/mak"
+	"github.com/WebP2P/dexnet/util/usermetric"
 )
 
 type testClient struct {

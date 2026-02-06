@@ -11,8 +11,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"tailscale.com/syncs"
-	"tailscale.com/version/distro"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/version/distro"
 )
 
 // AppSharedDir is a string set by the iOS or Android app on start
@@ -23,30 +23,30 @@ var AppSharedDir syncs.AtomicValue[string]
 // or the empty string if there's no reasonable default.
 func DefaultTailscaledSocket() string {
 	if runtime.GOOS == "windows" {
-		return `\\.\pipe\ProtectedPrefix\Administrators\Tailscale\tailscaled`
+		return `\\.\pipe\ProtectedPrefix\Administrators\DexNet\dexnetd`
 	}
 	if runtime.GOOS == "darwin" {
-		return "/var/run/tailscaled.socket"
+		return "/var/run/dexnetd.socket"
 	}
 	if runtime.GOOS == "plan9" {
-		return "/srv/tailscaled.sock"
+		return "/srv/dexnetd.sock"
 	}
 	switch distro.Get() {
 	case distro.Synology:
 		if distro.DSMVersion() == 6 {
-			return "/var/packages/Tailscale/etc/tailscaled.sock"
+			return "/var/packages/DexNet/etc/dexnetd.sock"
 		}
 		// DSM 7 (and higher? or failure to detect.)
-		return "/var/packages/Tailscale/var/tailscaled.sock"
+		return "/var/packages/DexNet/var/dexnetd.sock"
 	case distro.Gokrazy:
-		return "/perm/tailscaled/tailscaled.sock"
+		return "/perm/dexnetd/dexnetd.sock"
 	case distro.QNAP:
-		return "/tmp/tailscale/tailscaled.sock"
+		return "/tmp/dexnet/dexnetd.sock"
 	}
 	if fi, err := os.Stat("/var/run"); err == nil && fi.IsDir() {
-		return "/var/run/tailscale/tailscaled.sock"
+		return "/var/run/dexnet/dexnetd.sock"
 	}
-	return "tailscaled.sock"
+	return "dexnetd.sock"
 }
 
 // Overridden in init by OS-specific files.
@@ -66,7 +66,7 @@ func DefaultTailscaledStateFile() string {
 		return f()
 	}
 	if runtime.GOOS == "windows" {
-		return filepath.Join(os.Getenv("ProgramData"), "Tailscale", "server-state.conf")
+		return filepath.Join(os.Getenv("ProgramData"), "DexNet", "server-state.conf")
 	}
 	return ""
 }
@@ -118,7 +118,7 @@ func MkStateDir(dirPath string) error {
 // It is only called on Windows.
 func LegacyStateFilePath() string {
 	if runtime.GOOS == "windows" {
-		return filepath.Join(os.Getenv("LocalAppData"), "Tailscale", "server-state.conf")
+		return filepath.Join(os.Getenv("LocalAppData"), "DexNet", "server-state.conf")
 	}
 	return ""
 }

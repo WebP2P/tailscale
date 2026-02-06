@@ -9,7 +9,7 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"tailscale.com/types/ptr"
+	"github.com/WebP2P/dexnet/types/ptr"
 )
 
 func TestGeneveHeader(t *testing.T) {

@@ -21,16 +21,16 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/feature/buildfeatures"
-	"tailscale.com/types/dnstype"
-	"tailscale.com/types/key"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/structs"
-	"tailscale.com/types/tkatype"
-	"tailscale.com/types/views"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/slicesx"
-	"tailscale.com/util/vizerror"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/types/dnstype"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/opt"
+	"github.com/WebP2P/dexnet/types/structs"
+	"github.com/WebP2P/dexnet/types/tkatype"
+	"github.com/WebP2P/dexnet/types/views"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/util/slicesx"
+	"github.com/WebP2P/dexnet/util/vizerror"
 )
 
 // CapabilityVersion represents the client's capability level. That
@@ -1542,31 +1542,31 @@ const (
 	PeerCapabilityIngress PeerCapability = "https://tailscale.com/cap/ingress"
 	// PeerCapabilityWebUI grants the ability for a peer to edit features from the
 	// device Web UI.
-	PeerCapabilityWebUI PeerCapability = "tailscale.com/cap/webui"
+	PeerCapabilityWebUI PeerCapability = "github.com/WebP2P/dexnet/cap/webui"
 	// PeerCapabilityTaildrive grants the ability for a peer to access Taildrive
 	// shares.
-	PeerCapabilityTaildrive PeerCapability = "tailscale.com/cap/drive"
+	PeerCapabilityTaildrive PeerCapability = "github.com/WebP2P/dexnet/cap/drive"
 	// PeerCapabilityTaildriveSharer indicates that a peer has the ability to
 	// share folders with us.
-	PeerCapabilityTaildriveSharer PeerCapability = "tailscale.com/cap/drive-sharer"
+	PeerCapabilityTaildriveSharer PeerCapability = "github.com/WebP2P/dexnet/cap/drive-sharer"
 
 	// PeerCapabilityKubernetes grants a peer Kubernetes-specific
 	// capabilities, such as the ability to impersonate specific Tailscale
 	// user groups as Kubernetes user groups. This capability is read by
 	// peers that are Tailscale Kubernetes operator instances.
-	PeerCapabilityKubernetes PeerCapability = "tailscale.com/cap/kubernetes"
+	PeerCapabilityKubernetes PeerCapability = "github.com/WebP2P/dexnet/cap/kubernetes"
 
 	// PeerCapabilityRelay grants the ability for a peer to allocate relay
 	// endpoints.
-	PeerCapabilityRelay PeerCapability = "tailscale.com/cap/relay"
+	PeerCapabilityRelay PeerCapability = "github.com/WebP2P/dexnet/cap/relay"
 	// PeerCapabilityRelayTarget grants the current node the ability to allocate
 	// relay endpoints to the peer which has this capability.
-	PeerCapabilityRelayTarget PeerCapability = "tailscale.com/cap/relay-target"
+	PeerCapabilityRelayTarget PeerCapability = "github.com/WebP2P/dexnet/cap/relay-target"
 
 	// PeerCapabilityTsIDP grants a peer tsidp-specific
 	// capabilities, such as the ability to add user groups to the OIDC
 	// claim
-	PeerCapabilityTsIDP PeerCapability = "tailscale.com/cap/tsidp"
+	PeerCapabilityTsIDP PeerCapability = "github.com/WebP2P/dexnet/cap/tsidp"
 )
 
 // NodeCapMap is a map of capabilities to their optional values. It is valid for

@@ -20,7 +20,7 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/version/mkversion"
+	"github.com/WebP2P/dexnet/version/mkversion"
 )
 
 // A Target is something that can be build in a Build.

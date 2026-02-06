@@ -27,7 +27,7 @@ import (
 
 	"golang.org/x/crypto/acme"
 	"golang.org/x/crypto/acme/autocert"
-	"tailscale.com/tailcfg"
+	"github.com/WebP2P/dexnet/tailcfg"
 )
 
 var unsafeHostnameCharacters = regexp.MustCompile(`[^a-zA-Z0-9-\.]`)

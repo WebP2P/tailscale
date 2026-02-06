@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"sync"
 
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/util/testenv"
 )
 
 // Get returns the baked-in roots.

@@ -3,7 +3,7 @@
 
 //go:build tailscale_go
 
-package tailscaleroot
+package dexnetroot
 
 import (
 	"os"

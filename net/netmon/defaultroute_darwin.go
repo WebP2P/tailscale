@@ -11,7 +11,7 @@ import (
 	"log"
 	"net"
 
-	"tailscale.com/syncs"
+	"github.com/WebP2P/dexnet/syncs"
 )
 
 var (

@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"tailscale.com/version/distro"
+	"github.com/WebP2P/dexnet/version/distro"
 )
 
 // SetDirectFileRoot sets the directory where received files are written.

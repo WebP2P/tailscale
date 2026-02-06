@@ -24,14 +24,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/feature"
-	"tailscale.com/health"
-	"tailscale.com/net/dns/resolvconffile"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/eventbus"
-	"tailscale.com/version/distro"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/health"
+	"github.com/WebP2P/dexnet/net/dns/resolvconffile"
+	"github.com/WebP2P/dexnet/net/tsaddr"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/util/eventbus"
+	"github.com/WebP2P/dexnet/version/distro"
 )
 
 // writeResolvConf writes DNS configuration in resolv.conf format to the given writer.

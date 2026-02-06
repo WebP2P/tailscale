@@ -13,7 +13,7 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 func TestKnownDeps(t *testing.T) {

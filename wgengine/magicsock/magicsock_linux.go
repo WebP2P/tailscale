@@ -23,12 +23,12 @@ import (
 	"golang.org/x/net/ipv6"
 	"golang.org/x/sys/cpu"
 	"golang.org/x/sys/unix"
-	"tailscale.com/disco"
-	"tailscale.com/envknob"
-	"tailscale.com/net/netns"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/disco"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/net/netns"
+	"github.com/WebP2P/dexnet/types/ipproto"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 const (

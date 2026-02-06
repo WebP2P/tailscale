@@ -13,11 +13,11 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/ipn"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/rands"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/rands"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // transaction represents an audit log that has not yet been sent to the control plane.

@@ -13,8 +13,8 @@ import (
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/svc"
 	"golang.org/x/sys/windows/svc/mgr"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // LogSvcState obtains the state of the Windows service named rootSvcName and

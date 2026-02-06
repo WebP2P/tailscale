@@ -12,7 +12,7 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/checksum"
 	"gvisor.dev/gvisor/pkg/tcpip/header"
-	"tailscale.com/net/packet"
+	"github.com/WebP2P/dexnet/net/packet"
 )
 
 func fullHeaderChecksumV4(b []byte) uint16 {

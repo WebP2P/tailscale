@@ -14,9 +14,9 @@ import (
 
 	"github.com/google/gopacket/layers"
 	"github.com/google/gopacket/pcapgo"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/must"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/must"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // Note: the exported Node and Network are the configuration types;

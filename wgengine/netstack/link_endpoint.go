@@ -10,10 +10,10 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 	"gvisor.dev/gvisor/pkg/tcpip/stack"
-	"tailscale.com/feature/buildfeatures"
-	"tailscale.com/net/packet"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/wgengine/netstack/gro"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/net/packet"
+	"github.com/WebP2P/dexnet/types/ipproto"
+	"github.com/WebP2P/dexnet/wgengine/netstack/gro"
 )
 
 type queue struct {

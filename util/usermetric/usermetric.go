@@ -14,9 +14,9 @@ import (
 	"net/http"
 	"strings"
 
-	"tailscale.com/metrics"
-	"tailscale.com/tsweb/varz"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/metrics"
+	"github.com/WebP2P/dexnet/tsweb/varz"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // Registry tracks user-facing metrics of various Tailscale subsystems.

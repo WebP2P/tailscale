@@ -12,9 +12,9 @@ import (
 	"time"
 
 	qt "github.com/frankban/quicktest"
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
+	"github.com/WebP2P/dexnet/ipn/store/mem"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstest"
 )
 
 // loggerForTest creates an auditLogger for you and cleans it up

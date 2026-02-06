@@ -12,13 +12,13 @@ import (
 	"runtime"
 	"time"
 
-	"tailscale.com/feature/buildfeatures"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnauth"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/ctxkey"
-	"tailscale.com/util/osuser"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/ipn/ipnauth"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/ctxkey"
+	"github.com/WebP2P/dexnet/util/osuser"
+	"github.com/WebP2P/dexnet/version"
 )
 
 var _ ipnauth.Actor = (*actor)(nil)

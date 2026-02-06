@@ -39,12 +39,12 @@ import (
 
 	"gopkg.in/square/go-jose.v2"
 	"gopkg.in/square/go-jose.v2/jwt"
-	"tailscale.com/client/local"
-	"tailscale.com/client/tailscale/apitype"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/views"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/client/tailscale/apitype"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/opt"
+	"github.com/WebP2P/dexnet/types/views"
 )
 
 // normalizeMap recursively sorts []any values in a map[string]any to ensure

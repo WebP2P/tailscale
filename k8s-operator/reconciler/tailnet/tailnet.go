@@ -27,15 +27,15 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	"tailscale.com/internal/client/tailscale"
-	"tailscale.com/ipn"
-	operatorutils "tailscale.com/k8s-operator"
-	tsapi "tailscale.com/k8s-operator/apis/v1alpha1"
-	"tailscale.com/k8s-operator/reconciler"
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/tstime"
-	"tailscale.com/util/clientmetric"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/internal/client/tailscale"
+	"github.com/WebP2P/dexnet/ipn"
+	operatorutils "github.com/WebP2P/dexnet/k8s-operator"
+	tsapi "github.com/WebP2P/dexnet/k8s-operator/apis/v1alpha1"
+	"github.com/WebP2P/dexnet/k8s-operator/reconciler"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/util/clientmetric"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 type (

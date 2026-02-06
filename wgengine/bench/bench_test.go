@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 func BenchmarkTrivialNoAlloc(b *testing.B) {

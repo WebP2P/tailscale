@@ -10,14 +10,14 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"tailscale.com/ipn/ipnext"
-	"tailscale.com/ipn/ipnlocal"
-	"tailscale.com/posture"
-	"tailscale.com/syncs"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/syspolicy/pkey"
-	"tailscale.com/util/syspolicy/ptype"
+	"github.com/WebP2P/dexnet/ipn/ipnext"
+	"github.com/WebP2P/dexnet/ipn/ipnlocal"
+	"github.com/WebP2P/dexnet/posture"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/syspolicy/pkey"
+	"github.com/WebP2P/dexnet/util/syspolicy/ptype"
 )
 
 func init() {

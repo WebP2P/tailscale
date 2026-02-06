@@ -9,8 +9,8 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/feature/featuretags"
-	"tailscale.com/tstest/deptest"
+	"github.com/WebP2P/dexnet/feature/featuretags"
+	"github.com/WebP2P/dexnet/tstest/deptest"
 )
 
 func TestOmitSSH(t *testing.T) {
@@ -21,8 +21,8 @@ func TestOmitSSH(t *testing.T) {
 		Tags:   "ts_omit_ssh,ts_include_cli",
 		BadDeps: map[string]string{
 			"golang.org/x/crypto/ssh":              msg,
-			"tailscale.com/ssh/tailssh":            msg,
-			"tailscale.com/sessionrecording":       msg,
+			"github.com/WebP2P/dexnet/ssh/tailssh":            msg,
+			"github.com/WebP2P/dexnet/sessionrecording":       msg,
 			"github.com/anmitsu/go-shlex":          msg,
 			"github.com/creack/pty":                msg,
 			"github.com/kr/fs":                     msg,
@@ -40,9 +40,9 @@ func TestOmitSyspolicy(t *testing.T) {
 		GOARCH: "amd64",
 		Tags:   "ts_omit_syspolicy,ts_include_cli",
 		BadDeps: map[string]string{
-			"tailscale.com/util/syspolicy":         msg,
-			"tailscale.com/util/syspolicy/setting": msg,
-			"tailscale.com/util/syspolicy/rsop":    msg,
+			"github.com/WebP2P/dexnet/util/syspolicy":         msg,
+			"github.com/WebP2P/dexnet/util/syspolicy/setting": msg,
+			"github.com/WebP2P/dexnet/util/syspolicy/rsop":    msg,
 		},
 	}.Check(t)
 }
@@ -53,7 +53,7 @@ func TestOmitLocalClient(t *testing.T) {
 		GOARCH: "amd64",
 		Tags:   "ts_omit_webclient,ts_omit_relayserver,ts_omit_oauthkey,ts_omit_acme",
 		BadDeps: map[string]string{
-			"tailscale.com/client/local": "unexpected",
+			"github.com/WebP2P/dexnet/client/local": "unexpected",
 		},
 	}.Check(t)
 }
@@ -99,7 +99,7 @@ func TestOmitPortmapper(t *testing.T) {
 		GOARCH: "amd64",
 		Tags:   "ts_omit_portmapper,ts_include_cli,ts_omit_debugportmapper",
 		OnDep: func(dep string) {
-			if dep == "tailscale.com/net/portmapper" {
+			if dep == "github.com/WebP2P/dexnet/net/portmapper" {
 				t.Errorf("unexpected dep with ts_omit_portmapper: %q", dep)
 				return
 			}
@@ -243,7 +243,7 @@ func TestMinTailscaledNoCLI(t *testing.T) {
 		"golang.org/x/net/proxy",
 		"internal/socks",
 		"github.com/tailscale/peercred",
-		"tailscale.com/types/netlogtype",
+		"github.com/WebP2P/dexnet/types/netlogtype",
 		"deephash",
 		"util/hashx",
 	}
@@ -267,8 +267,8 @@ func TestMinTailscaledWithCLI(t *testing.T) {
 		"hujson",
 		"pprof",
 		"multierr", // https://github.com/tailscale/tailscale/pull/17379
-		"tailscale.com/metrics",
-		"tailscale.com/tsweb/varz",
+		"github.com/WebP2P/dexnet/metrics",
+		"github.com/WebP2P/dexnet/tsweb/varz",
 		"dirwalk",
 		"deephash",
 		"util/hashx",
@@ -288,12 +288,12 @@ func TestMinTailscaledWithCLI(t *testing.T) {
 			"golang.org/x/net/http2":                 "unexpected x/net/http2 dep; tailscale/tailscale#17305",
 			"expvar":                                 "unexpected expvar dep",
 			"github.com/mdlayher/genetlink":          "unexpected genetlink dep",
-			"tailscale.com/clientupdate":             "unexpected clientupdate dep",
+			"github.com/WebP2P/dexnet/clientupdate":             "unexpected clientupdate dep",
 			"filippo.io/edwards25519":                "unexpected edwards25519 dep",
 			"github.com/hdevalence/ed25519consensus": "unexpected ed25519consensus dep",
-			"tailscale.com/clientupdate/distsign":    "unexpected distsign dep",
+			"github.com/WebP2P/dexnet/clientupdate/distsign":    "unexpected distsign dep",
 			"archive/tar":                            "unexpected archive/tar dep",
-			"tailscale.com/feature/conn25":           "unexpected conn25 dep",
+			"github.com/WebP2P/dexnet/feature/conn25":           "unexpected conn25 dep",
 		},
 	}.Check(t)
 }

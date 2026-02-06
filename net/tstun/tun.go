@@ -17,9 +17,9 @@ import (
 	"time"
 
 	"github.com/tailscale/wireguard-go/tun"
-	"tailscale.com/feature"
-	"tailscale.com/feature/buildfeatures"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // CreateTAP is the hook maybe set by feature/tap.

@@ -18,7 +18,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"tailscale.com/release/dist"
+	"github.com/WebP2P/dexnet/release/dist"
 )
 
 type target struct {
@@ -204,11 +204,11 @@ func (m *synologyBuilds) buildInnerPackage(b *dist.Build, dsmVersion int, goenv 
 		if err := b.BuildWebClientAssets(); err != nil {
 			return nil, err
 		}
-		ts, err := b.BuildGoBinary("tailscale.com/cmd/tailscale", goenv)
+		ts, err := b.BuildGoBinary("github.com/WebP2P/dexnet/cmd/tailscale", goenv)
 		if err != nil {
 			return nil, err
 		}
-		tsd, err := b.BuildGoBinary("tailscale.com/cmd/tailscaled", goenv)
+		tsd, err := b.BuildGoBinary("github.com/WebP2P/dexnet/cmd/tailscaled", goenv)
 		if err != nil {
 			return nil, err
 		}

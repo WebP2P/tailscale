@@ -17,7 +17,7 @@ import (
 	jsonv2 "github.com/go-json-experiment/json"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"tailscale.com/types/structs"
+	"github.com/WebP2P/dexnet/types/structs"
 )
 
 // Statically verify that each type implements the following interfaces.

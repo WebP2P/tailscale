@@ -22,15 +22,15 @@ import (
 	"testing/synctest"
 	"time"
 
-	"tailscale.com/derp"
-	"tailscale.com/derp/derphttp"
-	"tailscale.com/derp/derpserver"
-	"tailscale.com/net/memnet"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/netx"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/types/key"
+	"github.com/WebP2P/dexnet/derp"
+	"github.com/WebP2P/dexnet/derp/derphttp"
+	"github.com/WebP2P/dexnet/derp/derpserver"
+	"github.com/WebP2P/dexnet/net/memnet"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/net/netx"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/types/key"
 )
 
 func TestSendRecv(t *testing.T) {

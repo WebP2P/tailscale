@@ -9,12 +9,12 @@ import (
 	"errors"
 	"os/exec"
 
-	"tailscale.com/envknob"
-	"tailscale.com/feature"
-	"tailscale.com/feature/buildfeatures"
-	"tailscale.com/hostinfo"
-	"tailscale.com/types/logger"
-	"tailscale.com/version/distro"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/hostinfo"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/version/distro"
 )
 
 func detectFirewallMode(logf logger.Logf, prefHint string) FirewallMode {

@@ -6,9 +6,9 @@
 package main
 
 import (
-	"tailscale.com/client/local"
-	"tailscale.com/ipn/ipnlocal"
-	"tailscale.com/paths"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/ipn/ipnlocal"
+	"github.com/WebP2P/dexnet/paths"
 )
 
 func init() {

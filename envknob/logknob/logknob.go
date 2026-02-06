@@ -8,9 +8,9 @@ package logknob
 import (
 	"sync/atomic"
 
-	"tailscale.com/envknob"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // TODO(andrew-d): should we have a package-global registry of logknobs? It

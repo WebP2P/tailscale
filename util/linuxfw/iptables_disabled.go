@@ -8,7 +8,7 @@ package linuxfw
 import (
 	"errors"
 
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 func detectIptables() (int, error) {

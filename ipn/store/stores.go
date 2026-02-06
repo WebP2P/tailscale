@@ -18,13 +18,13 @@ import (
 	"strings"
 	"sync"
 
-	"tailscale.com/atomicfile"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/paths"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/atomicfile"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/ipn/store/mem"
+	"github.com/WebP2P/dexnet/paths"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/mak"
+	"github.com/WebP2P/dexnet/util/testenv"
 )
 
 // Provider returns a StateStore for the provided path.

@@ -13,13 +13,13 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"tailscale.com/ipn"
-	"tailscale.com/kube/egressservices"
-	"tailscale.com/kube/ingressservices"
-	"tailscale.com/kube/kubeapi"
-	"tailscale.com/kube/kubeclient"
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/tailcfg"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/kube/egressservices"
+	"github.com/WebP2P/dexnet/kube/ingressservices"
+	"github.com/WebP2P/dexnet/kube/kubeapi"
+	"github.com/WebP2P/dexnet/kube/kubeclient"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/tailcfg"
 )
 
 func TestSetupKube(t *testing.T) {

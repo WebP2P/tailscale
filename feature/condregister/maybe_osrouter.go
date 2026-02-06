@@ -5,4 +5,4 @@
 
 package condregister
 
-import _ "tailscale.com/wgengine/router/osrouter"
+import _ "github.com/WebP2P/dexnet/wgengine/router/osrouter"

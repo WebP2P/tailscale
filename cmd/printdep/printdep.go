@@ -12,7 +12,7 @@ import (
 	"runtime"
 	"strings"
 
-	ts "tailscale.com"
+	ts "github.com/WebP2P/dexnet"
 )
 
 var (

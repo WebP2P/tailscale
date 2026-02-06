@@ -14,8 +14,8 @@ import (
 	"strconv"
 	"testing"
 
-	"tailscale.com/util/syspolicy/pkey"
-	"tailscale.com/util/syspolicy/setting"
+	"github.com/WebP2P/dexnet/util/syspolicy/pkey"
+	"github.com/WebP2P/dexnet/util/syspolicy/setting"
 )
 
 func TestKnownKeysRegistered(t *testing.T) {

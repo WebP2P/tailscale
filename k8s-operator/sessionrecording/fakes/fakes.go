@@ -17,8 +17,8 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/sessionrecording"
-	"tailscale.com/tstime"
+	"github.com/WebP2P/dexnet/sessionrecording"
+	"github.com/WebP2P/dexnet/tstime"
 )
 
 func New(conn net.Conn, wb bytes.Buffer, rb bytes.Buffer, closed bool) net.Conn {

@@ -8,7 +8,7 @@ import (
 	"errors"
 	"net/netip"
 
-	"tailscale.com/types/ipproto"
+	"github.com/WebP2P/dexnet/types/ipproto"
 )
 
 // ip4HeaderLength is the length of an IPv4 header with no IP options.

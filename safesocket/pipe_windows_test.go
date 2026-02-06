@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"testing"
 
-	"tailscale.com/util/winutil"
+	"github.com/WebP2P/dexnet/util/winutil"
 )
 
 func init() {

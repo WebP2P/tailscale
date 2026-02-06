@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/types/geo"
+	"github.com/WebP2P/dexnet/types/geo"
 )
 
 func TestDegrees(t *testing.T) {

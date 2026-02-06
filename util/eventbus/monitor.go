@@ -3,7 +3,7 @@
 
 package eventbus
 
-import "tailscale.com/syncs"
+import "github.com/WebP2P/dexnet/syncs"
 
 // A Monitor monitors the execution of a goroutine processing events from a
 // [Client], allowing the caller to block until it is complete. The zero value

@@ -6,7 +6,7 @@
 package osshare
 
 import (
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 func SetFileSharingEnabled(enabled bool, logf logger.Logf) {}

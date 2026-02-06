@@ -11,7 +11,7 @@ import (
 
 	"github.com/peterbourgon/ff/v3"
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/tempfork/spf13/cobra"
+	"github.com/WebP2P/dexnet/tempfork/spf13/cobra"
 )
 
 var (

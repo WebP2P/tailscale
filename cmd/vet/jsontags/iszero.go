@@ -7,7 +7,7 @@ import (
 	"go/types"
 	"reflect"
 
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 var _ = reflect.Value.IsZero // refer for hot-linking purposes
@@ -25,25 +25,25 @@ func hasPureIsZeroMethod(t types.Type) bool {
 // PureIsZeroMethodsInTailscaleModule is a list of known IsZero methods
 // in the "tailscale.com" module that are pure.
 var PureIsZeroMethodsInTailscaleModule = map[string]set.Set[string]{
-	"tailscale.com/net/packet": set.Of(
+	"github.com/WebP2P/dexnet/net/packet": set.Of(
 		"TailscaleRejectReason",
 	),
-	"tailscale.com/tailcfg": set.Of(
+	"github.com/WebP2P/dexnet/tailcfg": set.Of(
 		"UserID",
 		"LoginID",
 		"NodeID",
 		"StableNodeID",
 	),
-	"tailscale.com/tka": set.Of(
+	"github.com/WebP2P/dexnet/tka": set.Of(
 		"AUMHash",
 	),
-	"tailscale.com/types/geo": set.Of(
+	"github.com/WebP2P/dexnet/types/geo": set.Of(
 		"Point",
 	),
-	"tailscale.com/tstime/mono": set.Of(
+	"github.com/WebP2P/dexnet/tstime/mono": set.Of(
 		"Time",
 	),
-	"tailscale.com/types/key": set.Of(
+	"github.com/WebP2P/dexnet/types/key": set.Of(
 		"NLPrivate",
 		"NLPublic",
 		"DERPMesh",
@@ -58,7 +58,7 @@ var PureIsZeroMethodsInTailscaleModule = map[string]set.Set[string]{
 		"NodePrivate",
 		"NodePublic",
 	),
-	"tailscale.com/types/netlogtype": set.Of(
+	"github.com/WebP2P/dexnet/types/netlogtype": set.Of(
 		"Connection",
 		"Counts",
 	),

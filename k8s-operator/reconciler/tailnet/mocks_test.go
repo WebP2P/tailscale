@@ -9,7 +9,7 @@ import (
 	"context"
 	"io"
 
-	"tailscale.com/internal/client/tailscale"
+	"github.com/WebP2P/dexnet/internal/client/tailscale"
 )
 
 type (

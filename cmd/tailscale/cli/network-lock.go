@@ -22,13 +22,13 @@ import (
 
 	"github.com/mattn/go-isatty"
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/cmd/tailscale/cli/jsonoutput"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/tka"
-	"tailscale.com/tsconst"
-	"tailscale.com/types/key"
-	"tailscale.com/types/tkatype"
-	"tailscale.com/util/prompt"
+	"github.com/WebP2P/dexnet/cmd/tailscale/cli/jsonoutput"
+	"github.com/WebP2P/dexnet/ipn/ipnstate"
+	"github.com/WebP2P/dexnet/tka"
+	"github.com/WebP2P/dexnet/tsconst"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/tkatype"
+	"github.com/WebP2P/dexnet/util/prompt"
 )
 
 func init() {

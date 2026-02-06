@@ -13,7 +13,7 @@ import (
 	"strings"
 
 	"go4.org/mem"
-	"tailscale.com/types/key"
+	"github.com/WebP2P/dexnet/types/key"
 )
 
 type ParseError struct {

@@ -10,7 +10,7 @@ import (
 	"github.com/go-json-experiment/json"
 	"github.com/go-json-experiment/json/jsontext"
 	"github.com/google/go-cmp/cmp"
-	"tailscale.com/types/ptr"
+	"github.com/WebP2P/dexnet/types/ptr"
 )
 
 type Interface interface {

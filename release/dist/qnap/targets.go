@@ -6,7 +6,7 @@ package qnap
 import (
 	"slices"
 
-	"tailscale.com/release/dist"
+	"github.com/WebP2P/dexnet/release/dist"
 )
 
 // Targets defines the dist.Targets for QNAP devices.

@@ -12,8 +12,8 @@ import (
 	"strconv"
 	"strings"
 
-	"tailscale.com/types/netmap"
-	"tailscale.com/util/dnsname"
+	"github.com/WebP2P/dexnet/types/netmap"
+	"github.com/WebP2P/dexnet/util/dnsname"
 )
 
 // dnsMap maps MagicDNS names (both base + FQDN) to their first IP.

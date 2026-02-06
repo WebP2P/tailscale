@@ -21,7 +21,7 @@ import (
 	"os"
 	"strings"
 
-	"tailscale.com/util/codegen"
+	"github.com/WebP2P/dexnet/util/codegen"
 )
 
 var (
@@ -83,7 +83,7 @@ func main() {
 		cloneOutput += "_test"
 	}
 	cloneOutput += ".go"
-	if err := codegen.WritePackageFile("tailscale.com/cmd/cloner", pkg, cloneOutput, it, buf); err != nil {
+	if err := codegen.WritePackageFile("github.com/WebP2P/dexnet/cmd/cloner", pkg, cloneOutput, it, buf); err != nil {
 		log.Fatal(err)
 	}
 }
@@ -141,13 +141,13 @@ func gen(buf *bytes.Buffer, it *codegen.ImportTracker, typ *types.Named) {
 					writef("if src.%s[i] == nil { dst.%s[i] = nil } else {", fname, fname)
 					if codegen.ContainsPointers(ptr.Elem()) {
 						if _, isIface := ptr.Elem().Underlying().(*types.Interface); isIface {
-							it.Import("", "tailscale.com/types/ptr")
+							it.Import("", "github.com/WebP2P/dexnet/types/ptr")
 							writef("\tdst.%s[i] = ptr.To((*src.%s[i]).Clone())", fname, fname)
 						} else {
 							writef("\tdst.%s[i] = src.%s[i].Clone()", fname, fname)
 						}
 					} else {
-						it.Import("", "tailscale.com/types/ptr")
+						it.Import("", "github.com/WebP2P/dexnet/types/ptr")
 						writef("\tdst.%s[i] = ptr.To(*src.%s[i])", fname, fname)
 					}
 					writef("}")
@@ -170,7 +170,7 @@ func gen(buf *bytes.Buffer, it *codegen.ImportTracker, typ *types.Named) {
 				writef("dst.%s = src.%s.Clone()", fname, fname)
 				continue
 			}
-			it.Import("", "tailscale.com/types/ptr")
+			it.Import("", "github.com/WebP2P/dexnet/types/ptr")
 			writef("if dst.%s != nil {", fname)
 			if _, isIface := base.Underlying().(*types.Interface); isIface && hasPtrs {
 				writef("\tdst.%s = ptr.To((*src.%s).Clone())", fname, fname)
@@ -293,13 +293,13 @@ func writeMapValueClone(params mapValueCloneParams) {
 		writef("if %s == nil { %s = nil } else {", params.SrcExpr, params.DstExpr)
 		if base := elem.Elem().Underlying(); codegen.ContainsPointers(base) {
 			if _, isIface := base.(*types.Interface); isIface {
-				params.It.Import("", "tailscale.com/types/ptr")
+				params.It.Import("", "github.com/WebP2P/dexnet/types/ptr")
 				writef("\t%s = ptr.To((*%s).Clone())", params.DstExpr, params.SrcExpr)
 			} else {
 				writef("\t%s = %s.Clone()", params.DstExpr, params.SrcExpr)
 			}
 		} else {
-			params.It.Import("", "tailscale.com/types/ptr")
+			params.It.Import("", "github.com/WebP2P/dexnet/types/ptr")
 			writef("\t%s = ptr.To(*%s)", params.DstExpr, params.SrcExpr)
 		}
 		writef("}")

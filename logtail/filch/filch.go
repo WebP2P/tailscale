@@ -18,8 +18,8 @@ import (
 	"slices"
 	"sync"
 
-	"tailscale.com/metrics"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/metrics"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 var stderrFD = 2 // a variable for testing

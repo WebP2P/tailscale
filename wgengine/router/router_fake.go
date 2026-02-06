@@ -4,7 +4,7 @@
 package router
 
 import (
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // NewFake returns a Router that does nothing when called and always

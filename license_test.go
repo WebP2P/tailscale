@@ -1,7 +1,7 @@
 // Copyright (c) Tailscale Inc & contributors
 // SPDX-License-Identifier: BSD-3-Clause
 
-package tailscaleroot
+package dexnetroot
 
 import (
 	"bytes"
@@ -12,7 +12,7 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 func normalizeLineEndings(b []byte) []byte {

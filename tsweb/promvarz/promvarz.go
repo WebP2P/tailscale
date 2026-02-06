@@ -11,8 +11,8 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/common/expfmt"
-	"tailscale.com/tsweb"
-	"tailscale.com/tsweb/varz"
+	"github.com/WebP2P/dexnet/tsweb"
+	"github.com/WebP2P/dexnet/tsweb/varz"
 )
 
 func init() {

@@ -12,13 +12,13 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/util/mak"
-	"tailscale.com/util/set"
-	"tailscale.com/util/syspolicy/internal/loggerx"
-	"tailscale.com/util/syspolicy/internal/metrics"
-	"tailscale.com/util/syspolicy/pkey"
-	"tailscale.com/util/syspolicy/ptype"
-	"tailscale.com/util/syspolicy/setting"
+	"github.com/WebP2P/dexnet/util/mak"
+	"github.com/WebP2P/dexnet/util/set"
+	"github.com/WebP2P/dexnet/util/syspolicy/internal/loggerx"
+	"github.com/WebP2P/dexnet/util/syspolicy/internal/metrics"
+	"github.com/WebP2P/dexnet/util/syspolicy/pkey"
+	"github.com/WebP2P/dexnet/util/syspolicy/ptype"
+	"github.com/WebP2P/dexnet/util/syspolicy/setting"
 )
 
 // Reader reads all configured policy settings from a given [Store].

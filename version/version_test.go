@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	ts "tailscale.com"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/version"
 )
 
 func TestAlpineTag(t *testing.T) {

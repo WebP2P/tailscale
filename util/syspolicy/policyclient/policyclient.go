@@ -9,9 +9,9 @@ package policyclient
 import (
 	"time"
 
-	"tailscale.com/util/syspolicy/pkey"
-	"tailscale.com/util/syspolicy/ptype"
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/util/syspolicy/pkey"
+	"github.com/WebP2P/dexnet/util/syspolicy/ptype"
+	"github.com/WebP2P/dexnet/util/testenv"
 )
 
 // Client is the interface between code making questions about the system policy

@@ -23,17 +23,17 @@ import (
 	"k8s.io/client-go/tools/record"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
-	"tailscale.com/internal/client/tailscale"
-	tsoperator "tailscale.com/k8s-operator"
-	tsapi "tailscale.com/k8s-operator/apis/v1alpha1"
-	"tailscale.com/kube/k8s-proxy/conf"
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstime"
+	"github.com/WebP2P/dexnet/internal/client/tailscale"
+	tsoperator "github.com/WebP2P/dexnet/k8s-operator"
+	tsapi "github.com/WebP2P/dexnet/k8s-operator/apis/v1alpha1"
+	"github.com/WebP2P/dexnet/kube/k8s-proxy/conf"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstime"
 )
 
 const (
-	proxyPGFinalizerName = "tailscale.com/kube-apiserver-finalizer"
+	proxyPGFinalizerName = "github.com/WebP2P/dexnet/kube-apiserver-finalizer"
 
 	// Reasons for KubeAPIServerProxyValid condition.
 	reasonKubeAPIServerProxyInvalid = "KubeAPIServerProxyInvalid"

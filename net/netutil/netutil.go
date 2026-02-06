@@ -9,7 +9,7 @@ import (
 	"io"
 	"net"
 
-	"tailscale.com/syncs"
+	"github.com/WebP2P/dexnet/syncs"
 )
 
 // NewOneConnListener returns a net.Listener that returns c on its

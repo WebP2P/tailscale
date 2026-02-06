@@ -12,10 +12,10 @@ import (
 
 	jsonv2 "github.com/go-json-experiment/json"
 	"github.com/go-json-experiment/json/jsontext"
-	"tailscale.com/types/dnstype"
-	"tailscale.com/types/views"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/types/dnstype"
+	"github.com/WebP2P/dexnet/types/views"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 //go:generate go run tailscale.com/cmd/cloner  -clonefunc=true -type=Config

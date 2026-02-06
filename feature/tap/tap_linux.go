@@ -23,13 +23,13 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/network/ipv4"
 	"gvisor.dev/gvisor/pkg/tcpip/network/ipv6"
 	"gvisor.dev/gvisor/pkg/tcpip/transport/udp"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/net/packet"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/net/tstun"
-	"tailscale.com/syncs"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/net/netaddr"
+	"github.com/WebP2P/dexnet/net/packet"
+	"github.com/WebP2P/dexnet/net/tsaddr"
+	"github.com/WebP2P/dexnet/net/tstun"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/types/ipproto"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // TODO: this was randomly generated once. Maybe do it per process start? But

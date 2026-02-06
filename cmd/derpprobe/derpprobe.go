@@ -17,13 +17,13 @@ import (
 	"time"
 
 	"github.com/tailscale/setec/client/setec"
-	"tailscale.com/prober"
-	"tailscale.com/tsweb"
-	"tailscale.com/types/key"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/prober"
+	"github.com/WebP2P/dexnet/tsweb"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/version"
 
 	// Support for prometheus varz in tsweb
-	_ "tailscale.com/tsweb/promvarz"
+	_ "github.com/WebP2P/dexnet/tsweb/promvarz"
 )
 
 const meshKeyEnvVar = "TAILSCALE_DERPER_MESH_KEY"

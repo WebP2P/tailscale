@@ -8,7 +8,7 @@ package ipnauth
 import (
 	"net"
 
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // GetConnIdentity extracts the identity information from the connection

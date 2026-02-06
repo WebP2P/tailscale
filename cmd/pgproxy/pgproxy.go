@@ -24,10 +24,10 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/client/local"
-	"tailscale.com/metrics"
-	"tailscale.com/tsnet"
-	"tailscale.com/tsweb"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/metrics"
+	"github.com/WebP2P/dexnet/tsnet"
+	"github.com/WebP2P/dexnet/tsweb"
 )
 
 var (

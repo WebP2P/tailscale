@@ -10,9 +10,9 @@ import (
 	"sync"
 
 	xmaps "golang.org/x/exp/maps"
-	"tailscale.com/ipn"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/mak"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/mak"
 )
 
 // New returns a new Store.

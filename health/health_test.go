@@ -17,16 +17,16 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"tailscale.com/metrics"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tsconst"
-	"tailscale.com/tstest"
-	"tailscale.com/tstime"
-	"tailscale.com/types/opt"
-	"tailscale.com/util/eventbus"
-	"tailscale.com/util/eventbus/eventbustest"
-	"tailscale.com/util/usermetric"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/metrics"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tsconst"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/types/opt"
+	"github.com/WebP2P/dexnet/util/eventbus"
+	"github.com/WebP2P/dexnet/util/eventbus/eventbustest"
+	"github.com/WebP2P/dexnet/util/usermetric"
+	"github.com/WebP2P/dexnet/version"
 )
 
 var doDebug = flag.Bool("debug", false, "Enable debug logging")

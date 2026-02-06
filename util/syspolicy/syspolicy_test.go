@@ -9,15 +9,15 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/types/logger"
-	"tailscale.com/util/syspolicy/internal/loggerx"
-	"tailscale.com/util/syspolicy/internal/metrics"
-	"tailscale.com/util/syspolicy/pkey"
-	"tailscale.com/util/syspolicy/ptype"
-	"tailscale.com/util/syspolicy/rsop"
-	"tailscale.com/util/syspolicy/setting"
-	"tailscale.com/util/syspolicy/source"
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/syspolicy/internal/loggerx"
+	"github.com/WebP2P/dexnet/util/syspolicy/internal/metrics"
+	"github.com/WebP2P/dexnet/util/syspolicy/pkey"
+	"github.com/WebP2P/dexnet/util/syspolicy/ptype"
+	"github.com/WebP2P/dexnet/util/syspolicy/rsop"
+	"github.com/WebP2P/dexnet/util/syspolicy/setting"
+	"github.com/WebP2P/dexnet/util/syspolicy/source"
+	"github.com/WebP2P/dexnet/util/testenv"
 )
 
 var someOtherError = errors.New("error other than not found")

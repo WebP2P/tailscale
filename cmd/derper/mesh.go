@@ -11,11 +11,11 @@ import (
 	"net"
 	"strings"
 
-	"tailscale.com/derp"
-	"tailscale.com/derp/derphttp"
-	"tailscale.com/derp/derpserver"
-	"tailscale.com/net/netmon"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/derp"
+	"github.com/WebP2P/dexnet/derp/derphttp"
+	"github.com/WebP2P/dexnet/derp/derpserver"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 func startMesh(s *derpserver.Server) error {

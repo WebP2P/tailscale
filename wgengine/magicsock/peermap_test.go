@@ -7,8 +7,8 @@ import (
 	"net/netip"
 	"testing"
 
-	"tailscale.com/net/packet"
-	"tailscale.com/types/key"
+	"github.com/WebP2P/dexnet/net/packet"
+	"github.com/WebP2P/dexnet/types/key"
 )
 
 func Test_peerMap_oneRelayEpAddrPerNK(t *testing.T) {

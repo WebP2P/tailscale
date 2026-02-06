@@ -11,7 +11,7 @@ import (
 	"net"
 
 	"github.com/coder/websocket"
-	"tailscale.com/net/wsconn"
+	"github.com/WebP2P/dexnet/net/wsconn"
 )
 
 const canWebsockets = true

@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"strings"
 
-	"tailscale.com/derp"
+	"github.com/WebP2P/dexnet/derp"
 )
 
 // Handler returns an http.Handler to be mounted at /derp, serving s.

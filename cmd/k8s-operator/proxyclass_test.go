@@ -18,21 +18,21 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"k8s.io/client-go/tools/record"
 	"sigs.k8s.io/controller-runtime/pkg/client/fake"
-	tsoperator "tailscale.com/k8s-operator"
-	tsapi "tailscale.com/k8s-operator/apis/v1alpha1"
-	"tailscale.com/tstest"
+	tsoperator "github.com/WebP2P/dexnet/k8s-operator"
+	tsapi "github.com/WebP2P/dexnet/k8s-operator/apis/v1alpha1"
+	"github.com/WebP2P/dexnet/tstest"
 )
 
 func TestProxyClass(t *testing.T) {
 	pc := &tsapi.ProxyClass{
-		TypeMeta: metav1.TypeMeta{Kind: "ProxyClass", APIVersion: "tailscale.com/v1alpha1"},
+		TypeMeta: metav1.TypeMeta{Kind: "ProxyClass", APIVersion: "github.com/WebP2P/dexnet/v1alpha1"},
 		ObjectMeta: metav1.ObjectMeta{
 			Name: "test",
 			// The apiserver is supposed to set the UID, but the fake client
 			// doesn't. So, set it explicitly because other code later depends
 			// on it being set.
 			UID:        types.UID("1234-UID"),
-			Finalizers: []string{"tailscale.com/finalizer"},
+			Finalizers: []string{"github.com/WebP2P/dexnet/finalizer"},
 		},
 		Spec: tsapi.ProxyClassSpec{
 			StatefulSet: &tsapi.StatefulSet{

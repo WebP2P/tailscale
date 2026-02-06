@@ -6,7 +6,7 @@ package jsdeps
 import (
 	"testing"
 
-	"tailscale.com/tstest/deptest"
+	"github.com/WebP2P/dexnet/tstest/deptest"
 )
 
 func TestDeps(t *testing.T) {

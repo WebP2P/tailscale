@@ -14,12 +14,12 @@ import (
 
 	"github.com/tailscale/wireguard-go/tun"
 	"go4.org/netipx"
-	"tailscale.com/health"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/types/logger"
-	"tailscale.com/version"
-	"tailscale.com/wgengine/router"
+	"github.com/WebP2P/dexnet/health"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/net/tsaddr"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/version"
+	"github.com/WebP2P/dexnet/wgengine/router"
 )
 
 func init() {

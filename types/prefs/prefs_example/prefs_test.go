@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"net/netip"
 
-	"tailscale.com/ipn"
-	"tailscale.com/types/prefs"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/types/prefs"
 )
 
 func ExamplePrefs_AdvertiseRoutes_setValue() {

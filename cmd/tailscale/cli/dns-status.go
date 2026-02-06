@@ -12,8 +12,8 @@ import (
 	"strings"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/ipn"
-	"tailscale.com/types/netmap"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/types/netmap"
 )
 
 var dnsStatusCmd = &ffcli.Command{

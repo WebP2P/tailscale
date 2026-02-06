@@ -8,8 +8,8 @@ package routetable
 import (
 	"context"
 
-	"tailscale.com/net/routetable"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/net/routetable"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // MaxRoutes is the maximum number of routes that will be displayed.

@@ -18,9 +18,9 @@ import (
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/kubernetes/fake"
 	ktesting "k8s.io/client-go/testing"
-	"tailscale.com/kube/k8s-proxy/conf"
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/types/ptr"
+	"github.com/WebP2P/dexnet/kube/k8s-proxy/conf"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/types/ptr"
 )
 
 func TestWatchConfig(t *testing.T) {

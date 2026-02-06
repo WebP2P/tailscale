@@ -13,8 +13,8 @@ import (
 	"os"
 	"path"
 
-	"tailscale.com/drive"
-	"tailscale.com/util/httpm"
+	"github.com/WebP2P/dexnet/drive"
+	"github.com/WebP2P/dexnet/util/httpm"
 )
 
 func init() {

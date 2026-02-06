@@ -11,10 +11,10 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/util/set"
-	"tailscale.com/util/syspolicy/pkey"
-	"tailscale.com/util/syspolicy/policyclient"
-	"tailscale.com/util/syspolicy/ptype"
+	"github.com/WebP2P/dexnet/util/set"
+	"github.com/WebP2P/dexnet/util/syspolicy/pkey"
+	"github.com/WebP2P/dexnet/util/syspolicy/policyclient"
+	"github.com/WebP2P/dexnet/util/syspolicy/ptype"
 )
 
 // Config is a [policyclient.Client] implementation with a static mapping of

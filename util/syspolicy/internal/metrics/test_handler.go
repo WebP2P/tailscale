@@ -6,10 +6,10 @@ package metrics
 import (
 	"strings"
 
-	"tailscale.com/util/clientmetric"
-	"tailscale.com/util/set"
-	"tailscale.com/util/syspolicy/internal"
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/util/clientmetric"
+	"github.com/WebP2P/dexnet/util/set"
+	"github.com/WebP2P/dexnet/util/syspolicy/internal"
+	"github.com/WebP2P/dexnet/util/testenv"
 )
 
 // TestState represents a metric name and its expected value.

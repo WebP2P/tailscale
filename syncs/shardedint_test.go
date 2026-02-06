@@ -8,8 +8,8 @@ import (
 	"sync"
 	"testing"
 
-	. "tailscale.com/syncs"
-	"tailscale.com/tstest"
+	. "github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/tstest"
 )
 
 var (

@@ -8,9 +8,9 @@ package wgcfg
 import (
 	"net/netip"
 
-	"tailscale.com/types/key"
-	"tailscale.com/types/logid"
-	"tailscale.com/types/ptr"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logid"
+	"github.com/WebP2P/dexnet/types/ptr"
 )
 
 // Clone makes a deep copy of Config.

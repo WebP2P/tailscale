@@ -10,8 +10,8 @@ import (
 	"net/netip"
 	"testing"
 
-	"tailscale.com/net/stun"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/net/stun"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 // TODO(bradfitz): fuzz this.

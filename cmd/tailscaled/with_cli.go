@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"os"
 
-	"tailscale.com/cmd/tailscale/cli"
+	"github.com/WebP2P/dexnet/cmd/tailscale/cli"
 )
 
 func init() {

@@ -15,8 +15,8 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/checksum"
 	"gvisor.dev/gvisor/pkg/tcpip/header"
-	"tailscale.com/envknob"
-	"tailscale.com/net/tsaddr"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/net/tsaddr"
 )
 
 // SetLinkFeaturesPostUp configures link features on t based on select TS_TUN_

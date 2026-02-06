@@ -13,7 +13,7 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/net/memnet"
+	"github.com/WebP2P/dexnet/net/memnet"
 )
 
 func echoConnOnce(conn net.Conn) {

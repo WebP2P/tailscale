@@ -12,8 +12,8 @@ import (
 	"io"
 	"net/http"
 
-	"tailscale.com/client/local"
-	"tailscale.com/client/tailscale/apitype"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/client/tailscale/apitype"
 )
 
 // metrics is a simple metrics HTTP server, if enabled it forwards requests to

@@ -9,13 +9,13 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/syncs"
-	"tailscale.com/util/set"
-	"tailscale.com/util/syspolicy/internal/loggerx"
-	"tailscale.com/util/syspolicy/pkey"
-	"tailscale.com/util/syspolicy/policyclient"
-	"tailscale.com/util/syspolicy/ptype"
-	"tailscale.com/util/syspolicy/setting"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/util/set"
+	"github.com/WebP2P/dexnet/util/syspolicy/internal/loggerx"
+	"github.com/WebP2P/dexnet/util/syspolicy/pkey"
+	"github.com/WebP2P/dexnet/util/syspolicy/policyclient"
+	"github.com/WebP2P/dexnet/util/syspolicy/ptype"
+	"github.com/WebP2P/dexnet/util/syspolicy/setting"
 )
 
 // Change represents a change from the Old to the New value of type T.

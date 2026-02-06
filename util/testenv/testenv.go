@@ -9,7 +9,7 @@ import (
 	"context"
 	"flag"
 
-	"tailscale.com/types/lazy"
+	"github.com/WebP2P/dexnet/types/lazy"
 )
 
 var lazyInTest lazy.SyncValue[bool]

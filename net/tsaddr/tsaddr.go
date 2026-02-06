@@ -12,8 +12,8 @@ import (
 	"sync"
 
 	"go4.org/netipx"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/types/views"
+	"github.com/WebP2P/dexnet/net/netaddr"
+	"github.com/WebP2P/dexnet/types/views"
 )
 
 // ChromeOSVMRange returns the subset of the CGNAT IPv4 range used by
@@ -26,12 +26,11 @@ func ChromeOSVMRange() netip.Prefix {
 
 var chromeOSRange oncePrefix
 
-// CGNATRange returns the Carrier Grade NAT address range that
-// is the superset range that Tailscale assigns out of.
-// See https://tailscale.com/s/cgnat
-// Note that Tailscale does not assign out of the ChromeOSVMRange.
+// CGNATRange returns the mesh network address range that
+// Dex Network assigns out of.
+// Using 10.200.0.0/16 to avoid conflicts with Tailscale's 100.64.0.0/10.
 func CGNATRange() netip.Prefix {
-	cgnatRange.Do(func() { mustPrefix(&cgnatRange.v, "100.64.0.0/10") })
+	cgnatRange.Do(func() { mustPrefix(&cgnatRange.v, "10.200.0.0/16") })
 	return cgnatRange.v
 }
 
@@ -45,11 +44,11 @@ var (
 )
 
 // TailscaleServiceIP returns the IPv4 listen address of services
-// provided by Tailscale itself such as the MagicDNS proxy.
+// provided by Dex Network itself such as the MagicDNS proxy.
 //
 // For IPv6, use TailscaleServiceIPv6.
 func TailscaleServiceIP() netip.Addr {
-	return netaddr.IPv4(100, 100, 100, 100) // "100.100.100.100" for those grepping
+	return netaddr.IPv4(10, 200, 0, 1) // "10.200.0.1" for those grepping
 }
 
 // TailscaleServiceIPv6 returns the IPv6 listen address of the services
@@ -62,8 +61,8 @@ func TailscaleServiceIPv6() netip.Addr {
 }
 
 const (
-	TailscaleServiceIPString   = "100.100.100.100"
-	TailscaleServiceIPv6String = "fd7a:115c:a1e0::53"
+	TailscaleServiceIPString   = "10.200.0.1"
+	TailscaleServiceIPv6String = "fd7a:115c:a1e0:de1::1"
 )
 
 // IsTailscaleIP reports whether IP is an IP address in a range that
@@ -142,7 +141,7 @@ func Tailscale4To6(ipv4 netip.Addr) netip.Addr {
 }
 
 // Tailscale6to4 returns the IPv4 address corresponding to the given
-// tailscale IPv6 address within the 4To6 range. The IPv4 address
+// dexnet IPv6 address within the 4To6 range. The IPv4 address
 // and true are returned if the given address was in the correct range,
 // false if not.
 func Tailscale6to4(ipv6 netip.Addr) (netip.Addr, bool) {
@@ -150,7 +149,8 @@ func Tailscale6to4(ipv6 netip.Addr) (netip.Addr, bool) {
 		return netip.Addr{}, false
 	}
 	v6 := ipv6.As16()
-	return netip.AddrFrom4([4]byte{100, v6[13], v6[14], v6[15]}), true
+	// For 10.200.x.x range, first two bytes are 10 and 200
+	return netip.AddrFrom4([4]byte{10, 200, v6[14], v6[15]}), true
 }
 
 func mustPrefix(v *netip.Prefix, prefix string) {

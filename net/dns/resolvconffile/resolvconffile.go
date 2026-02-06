@@ -19,7 +19,7 @@ import (
 	"os"
 	"strings"
 
-	"tailscale.com/util/dnsname"
+	"github.com/WebP2P/dexnet/util/dnsname"
 )
 
 // Path is the canonical location of resolv.conf.

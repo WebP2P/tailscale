@@ -14,8 +14,8 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"tailscale.com/atomicfile"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/atomicfile"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 //go:embed resolvconf-workaround.sh

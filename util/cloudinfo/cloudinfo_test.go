@@ -11,7 +11,7 @@ import (
 	"slices"
 	"testing"
 
-	"tailscale.com/util/cloudenv"
+	"github.com/WebP2P/dexnet/util/cloudenv"
 )
 
 func TestCloudInfo_AWS(t *testing.T) {

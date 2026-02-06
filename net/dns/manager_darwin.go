@@ -8,14 +8,14 @@ import (
 	"os"
 
 	"go4.org/mem"
-	"tailscale.com/control/controlknobs"
-	"tailscale.com/health"
-	"tailscale.com/net/dns/resolvconffile"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/eventbus"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/syspolicy/policyclient"
+	"github.com/WebP2P/dexnet/control/controlknobs"
+	"github.com/WebP2P/dexnet/health"
+	"github.com/WebP2P/dexnet/net/dns/resolvconffile"
+	"github.com/WebP2P/dexnet/net/tsaddr"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/eventbus"
+	"github.com/WebP2P/dexnet/util/mak"
+	"github.com/WebP2P/dexnet/util/syspolicy/policyclient"
 )
 
 // NewOSConfigurator creates a new OS configurator.

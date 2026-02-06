@@ -17,7 +17,7 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/tstest"
+	"github.com/WebP2P/dexnet/tstest"
 )
 
 func TestSynologyProxyFromConfigCached(t *testing.T) {

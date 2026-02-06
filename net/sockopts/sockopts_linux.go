@@ -9,7 +9,7 @@ import (
 	"net"
 	"syscall"
 
-	"tailscale.com/types/nettype"
+	"github.com/WebP2P/dexnet/types/nettype"
 )
 
 // SetBufferSize sets pconn's buffer to size for direction. It attempts

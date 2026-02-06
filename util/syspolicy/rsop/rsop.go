@@ -11,11 +11,11 @@ import (
 	"fmt"
 	"slices"
 
-	"tailscale.com/syncs"
-	"tailscale.com/util/slicesx"
-	"tailscale.com/util/syspolicy/internal"
-	"tailscale.com/util/syspolicy/setting"
-	"tailscale.com/util/syspolicy/source"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/util/slicesx"
+	"github.com/WebP2P/dexnet/util/syspolicy/internal"
+	"github.com/WebP2P/dexnet/util/syspolicy/setting"
+	"github.com/WebP2P/dexnet/util/syspolicy/source"
 )
 
 var (

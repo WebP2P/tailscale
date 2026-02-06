@@ -15,8 +15,8 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 	"gvisor.dev/gvisor/pkg/tcpip/header/parse"
 	"gvisor.dev/gvisor/pkg/tcpip/stack"
-	"tailscale.com/net/packet"
-	"tailscale.com/types/ipproto"
+	"github.com/WebP2P/dexnet/net/packet"
+	"github.com/WebP2P/dexnet/types/ipproto"
 )
 
 // RXChecksumOffload validates IPv4, TCP, and UDP header checksums in p,

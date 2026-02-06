@@ -9,8 +9,8 @@ import (
 	"math/rand/v2"
 	"time"
 
-	"tailscale.com/tstime"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // Backoff tracks state the history of consecutive failures and sleeps

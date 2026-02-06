@@ -8,11 +8,11 @@ import (
 	"fmt"
 	"os/user"
 
-	"tailscale.com/util/syspolicy/internal"
-	"tailscale.com/util/syspolicy/rsop"
-	"tailscale.com/util/syspolicy/setting"
-	"tailscale.com/util/syspolicy/source"
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/util/syspolicy/internal"
+	"github.com/WebP2P/dexnet/util/syspolicy/rsop"
+	"github.com/WebP2P/dexnet/util/syspolicy/setting"
+	"github.com/WebP2P/dexnet/util/syspolicy/source"
+	"github.com/WebP2P/dexnet/util/testenv"
 )
 
 func init() {

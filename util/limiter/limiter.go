@@ -10,8 +10,8 @@ import (
 	"io"
 	"time"
 
-	"tailscale.com/syncs"
-	"tailscale.com/util/lru"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/util/lru"
 )
 
 // Limiter is a keyed token bucket rate limiter.

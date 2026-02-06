@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/ipn/ipnlocal"
+	"github.com/WebP2P/dexnet/ipn/ipnlocal"
 )
 
 func init() {

@@ -12,11 +12,11 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/metrics"
-	"tailscale.com/syncs"
-	"tailscale.com/tstest"
-	"tailscale.com/util/racebuild"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/metrics"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/util/racebuild"
+	"github.com/WebP2P/dexnet/version"
 )
 
 func TestVarzHandler(t *testing.T) {

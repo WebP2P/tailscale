@@ -15,7 +15,7 @@ import (
 	"log"
 	"net/http"
 
-	"tailscale.com/tsnet"
+	"github.com/WebP2P/dexnet/tsnet"
 )
 
 func main() {

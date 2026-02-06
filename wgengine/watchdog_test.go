@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/health"
-	"tailscale.com/util/eventbus/eventbustest"
-	"tailscale.com/util/usermetric"
+	"github.com/WebP2P/dexnet/health"
+	"github.com/WebP2P/dexnet/util/eventbus/eventbustest"
+	"github.com/WebP2P/dexnet/util/usermetric"
 )
 
 func TestWatchdog(t *testing.T) {

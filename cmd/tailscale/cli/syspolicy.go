@@ -15,7 +15,7 @@ import (
 	"text/tabwriter"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/util/syspolicy/setting"
+	"github.com/WebP2P/dexnet/util/syspolicy/setting"
 )
 
 var syspolicyArgs struct {

@@ -9,7 +9,7 @@ package kube
 import (
 	"fmt"
 
-	"tailscale.com/tailcfg"
+	"github.com/WebP2P/dexnet/tailcfg"
 )
 
 const (

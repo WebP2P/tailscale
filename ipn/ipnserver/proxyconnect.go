@@ -10,9 +10,9 @@ import (
 	"net"
 	"net/http"
 
-	"tailscale.com/feature"
-	"tailscale.com/feature/buildfeatures"
-	"tailscale.com/logpolicy"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/logpolicy"
 )
 
 // handleProxyConnectConn handles a CONNECT request to

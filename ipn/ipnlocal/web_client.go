@@ -17,14 +17,14 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/client/local"
-	"tailscale.com/client/web"
-	"tailscale.com/net/netutil"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tsconst"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/backoff"
-	"tailscale.com/util/mak"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/client/web"
+	"github.com/WebP2P/dexnet/net/netutil"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tsconst"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/backoff"
+	"github.com/WebP2P/dexnet/util/mak"
 )
 
 const webClientPort = tsconst.WebListenPort

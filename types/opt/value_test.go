@@ -9,8 +9,8 @@ import (
 	"testing"
 
 	jsonv2 "github.com/go-json-experiment/json"
-	"tailscale.com/types/bools"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/types/bools"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 var (

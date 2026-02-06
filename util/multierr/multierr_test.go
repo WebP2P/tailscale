@@ -12,7 +12,7 @@ import (
 	qt "github.com/frankban/quicktest"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"tailscale.com/util/multierr"
+	"github.com/WebP2P/dexnet/util/multierr"
 )
 
 func TestAll(t *testing.T) {

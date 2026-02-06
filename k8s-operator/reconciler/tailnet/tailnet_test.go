@@ -16,9 +16,9 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client/fake"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	tsapi "tailscale.com/k8s-operator/apis/v1alpha1"
-	"tailscale.com/k8s-operator/reconciler/tailnet"
-	"tailscale.com/tstest"
+	tsapi "github.com/WebP2P/dexnet/k8s-operator/apis/v1alpha1"
+	"github.com/WebP2P/dexnet/k8s-operator/reconciler/tailnet"
+	"github.com/WebP2P/dexnet/tstest"
 )
 
 func TestReconciler_Reconcile(t *testing.T) {

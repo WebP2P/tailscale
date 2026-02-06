@@ -7,7 +7,7 @@ package tstun
 
 import (
 	"github.com/tailscale/wireguard-go/tun"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 func New(logf logger.Logf, tunName string) (tun.Device, string, error) {

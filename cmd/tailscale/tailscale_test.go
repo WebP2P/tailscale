@@ -6,7 +6,7 @@ package main
 import (
 	"testing"
 
-	"tailscale.com/tstest/deptest"
+	"github.com/WebP2P/dexnet/tstest/deptest"
 )
 
 func TestDeps(t *testing.T) {
@@ -17,9 +17,9 @@ func TestDeps(t *testing.T) {
 			"gvisor.dev/gvisor/pkg/cpuid":        "https://github.com/tailscale/tailscale/issues/9756",
 			"gvisor.dev/gvisor/pkg/tcpip":        "https://github.com/tailscale/tailscale/issues/9756",
 			"gvisor.dev/gvisor/pkg/tcpip/header": "https://github.com/tailscale/tailscale/issues/9756",
-			"tailscale.com/wgengine/filter":      "brings in bart, etc",
+			"github.com/WebP2P/dexnet/wgengine/filter":      "brings in bart, etc",
 			"github.com/bits-and-blooms/bitset":  "unneeded in CLI",
-			"tailscale.com/net/ipset":            "unneeded in CLI",
+			"github.com/WebP2P/dexnet/net/ipset":            "unneeded in CLI",
 		},
 	}.Check(t)
 }

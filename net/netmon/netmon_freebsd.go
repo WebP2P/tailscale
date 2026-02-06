@@ -9,8 +9,8 @@ import (
 	"net"
 	"strings"
 
-	"tailscale.com/types/logger"
-	"tailscale.com/util/eventbus"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/eventbus"
 )
 
 // unspecifiedMessage is a minimal message implementation that should not

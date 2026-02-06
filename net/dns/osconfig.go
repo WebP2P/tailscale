@@ -11,9 +11,9 @@ import (
 	"slices"
 	"strings"
 
-	"tailscale.com/feature/buildfeatures"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/dnsname"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/dnsname"
 )
 
 // An OSConfigurator applies DNS settings to the operating system.

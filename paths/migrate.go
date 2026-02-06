@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // TryConfigFileMigration carefully copies the contents of oldFile to

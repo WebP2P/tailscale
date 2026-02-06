@@ -13,8 +13,8 @@ package posture
 import (
 	"errors"
 
-	"tailscale.com/types/logger"
-	"tailscale.com/util/syspolicy/policyclient"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/syspolicy/policyclient"
 )
 
 // GetSerialNumber returns client machine serial number(s).

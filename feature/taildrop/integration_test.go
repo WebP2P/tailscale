@@ -12,12 +12,12 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/client/local"
-	"tailscale.com/client/tailscale/apitype"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/tstest/integration"
-	"tailscale.com/tstest/integration/testcontrol"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/client/tailscale/apitype"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/tstest/integration"
+	"github.com/WebP2P/dexnet/tstest/integration/testcontrol"
 )
 
 // TODO(bradfitz): add test where control doesn't send tailcfg.CapabilityFileSharing

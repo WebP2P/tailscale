@@ -34,10 +34,10 @@ import (
 	"github.com/golang/snappy"
 	"github.com/prometheus/prometheus/prompb"
 	"github.com/tcnksm/go-httpstat"
-	"tailscale.com/net/stun"
-	"tailscale.com/net/tcpinfo"
-	"tailscale.com/tailcfg"
-	"tailscale.com/util/backoff"
+	"github.com/WebP2P/dexnet/net/stun"
+	"github.com/WebP2P/dexnet/net/tcpinfo"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/util/backoff"
 )
 
 var (

@@ -11,10 +11,10 @@ import (
 
 	jsonv2 "github.com/go-json-experiment/json"
 	"github.com/go-json-experiment/json/jsontext"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/structs"
-	"tailscale.com/types/views"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/structs"
+	"github.com/WebP2P/dexnet/types/views"
 )
 
 //go:generate go run tailscale.com/cmd/cloner  -clonefunc=false -type=Persist

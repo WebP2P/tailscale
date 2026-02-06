@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"testing"
 
-	"tailscale.com/cmd/cloner/clonerex"
+	"github.com/WebP2P/dexnet/cmd/cloner/clonerex"
 )
 
 func TestSliceContainer(t *testing.T) {

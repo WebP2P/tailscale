@@ -14,7 +14,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"tailscale.com/types/opt"
+	"github.com/WebP2P/dexnet/types/opt"
 )
 
 type GetDevicesResponse struct {

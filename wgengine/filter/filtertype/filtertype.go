@@ -9,9 +9,9 @@ import (
 	"net/netip"
 	"strings"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/types/views"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/ipproto"
+	"github.com/WebP2P/dexnet/types/views"
 )
 
 //go:generate go run tailscale.com/cmd/cloner --type=Match,CapMatch

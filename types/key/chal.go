@@ -7,7 +7,7 @@ import (
 	"errors"
 
 	"go4.org/mem"
-	"tailscale.com/types/structs"
+	"github.com/WebP2P/dexnet/types/structs"
 )
 
 const (

@@ -11,8 +11,8 @@ import (
 	"expvar"
 	"fmt"
 
-	"tailscale.com/metrics"
-	"tailscale.com/syncs"
+	"github.com/WebP2P/dexnet/metrics"
+	"github.com/WebP2P/dexnet/syncs"
 )
 
 type Buffer interface {

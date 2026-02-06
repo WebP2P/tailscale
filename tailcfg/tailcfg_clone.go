@@ -10,12 +10,12 @@ import (
 	"net/netip"
 	"time"
 
-	"tailscale.com/types/dnstype"
-	"tailscale.com/types/key"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/ptr"
-	"tailscale.com/types/structs"
-	"tailscale.com/types/tkatype"
+	"github.com/WebP2P/dexnet/types/dnstype"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/opt"
+	"github.com/WebP2P/dexnet/types/ptr"
+	"github.com/WebP2P/dexnet/types/structs"
+	"github.com/WebP2P/dexnet/types/tkatype"
 )
 
 // Clone makes a deep copy of User.

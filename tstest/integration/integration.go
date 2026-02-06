@@ -33,25 +33,25 @@ import (
 	"time"
 
 	"go4.org/mem"
-	"tailscale.com/client/local"
-	"tailscale.com/derp/derpserver"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnlocal"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/ipn/store"
-	"tailscale.com/net/stun/stuntest"
-	"tailscale.com/safesocket"
-	"tailscale.com/syncs"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/tstest/integration/testcontrol"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/logid"
-	"tailscale.com/types/nettype"
-	"tailscale.com/util/rands"
-	"tailscale.com/util/zstdframe"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/derp/derpserver"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/ipn/ipnlocal"
+	"github.com/WebP2P/dexnet/ipn/ipnstate"
+	"github.com/WebP2P/dexnet/ipn/store"
+	"github.com/WebP2P/dexnet/net/stun/stuntest"
+	"github.com/WebP2P/dexnet/safesocket"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/tstest/integration/testcontrol"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/logid"
+	"github.com/WebP2P/dexnet/types/nettype"
+	"github.com/WebP2P/dexnet/util/rands"
+	"github.com/WebP2P/dexnet/util/zstdframe"
+	"github.com/WebP2P/dexnet/version"
 )
 
 var (
@@ -192,7 +192,7 @@ func buildTestBinaries(dir string) error {
 		}
 		return bi, nil
 	}
-	err := build(dir, "tailscale.com/cmd/tailscaled", "tailscale.com/cmd/tailscale")
+	err := build(dir, "github.com/WebP2P/dexnet/cmd/tailscaled", "github.com/WebP2P/dexnet/cmd/tailscale")
 	if err != nil {
 		return err
 	}

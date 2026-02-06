@@ -4,7 +4,7 @@
 package controlhttp
 
 import (
-	"tailscale.com/control/controlbase"
+	"github.com/WebP2P/dexnet/control/controlbase"
 )
 
 // ClientConn is a Tailscale control client as returned by the Dialer.

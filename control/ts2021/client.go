@@ -19,17 +19,17 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/control/controlhttp"
-	"tailscale.com/health"
-	"tailscale.com/net/dnscache"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstime"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/control/controlhttp"
+	"github.com/WebP2P/dexnet/health"
+	"github.com/WebP2P/dexnet/net/dnscache"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/net/tsdial"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/mak"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // Client provides a http.Client to connect to tailcontrol over

@@ -5,9 +5,9 @@
 package apitype
 
 import (
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/dnstype"
-	"tailscale.com/util/ctxkey"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/dnstype"
+	"github.com/WebP2P/dexnet/util/ctxkey"
 )
 
 // LocalAPIHost is the Host header value used by the LocalAPI.

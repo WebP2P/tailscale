@@ -11,7 +11,7 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/miekg/dns"
-	"tailscale.com/util/dnsname"
+	"github.com/WebP2P/dexnet/util/dnsname"
 )
 
 func TestNameserver(t *testing.T) {

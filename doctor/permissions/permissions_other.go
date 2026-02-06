@@ -8,7 +8,7 @@ package permissions
 import (
 	"runtime"
 
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 func permissionsImpl(logf logger.Logf) error {

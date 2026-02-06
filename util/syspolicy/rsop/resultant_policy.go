@@ -10,12 +10,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/syncs"
-	"tailscale.com/util/syspolicy/internal/loggerx"
-	"tailscale.com/util/syspolicy/setting"
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/util/syspolicy/internal/loggerx"
+	"github.com/WebP2P/dexnet/util/syspolicy/setting"
+	"github.com/WebP2P/dexnet/util/testenv"
 
-	"tailscale.com/util/syspolicy/source"
+	"github.com/WebP2P/dexnet/util/syspolicy/source"
 )
 
 // ErrPolicyClosed is returned by [Policy.Reload], [Policy.addSource],

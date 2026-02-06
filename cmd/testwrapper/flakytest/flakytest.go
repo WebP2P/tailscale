@@ -15,7 +15,7 @@ import (
 	"sync"
 	"testing"
 
-	"tailscale.com/util/mak"
+	"github.com/WebP2P/dexnet/util/mak"
 )
 
 // FlakyTestLogMessage is a sentinel value that is printed to stderr when a
@@ -57,7 +57,7 @@ func Mark(t testing.TB, issue string) {
 	// old test runs, so cmd/testwrapper doesn't need to be modified.
 	// TODO(bradfitz): switch testwrapper to look for Action "attr"
 	// instead:
-	// "Action":"attr","Package":"tailscale.com/cmd/testwrapper/flakytest","Test":"TestMarked_Root","Key":"flaky-test-issue-url","Value":"https://github.com/tailscale/tailscale/issues/0"}
+	// "Action":"attr","Package":"github.com/WebP2P/dexnet/cmd/testwrapper/flakytest","Test":"TestMarked_Root","Key":"flaky-test-issue-url","Value":"https://github.com/tailscale/tailscale/issues/0"}
 	// And then remove this Logf a month or so after that.
 	t.Logf("flakytest: issue tracking this flaky test: %s", issue)
 

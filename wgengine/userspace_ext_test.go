@@ -7,12 +7,12 @@ import (
 	"testing"
 
 	"github.com/tailscale/wireguard-go/tun"
-	"tailscale.com/net/tstun"
-	"tailscale.com/tsd"
-	"tailscale.com/tstest"
-	"tailscale.com/types/logger"
-	"tailscale.com/wgengine"
-	"tailscale.com/wgengine/router"
+	"github.com/WebP2P/dexnet/net/tstun"
+	"github.com/WebP2P/dexnet/tsd"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/wgengine"
+	"github.com/WebP2P/dexnet/wgengine/router"
 )
 
 func TestIsNetstack(t *testing.T) {

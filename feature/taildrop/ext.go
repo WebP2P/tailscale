@@ -17,17 +17,17 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"tailscale.com/client/tailscale/apitype"
-	"tailscale.com/cmd/tailscaled/tailscaledhooks"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnext"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstime"
-	"tailscale.com/types/empty"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/osshare"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/client/tailscale/apitype"
+	"github.com/WebP2P/dexnet/cmd/tailscaled/tailscaledhooks"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/ipn/ipnext"
+	"github.com/WebP2P/dexnet/ipn/ipnstate"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/types/empty"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/osshare"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 func init() {

@@ -13,8 +13,8 @@ import (
 	"slices"
 	"strings"
 
-	"tailscale.com/feature/featuretags"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/feature/featuretags"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 var (

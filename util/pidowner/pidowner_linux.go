@@ -8,7 +8,7 @@ import (
 	"os"
 	"strings"
 
-	"tailscale.com/util/lineiter"
+	"github.com/WebP2P/dexnet/util/lineiter"
 )
 
 func ownerOfPID(pid int) (userID string, err error) {

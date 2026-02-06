@@ -8,7 +8,7 @@ import (
 	"context"
 	"errors"
 
-	"tailscale.com/ipn"
+	"github.com/WebP2P/dexnet/ipn"
 )
 
 var _ Actor = (*TestActor)(nil)

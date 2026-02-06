@@ -6,7 +6,7 @@
 package policy
 
 import (
-	"tailscale.com/tailcfg"
+	"github.com/WebP2P/dexnet/tailcfg"
 )
 
 // IsInterestingService reports whether service s on the given operating

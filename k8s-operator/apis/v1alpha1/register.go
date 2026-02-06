@@ -8,7 +8,7 @@ package v1alpha1
 import (
 	"fmt"
 
-	"tailscale.com/k8s-operator/apis"
+	"github.com/WebP2P/dexnet/k8s-operator/apis"
 
 	apiextensionsv1 "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

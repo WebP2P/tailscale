@@ -8,10 +8,10 @@ import (
 	"testing"
 
 	"go4.org/mem"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/wgengine/wgcfg"
-	"tailscale.com/wgengine/wglog"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/wgengine/wgcfg"
+	"github.com/WebP2P/dexnet/wgengine/wglog"
 )
 
 func TestLogger(t *testing.T) {

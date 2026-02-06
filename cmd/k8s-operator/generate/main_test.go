@@ -16,8 +16,8 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/tstest/nettest"
-	"tailscale.com/util/cibuild"
+	"github.com/WebP2P/dexnet/tstest/nettest"
+	"github.com/WebP2P/dexnet/util/cibuild"
 )
 
 func Test_generate(t *testing.T) {

@@ -8,15 +8,15 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/drive"
-	"tailscale.com/health"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/empty"
-	"tailscale.com/types/key"
-	"tailscale.com/types/netmap"
-	"tailscale.com/types/structs"
-	"tailscale.com/types/views"
+	"github.com/WebP2P/dexnet/drive"
+	"github.com/WebP2P/dexnet/health"
+	"github.com/WebP2P/dexnet/ipn/ipnstate"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/empty"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/netmap"
+	"github.com/WebP2P/dexnet/types/structs"
+	"github.com/WebP2P/dexnet/types/views"
 )
 
 type State int

@@ -11,8 +11,8 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/net/memnet"
-	"tailscale.com/types/key"
+	"github.com/WebP2P/dexnet/net/memnet"
+	"github.com/WebP2P/dexnet/types/key"
 )
 
 func TestHandshake(t *testing.T) {

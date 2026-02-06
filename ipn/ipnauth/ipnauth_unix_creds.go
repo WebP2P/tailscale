@@ -9,7 +9,7 @@ import (
 	"net"
 
 	"github.com/tailscale/peercred"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // GetConnIdentity extracts the identity information from the connection

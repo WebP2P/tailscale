@@ -9,9 +9,9 @@ import (
 	"reflect"
 	"slices"
 
-	"tailscale.com/syncs"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 type PublishedEvent struct {

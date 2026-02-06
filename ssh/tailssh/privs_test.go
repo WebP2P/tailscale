@@ -20,7 +20,7 @@ import (
 	"syscall"
 	"testing"
 
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 func TestDoDropPrivileges(t *testing.T) {

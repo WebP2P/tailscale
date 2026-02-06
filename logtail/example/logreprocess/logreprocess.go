@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/types/logid"
+	"github.com/WebP2P/dexnet/types/logid"
 )
 
 func main() {

@@ -16,14 +16,14 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"golang.org/x/net/dns/dnsmessage"
-	"tailscale.com/appc/appctest"
-	"tailscale.com/tstest"
-	"tailscale.com/types/appctype"
-	"tailscale.com/util/clientmetric"
-	"tailscale.com/util/eventbus/eventbustest"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/must"
-	"tailscale.com/util/slicesx"
+	"github.com/WebP2P/dexnet/appc/appctest"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/types/appctype"
+	"github.com/WebP2P/dexnet/util/clientmetric"
+	"github.com/WebP2P/dexnet/util/eventbus/eventbustest"
+	"github.com/WebP2P/dexnet/util/mak"
+	"github.com/WebP2P/dexnet/util/must"
+	"github.com/WebP2P/dexnet/util/slicesx"
 )
 
 func TestUpdateDomains(t *testing.T) {

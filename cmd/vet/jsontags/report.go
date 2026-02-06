@@ -12,7 +12,7 @@ import (
 	_ "embed"
 
 	"golang.org/x/tools/go/analysis"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 var jsontagsAllowlist map[ReportKind]set.Set[string]
@@ -53,8 +53,8 @@ func ParseAllowlist(s string) map[ReportKind]set.Set[string] {
 //
 //	{
 //		"OmitEmptyUnsupportedInV1": set.Of(
-//			"tailscale.com/path/to/package.StructType.FieldName",
-//			"tailscale.com/path/to/package.*.FieldName",
+//			"github.com/WebP2P/dexnet/path/to/package.StructType.FieldName",
+//			"github.com/WebP2P/dexnet/path/to/package.*.FieldName",
 //		),
 //	}
 //

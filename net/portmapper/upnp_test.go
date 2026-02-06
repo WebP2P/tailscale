@@ -18,8 +18,8 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"tailscale.com/net/portmapper/portmappertype"
-	"tailscale.com/tstest"
+	"github.com/WebP2P/dexnet/net/portmapper/portmappertype"
+	"github.com/WebP2P/dexnet/tstest"
 )
 
 // Google Wifi

@@ -15,8 +15,8 @@ import (
 	"os/signal"
 	"time"
 
-	"tailscale.com/prober"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/prober"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 const (

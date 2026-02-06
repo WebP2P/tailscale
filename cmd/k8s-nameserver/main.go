@@ -22,8 +22,8 @@ import (
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/miekg/dns"
-	operatorutils "tailscale.com/k8s-operator"
-	"tailscale.com/util/dnsname"
+	operatorutils "github.com/WebP2P/dexnet/k8s-operator"
+	"github.com/WebP2P/dexnet/util/dnsname"
 )
 
 const (

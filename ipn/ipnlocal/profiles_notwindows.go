@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"runtime"
 
-	"tailscale.com/ipn"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/version"
 )
 
 func (pm *profileManager) loadLegacyPrefs(ipn.WindowsUserID) (string, ipn.PrefsView, error) {

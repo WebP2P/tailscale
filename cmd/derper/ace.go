@@ -12,8 +12,8 @@ import (
 	"net/http"
 	"strings"
 
-	"tailscale.com/derp/derpserver"
-	"tailscale.com/net/connectproxy"
+	"github.com/WebP2P/dexnet/derp/derpserver"
+	"github.com/WebP2P/dexnet/net/connectproxy"
 )
 
 // serveConnect handles a CONNECT request for ACE support.

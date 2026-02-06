@@ -15,11 +15,11 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/derp/derpserver"
-	"tailscale.com/net/netmon"
-	"tailscale.com/syncs"
-	"tailscale.com/tstest/nettest"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/derp/derpserver"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/tstest/nettest"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 func TestAvailableEndpointsAlwaysAtLeastTwo(t *testing.T) {

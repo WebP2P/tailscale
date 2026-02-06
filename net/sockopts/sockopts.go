@@ -8,7 +8,7 @@ import (
 	"net"
 	"runtime"
 
-	"tailscale.com/types/nettype"
+	"github.com/WebP2P/dexnet/types/nettype"
 )
 
 // BufferDirection represents either the read/receive or write/send direction

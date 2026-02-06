@@ -14,10 +14,10 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/envknob"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/backoff"
-	"tailscale.com/util/cibuild"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/backoff"
+	"github.com/WebP2P/dexnet/util/cibuild"
 )
 
 // Replace replaces the value of target with val.

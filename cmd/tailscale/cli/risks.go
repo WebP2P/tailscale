@@ -10,9 +10,9 @@ import (
 	"runtime"
 	"strings"
 
-	"tailscale.com/ipn"
-	"tailscale.com/util/prompt"
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/util/prompt"
+	"github.com/WebP2P/dexnet/util/testenv"
 )
 
 var (

@@ -8,7 +8,7 @@ import (
 	"errors"
 	"fmt"
 
-	"tailscale.com/types/tkatype"
+	"github.com/WebP2P/dexnet/types/tkatype"
 )
 
 // KeyKind describes the different varieties of a Key.

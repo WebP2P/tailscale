@@ -9,9 +9,9 @@ import (
 	"errors"
 	"runtime"
 
-	"tailscale.com/envknob"
-	"tailscale.com/version"
-	"tailscale.com/version/distro"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/version"
+	"github.com/WebP2P/dexnet/version/distro"
 )
 
 // CanRunTailscaleSSH reports whether serving a Tailscale SSH server is

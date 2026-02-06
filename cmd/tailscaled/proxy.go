@@ -17,11 +17,11 @@ import (
 	"net/http/httputil"
 	"strings"
 
-	"tailscale.com/feature"
-	"tailscale.com/net/proxymux"
-	"tailscale.com/net/socks5"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/net/proxymux"
+	"github.com/WebP2P/dexnet/net/socks5"
+	"github.com/WebP2P/dexnet/net/tsdial"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 func init() {

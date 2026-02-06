@@ -14,8 +14,8 @@ import (
 	"os"
 	"time"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/version/mkversion"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/version/mkversion"
 )
 
 func main() {

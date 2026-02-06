@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/version"
 )
 
 var (
@@ -21,7 +21,7 @@ var (
 func TestFindModuleInfo(t *testing.T) {
 	dir := t.TempDir()
 	name := filepath.Join(dir, "tailscaled-version-test")
-	out, err := exec.Command("go", "build", "-o", name, "tailscale.com/cmd/tailscaled").CombinedOutput()
+	out, err := exec.Command("go", "build", "-o", name, "github.com/WebP2P/dexnet/cmd/tailscaled").CombinedOutput()
 	if err != nil {
 		t.Fatalf("failed to build tailscaled: %v\n%s", err, out)
 	}

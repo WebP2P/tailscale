@@ -12,12 +12,12 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"tailscale.com/envknob"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/kube/kubeapi"
-	"tailscale.com/kube/kubeclient"
-	"tailscale.com/kube/kubetypes"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/ipn/store/mem"
+	"github.com/WebP2P/dexnet/kube/kubeapi"
+	"github.com/WebP2P/dexnet/kube/kubeclient"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
 )
 
 func TestKubernetesPodMigrationWithTPMAttestationKey(t *testing.T) {
@@ -608,9 +608,9 @@ func TestNewWithClient(t *testing.T) {
 	)
 
 	certSecretsLabels := map[string]string{
-		"tailscale.com/secret-type": kubetypes.LabelSecretTypeCerts,
-		"tailscale.com/managed":     "true",
-		"tailscale.com/proxy-group": "ingress-proxies",
+		"github.com/WebP2P/dexnet/secret-type": kubetypes.LabelSecretTypeCerts,
+		"github.com/WebP2P/dexnet/managed":     "true",
+		"github.com/WebP2P/dexnet/proxy-group": "ingress-proxies",
 	}
 
 	// Helper function to create Secret objects for testing
@@ -674,9 +674,9 @@ func TestNewWithClient(t *testing.T) {
 				makeSecret("app2.tailnetxyz.ts.net", certSecretsLabels, "2"),
 				makeSecret("some-other-secret", nil, "3"),
 				makeSecret("app3.other-proxies.ts.net", map[string]string{
-					"tailscale.com/secret-type": kubetypes.LabelSecretTypeCerts,
-					"tailscale.com/managed":     "true",
-					"tailscale.com/proxy-group": "some-other-proxygroup",
+					"github.com/WebP2P/dexnet/secret-type": kubetypes.LabelSecretTypeCerts,
+					"github.com/WebP2P/dexnet/managed":     "true",
+					"github.com/WebP2P/dexnet/proxy-group": "some-other-proxygroup",
 				}, "4"),
 			},
 			wantMemoryStoreContents: map[ipn.StateKey][]byte{
@@ -698,9 +698,9 @@ func TestNewWithClient(t *testing.T) {
 				makeSecret("app2.tailnetxyz.ts.net", certSecretsLabels, "2"),
 				makeSecret("some-other-secret", nil, "3"),
 				makeSecret("app3.other-proxies.ts.net", map[string]string{
-					"tailscale.com/secret-type": kubetypes.LabelSecretTypeCerts,
-					"tailscale.com/managed":     "true",
-					"tailscale.com/proxy-group": "some-other-proxygroup",
+					"github.com/WebP2P/dexnet/secret-type": kubetypes.LabelSecretTypeCerts,
+					"github.com/WebP2P/dexnet/managed":     "true",
+					"github.com/WebP2P/dexnet/proxy-group": "some-other-proxygroup",
 				}, "4"),
 			},
 			wantMemoryStoreContents: map[ipn.StateKey][]byte{

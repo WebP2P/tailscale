@@ -17,7 +17,7 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/util/lineiter"
+	"github.com/WebP2P/dexnet/util/lineiter"
 )
 
 // These vars are overridden for tests.

@@ -17,10 +17,10 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/tsnet"
-	"tailscale.com/tstest/integration/testcontrol"
-	"tailscale.com/util/httpm"
+	"github.com/WebP2P/dexnet/ipn/store/mem"
+	"github.com/WebP2P/dexnet/tsnet"
+	"github.com/WebP2P/dexnet/tstest/integration/testcontrol"
+	"github.com/WebP2P/dexnet/util/httpm"
 )
 
 var (

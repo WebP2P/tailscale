@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/util/mak"
+	"github.com/WebP2P/dexnet/util/mak"
 )
 
 // FirewallType is the type of filtering a stateful firewall

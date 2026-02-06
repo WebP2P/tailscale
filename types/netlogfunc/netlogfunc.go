@@ -7,7 +7,7 @@ package netlogfunc
 import (
 	"net/netip"
 
-	"tailscale.com/types/ipproto"
+	"github.com/WebP2P/dexnet/types/ipproto"
 )
 
 // ConnectionCounter is a function for counting packets and bytes

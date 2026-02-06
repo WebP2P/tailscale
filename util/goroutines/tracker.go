@@ -6,8 +6,8 @@ package goroutines
 import (
 	"sync/atomic"
 
-	"tailscale.com/syncs"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // Tracker tracks a set of goroutines.

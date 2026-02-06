@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"testing"
 
-	"tailscale.com/tstest"
+	"github.com/WebP2P/dexnet/tstest"
 )
 
 func maybeSkip(t *testing.T) {

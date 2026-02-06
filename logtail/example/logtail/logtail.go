@@ -11,8 +11,8 @@ import (
 	"log"
 	"os"
 
-	"tailscale.com/logtail"
-	"tailscale.com/types/logid"
+	"github.com/WebP2P/dexnet/logtail"
+	"github.com/WebP2P/dexnet/types/logid"
 )
 
 func main() {

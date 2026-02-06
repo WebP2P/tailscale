@@ -8,7 +8,7 @@
 //
 // It primarily supports Linux, though other systems will likely be
 // supported in the future.
-package main // import "tailscale.com/cmd/tailscaled"
+package main // import "github.com/WebP2P/dexnet/cmd/tailscaled"
 
 import (
 	"context"
@@ -27,43 +27,43 @@ import (
 	"syscall"
 	"time"
 
-	"tailscale.com/cmd/tailscaled/childproc"
-	"tailscale.com/control/controlclient"
-	"tailscale.com/envknob"
-	"tailscale.com/feature"
-	"tailscale.com/feature/buildfeatures"
-	_ "tailscale.com/feature/condregister"
-	"tailscale.com/health"
-	"tailscale.com/hostinfo"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/conffile"
-	"tailscale.com/ipn/ipnlocal"
-	"tailscale.com/ipn/ipnserver"
-	"tailscale.com/ipn/store"
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/logpolicy"
-	"tailscale.com/logtail"
-	"tailscale.com/net/dns"
-	"tailscale.com/net/dnsfallback"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/netns"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/net/tstun"
-	"tailscale.com/paths"
-	"tailscale.com/safesocket"
-	"tailscale.com/syncs"
-	"tailscale.com/tsd"
-	"tailscale.com/types/flagtype"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/logid"
-	"tailscale.com/util/osshare"
-	"tailscale.com/util/syspolicy/pkey"
-	"tailscale.com/util/syspolicy/policyclient"
-	"tailscale.com/version"
-	"tailscale.com/version/distro"
-	"tailscale.com/wgengine"
-	"tailscale.com/wgengine/router"
+	"github.com/WebP2P/dexnet/cmd/tailscaled/childproc"
+	"github.com/WebP2P/dexnet/control/controlclient"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	_ "github.com/WebP2P/dexnet/feature/condregister"
+	"github.com/WebP2P/dexnet/health"
+	"github.com/WebP2P/dexnet/hostinfo"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/ipn/conffile"
+	"github.com/WebP2P/dexnet/ipn/ipnlocal"
+	"github.com/WebP2P/dexnet/ipn/ipnserver"
+	"github.com/WebP2P/dexnet/ipn/store"
+	"github.com/WebP2P/dexnet/ipn/store/mem"
+	"github.com/WebP2P/dexnet/logpolicy"
+	"github.com/WebP2P/dexnet/logtail"
+	"github.com/WebP2P/dexnet/net/dns"
+	"github.com/WebP2P/dexnet/net/dnsfallback"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/net/netns"
+	"github.com/WebP2P/dexnet/net/tsdial"
+	"github.com/WebP2P/dexnet/net/tstun"
+	"github.com/WebP2P/dexnet/paths"
+	"github.com/WebP2P/dexnet/safesocket"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/tsd"
+	"github.com/WebP2P/dexnet/types/flagtype"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/logid"
+	"github.com/WebP2P/dexnet/util/osshare"
+	"github.com/WebP2P/dexnet/util/syspolicy/pkey"
+	"github.com/WebP2P/dexnet/util/syspolicy/policyclient"
+	"github.com/WebP2P/dexnet/version"
+	"github.com/WebP2P/dexnet/version/distro"
+	"github.com/WebP2P/dexnet/wgengine"
+	"github.com/WebP2P/dexnet/wgengine/router"
 )
 
 // defaultTunName returns the default tun device name for the platform.
@@ -72,7 +72,7 @@ func defaultTunName() string {
 	case "openbsd":
 		return "tun"
 	case "windows":
-		return "Tailscale"
+		return "DexNet"
 	case "darwin":
 		// "utun" is recognized by wireguard-go/tun/tun_darwin.go
 		// as a magic value that uses/creates any free number.
@@ -85,10 +85,10 @@ func defaultTunName() string {
 		if buildfeatures.HasSynology && buildfeatures.HasNetstack && distro.Get() == distro.Synology {
 			// Try TUN, but fall back to userspace networking if needed.
 			// See https://github.com/tailscale/tailscale-synology/issues/35
-			return "tailscale0,userspace-networking"
+			return "dex0,userspace-networking"
 		}
 	}
-	return "tailscale0"
+	return "dex0"
 }
 
 // defaultPort returns the default UDP port to listen on for disco+wireguard.
@@ -103,7 +103,7 @@ func defaultPort() uint16 {
 		}
 	}
 	if envknob.GOOS() == "windows" {
-		return 41641
+		return 41741
 	}
 	return 0
 }

@@ -17,12 +17,12 @@ import (
 	"time"
 
 	"github.com/fsnotify/fsnotify"
-	"tailscale.com/client/local"
-	"tailscale.com/ipn"
-	"tailscale.com/kube/certs"
-	"tailscale.com/kube/kubetypes"
-	klc "tailscale.com/kube/localclient"
-	"tailscale.com/types/netmap"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/kube/certs"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	klc "github.com/WebP2P/dexnet/kube/localclient"
+	"github.com/WebP2P/dexnet/types/netmap"
 )
 
 // watchServeConfigChanges watches path for changes, and when it sees one, reads

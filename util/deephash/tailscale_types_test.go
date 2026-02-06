@@ -12,17 +12,17 @@ import (
 	"testing"
 
 	"go4.org/mem"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/dnstype"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/types/key"
-	"tailscale.com/types/views"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/wgengine/filter"
-	"tailscale.com/wgengine/router"
-	"tailscale.com/wgengine/wgcfg"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/dnstype"
+	"github.com/WebP2P/dexnet/types/ipproto"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/views"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/wgengine/filter"
+	"github.com/WebP2P/dexnet/wgengine/router"
+	"github.com/WebP2P/dexnet/wgengine/wgcfg"
 
-	. "tailscale.com/util/deephash"
+	. "github.com/WebP2P/dexnet/util/deephash"
 )
 
 var sink Sum

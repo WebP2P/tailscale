@@ -10,17 +10,17 @@ import (
 	"reflect"
 	"testing"
 
-	"tailscale.com/appc"
-	"tailscale.com/ipn"
-	"tailscale.com/net/dns"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/types/dnstype"
-	"tailscale.com/types/netmap"
-	"tailscale.com/types/opt"
-	"tailscale.com/util/cloudenv"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/appc"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/net/dns"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/types/dnstype"
+	"github.com/WebP2P/dexnet/types/netmap"
+	"github.com/WebP2P/dexnet/types/opt"
+	"github.com/WebP2P/dexnet/util/cloudenv"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 func ipps(ippStrs ...string) (ipps []netip.Prefix) {

@@ -13,10 +13,10 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/feature"
-	"tailscale.com/ipn/localapi"
-	"tailscale.com/net/packet"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/ipn/localapi"
+	"github.com/WebP2P/dexnet/net/packet"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 func init() {

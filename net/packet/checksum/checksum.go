@@ -8,8 +8,8 @@ import (
 	"encoding/binary"
 	"net/netip"
 
-	"tailscale.com/net/packet"
-	"tailscale.com/types/ipproto"
+	"github.com/WebP2P/dexnet/net/packet"
+	"github.com/WebP2P/dexnet/types/ipproto"
 )
 
 // UpdateSrcAddr updates the source address in the packet buffer (e.g. during

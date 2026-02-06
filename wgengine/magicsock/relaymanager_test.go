@@ -6,10 +6,10 @@ package magicsock
 import (
 	"testing"
 
-	"tailscale.com/disco"
-	udprelay "tailscale.com/net/udprelay/endpoint"
-	"tailscale.com/types/key"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/disco"
+	udprelay "github.com/WebP2P/dexnet/net/udprelay/endpoint"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 func TestRelayManagerInitAndIdle(t *testing.T) {

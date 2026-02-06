@@ -10,8 +10,8 @@ import (
 	"log"
 	"os"
 
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/types/ptr"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/types/ptr"
 )
 
 func parseAPIProxyMode() *kubetypes.APIServerProxyMode {

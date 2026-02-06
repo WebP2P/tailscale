@@ -27,13 +27,13 @@ import (
 	"time"
 
 	"go4.org/mem"
-	"tailscale.com/envknob"
-	"tailscale.com/metrics"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/tsweb/varz"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/ctxkey"
-	"tailscale.com/util/vizerror"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/metrics"
+	"github.com/WebP2P/dexnet/net/tsaddr"
+	"github.com/WebP2P/dexnet/tsweb/varz"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/ctxkey"
+	"github.com/WebP2P/dexnet/util/vizerror"
 )
 
 // DevMode controls whether extra output in shown, for when the binary is being run in dev mode.
@@ -436,7 +436,7 @@ func ErrorHandler(h ReturnHandler, opts ErrorOptions) http.Handler {
 
 // errCallback is added to logHandler's request context so that errorHandler can
 // pass errors back up the stack to logHandler.
-var errCallback = ctxkey.New[func(HTTPError)]("tailscale.com/tsweb.errCallback", nil)
+var errCallback = ctxkey.New[func(HTTPError)]("github.com/WebP2P/dexnet/tsweb.errCallback", nil)
 
 // logHandler is a http.Handler which logs the HTTP request.
 // It injects an errCallback for errorHandler to augment the log message with

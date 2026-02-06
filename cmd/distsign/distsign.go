@@ -12,7 +12,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"tailscale.com/clientupdate/distsign"
+	"github.com/WebP2P/dexnet/clientupdate/distsign"
 )
 
 var (

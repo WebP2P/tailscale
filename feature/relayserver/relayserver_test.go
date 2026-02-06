@@ -10,16 +10,16 @@ import (
 	"slices"
 	"testing"
 
-	"tailscale.com/ipn"
-	"tailscale.com/net/udprelay/endpoint"
-	"tailscale.com/net/udprelay/status"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tsd"
-	"tailscale.com/tstime"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/ptr"
-	"tailscale.com/types/views"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/net/udprelay/endpoint"
+	"github.com/WebP2P/dexnet/net/udprelay/status"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tsd"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/ptr"
+	"github.com/WebP2P/dexnet/types/views"
 )
 
 func Test_extension_profileStateChanged(t *testing.T) {

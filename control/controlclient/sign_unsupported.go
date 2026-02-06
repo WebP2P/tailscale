@@ -6,9 +6,9 @@
 package controlclient
 
 import (
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/util/syspolicy/policyclient"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/util/syspolicy/policyclient"
 )
 
 // signRegisterRequest on non-supported platforms always returns errNoCertStore.

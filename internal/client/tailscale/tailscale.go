@@ -12,7 +12,7 @@ import (
 	"io"
 	"net/http"
 
-	tsclient "tailscale.com/client/tailscale"
+	tsclient "github.com/WebP2P/dexnet/client/tailscale"
 )
 
 // maxSize is the maximum read size (10MB) of responses from the server.

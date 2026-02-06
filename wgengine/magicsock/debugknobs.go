@@ -11,7 +11,7 @@ import (
 	"strings"
 	"sync"
 
-	"tailscale.com/envknob"
+	"github.com/WebP2P/dexnet/envknob"
 )
 
 // Various debugging and experimental tweakables, set by environment

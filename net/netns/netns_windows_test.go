@@ -9,7 +9,7 @@ import (
 
 	"golang.org/x/sys/windows"
 	"golang.zx2c4.com/wireguard/windows/tunnel/winipcfg"
-	"tailscale.com/tsconst"
+	"github.com/WebP2P/dexnet/tsconst"
 )
 
 func TestGetInterfaceIndex(t *testing.T) {

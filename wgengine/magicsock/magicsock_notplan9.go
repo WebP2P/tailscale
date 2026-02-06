@@ -9,7 +9,7 @@ import (
 	"errors"
 	"syscall"
 
-	"tailscale.com/net/neterror"
+	"github.com/WebP2P/dexnet/net/neterror"
 )
 
 // shouldRebind returns if the error is one that is known to be healed by a

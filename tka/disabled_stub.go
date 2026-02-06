@@ -9,9 +9,9 @@ import (
 	"crypto/ed25519"
 	"errors"
 
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/tkatype"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/tkatype"
 )
 
 type Authority struct {

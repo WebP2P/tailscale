@@ -20,7 +20,7 @@ import (
 	"time"
 
 	"github.com/fsnotify/fsnotify"
-	"tailscale.com/client/local"
+	"github.com/WebP2P/dexnet/client/local"
 )
 
 func startTailscaled(ctx context.Context, cfg *settings) (*local.Client, *os.Process, error) {

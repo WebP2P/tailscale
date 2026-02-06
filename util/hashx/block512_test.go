@@ -11,7 +11,7 @@ import (
 	"testing"
 
 	qt "github.com/frankban/quicktest"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 // naiveHash is an obviously correct implementation of Hash.

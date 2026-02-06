@@ -12,8 +12,8 @@
 package ipnlocal
 
 import (
-	"tailscale.com/ipn"
-	"tailscale.com/tailcfg"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/tailcfg"
 )
 
 const serveEnabled = false

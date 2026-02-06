@@ -8,11 +8,11 @@ import (
 	"fmt"
 	"os"
 
-	"tailscale.com/control/controlknobs"
-	"tailscale.com/health"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/eventbus"
-	"tailscale.com/util/syspolicy/policyclient"
+	"github.com/WebP2P/dexnet/control/controlknobs"
+	"github.com/WebP2P/dexnet/health"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/eventbus"
+	"github.com/WebP2P/dexnet/util/syspolicy/policyclient"
 )
 
 type kv struct {

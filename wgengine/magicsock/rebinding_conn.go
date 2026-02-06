@@ -12,11 +12,11 @@ import (
 	"syscall"
 
 	"golang.org/x/net/ipv6"
-	"tailscale.com/net/batching"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/net/packet"
-	"tailscale.com/syncs"
-	"tailscale.com/types/nettype"
+	"github.com/WebP2P/dexnet/net/batching"
+	"github.com/WebP2P/dexnet/net/netaddr"
+	"github.com/WebP2P/dexnet/net/packet"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/types/nettype"
 )
 
 // RebindingUDPConn is a UDP socket that can be re-bound.

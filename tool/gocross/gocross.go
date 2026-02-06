@@ -18,7 +18,7 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"tailscale.com/atomicfile"
+	"github.com/WebP2P/dexnet/atomicfile"
 )
 
 func main() {

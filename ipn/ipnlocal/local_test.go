@@ -29,53 +29,53 @@ import (
 	memro "go4.org/mem"
 	"go4.org/netipx"
 	"golang.org/x/net/dns/dnsmessage"
-	"tailscale.com/appc"
-	"tailscale.com/appc/appctest"
-	"tailscale.com/control/controlclient"
-	"tailscale.com/drive"
-	"tailscale.com/drive/driveimpl"
-	"tailscale.com/feature"
-	_ "tailscale.com/feature/condregister/portmapper"
-	"tailscale.com/health"
-	"tailscale.com/hostinfo"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/conffile"
-	"tailscale.com/ipn/ipnauth"
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/net/netcheck"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tsd"
-	"tailscale.com/tstest"
-	"tailscale.com/tstest/deptest"
-	"tailscale.com/tstest/typewalk"
-	"tailscale.com/types/appctype"
-	"tailscale.com/types/dnstype"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/logid"
-	"tailscale.com/types/netmap"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/persist"
-	"tailscale.com/types/ptr"
-	"tailscale.com/types/views"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/eventbus"
-	"tailscale.com/util/eventbus/eventbustest"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/must"
-	"tailscale.com/util/set"
-	"tailscale.com/util/syspolicy"
-	"tailscale.com/util/syspolicy/pkey"
-	"tailscale.com/util/syspolicy/policytest"
-	"tailscale.com/util/syspolicy/source"
-	"tailscale.com/wgengine"
-	"tailscale.com/wgengine/filter"
-	"tailscale.com/wgengine/filter/filtertype"
-	"tailscale.com/wgengine/wgcfg"
+	"github.com/WebP2P/dexnet/appc"
+	"github.com/WebP2P/dexnet/appc/appctest"
+	"github.com/WebP2P/dexnet/control/controlclient"
+	"github.com/WebP2P/dexnet/drive"
+	"github.com/WebP2P/dexnet/drive/driveimpl"
+	"github.com/WebP2P/dexnet/feature"
+	_ "github.com/WebP2P/dexnet/feature/condregister/portmapper"
+	"github.com/WebP2P/dexnet/health"
+	"github.com/WebP2P/dexnet/hostinfo"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/ipn/conffile"
+	"github.com/WebP2P/dexnet/ipn/ipnauth"
+	"github.com/WebP2P/dexnet/ipn/store/mem"
+	"github.com/WebP2P/dexnet/net/netcheck"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/net/tsaddr"
+	"github.com/WebP2P/dexnet/net/tsdial"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tsd"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/tstest/deptest"
+	"github.com/WebP2P/dexnet/tstest/typewalk"
+	"github.com/WebP2P/dexnet/types/appctype"
+	"github.com/WebP2P/dexnet/types/dnstype"
+	"github.com/WebP2P/dexnet/types/ipproto"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/logid"
+	"github.com/WebP2P/dexnet/types/netmap"
+	"github.com/WebP2P/dexnet/types/opt"
+	"github.com/WebP2P/dexnet/types/persist"
+	"github.com/WebP2P/dexnet/types/ptr"
+	"github.com/WebP2P/dexnet/types/views"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/util/eventbus"
+	"github.com/WebP2P/dexnet/util/eventbus/eventbustest"
+	"github.com/WebP2P/dexnet/util/mak"
+	"github.com/WebP2P/dexnet/util/must"
+	"github.com/WebP2P/dexnet/util/set"
+	"github.com/WebP2P/dexnet/util/syspolicy"
+	"github.com/WebP2P/dexnet/util/syspolicy/pkey"
+	"github.com/WebP2P/dexnet/util/syspolicy/policytest"
+	"github.com/WebP2P/dexnet/util/syspolicy/source"
+	"github.com/WebP2P/dexnet/wgengine"
+	"github.com/WebP2P/dexnet/wgengine/filter"
+	"github.com/WebP2P/dexnet/wgengine/filter/filtertype"
+	"github.com/WebP2P/dexnet/wgengine/wgcfg"
 )
 
 func inRemove(ip netip.Addr) bool {
@@ -2528,7 +2528,7 @@ func TestReconfigureAppConnector(t *testing.T) {
 			Name: "example.ts.net",
 			Tags: []string{"tag:example"},
 			CapMap: (tailcfg.NodeCapMap)(map[tailcfg.NodeCapability][]tailcfg.RawMessage{
-				"tailscale.com/app-connectors": {tailcfg.RawMessage(appCfg)},
+				"github.com/WebP2P/dexnet/app-connectors": {tailcfg.RawMessage(appCfg)},
 			}),
 		}).View(),
 	}
@@ -7178,9 +7178,9 @@ func TestDeps(t *testing.T) {
 	deptest.DepChecker{
 		OnImport: func(pkg string) {
 			switch pkg {
-			case "tailscale.com/util/syspolicy",
-				"tailscale.com/util/syspolicy/setting",
-				"tailscale.com/util/syspolicy/rsop":
+			case "github.com/WebP2P/dexnet/util/syspolicy",
+				"github.com/WebP2P/dexnet/util/syspolicy/setting",
+				"github.com/WebP2P/dexnet/util/syspolicy/rsop":
 				t.Errorf("ipn/ipnlocal: importing syspolicy package %q is not allowed; only policyclient and its deps should be used by ipn/ipnlocal", pkg)
 			}
 		},

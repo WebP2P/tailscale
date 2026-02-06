@@ -5,4 +5,4 @@
 
 package condregister
 
-import _ "tailscale.com/feature/relayserver"
+import _ "github.com/WebP2P/dexnet/feature/relayserver"

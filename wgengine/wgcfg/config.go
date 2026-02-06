@@ -8,8 +8,8 @@ import (
 	"net/netip"
 	"slices"
 
-	"tailscale.com/types/key"
-	"tailscale.com/types/logid"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logid"
 )
 
 //go:generate go run tailscale.com/cmd/cloner -type=Config,Peer

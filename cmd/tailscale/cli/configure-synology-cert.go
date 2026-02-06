@@ -19,9 +19,9 @@ import (
 	"strings"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/hostinfo"
-	"tailscale.com/ipn"
-	"tailscale.com/version/distro"
+	"github.com/WebP2P/dexnet/hostinfo"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/version/distro"
 )
 
 func init() {

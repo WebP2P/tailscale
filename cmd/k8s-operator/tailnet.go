@@ -14,10 +14,10 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"tailscale.com/internal/client/tailscale"
-	"tailscale.com/ipn"
-	operatorutils "tailscale.com/k8s-operator"
-	tsapi "tailscale.com/k8s-operator/apis/v1alpha1"
+	"github.com/WebP2P/dexnet/internal/client/tailscale"
+	"github.com/WebP2P/dexnet/ipn"
+	operatorutils "github.com/WebP2P/dexnet/k8s-operator"
+	tsapi "github.com/WebP2P/dexnet/k8s-operator/apis/v1alpha1"
 )
 
 func clientForTailnet(ctx context.Context, cl client.Client, namespace, name string) (tsClient, error) {

@@ -12,7 +12,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 func TestMaxSize(t *testing.T) {

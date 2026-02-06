@@ -9,8 +9,8 @@ import (
 	"context"
 	"time"
 
-	"tailscale.com/net/captivedetection"
-	"tailscale.com/tailcfg"
+	"github.com/WebP2P/dexnet/net/captivedetection"
+	"github.com/WebP2P/dexnet/tailcfg"
 )
 
 func init() {

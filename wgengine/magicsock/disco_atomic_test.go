@@ -6,7 +6,7 @@ package magicsock
 import (
 	"testing"
 
-	"tailscale.com/types/key"
+	"github.com/WebP2P/dexnet/types/key"
 )
 
 func TestDiscoAtomic(t *testing.T) {

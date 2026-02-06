@@ -25,9 +25,9 @@ import (
 
 	"github.com/go4org/plan9netshell"
 	"github.com/pkg/sftp"
-	"tailscale.com/cmd/tailscaled/childproc"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/cmd/tailscaled/childproc"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 func init() {

@@ -10,7 +10,7 @@ import (
 	"testing"
 
 	"golang.org/x/net/dns/dnsmessage"
-	"tailscale.com/net/dns/publicdns"
+	"github.com/WebP2P/dexnet/net/dns/publicdns"
 )
 
 var testDoH = flag.Bool("test-doh", false, "do real DoH tests against the network")

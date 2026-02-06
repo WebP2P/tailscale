@@ -13,7 +13,7 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 func newPollingMon(logf logger.Logf, m *Monitor) (osMon, error) {

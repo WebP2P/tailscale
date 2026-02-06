@@ -6,7 +6,7 @@ package tailscale
 import (
 	"context"
 
-	"tailscale.com/feature"
+	"github.com/WebP2P/dexnet/feature"
 )
 
 // ResolvePrefixAWSParameterStore is the string prefix for values that can be

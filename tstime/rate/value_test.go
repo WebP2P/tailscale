@@ -12,8 +12,8 @@ import (
 
 	qt "github.com/frankban/quicktest"
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"tailscale.com/tstime/mono"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/tstime/mono"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 const (

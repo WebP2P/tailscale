@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstest"
 )
 
 // TestPeerCapMap tests that the node capability map (CapMap) is included in peer information.

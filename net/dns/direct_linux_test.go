@@ -16,8 +16,8 @@ import (
 
 	"github.com/illarion/gonotify/v3"
 
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/eventbus/eventbustest"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/util/eventbus/eventbustest"
 )
 
 func TestDNSTrampleRecovery(t *testing.T) {

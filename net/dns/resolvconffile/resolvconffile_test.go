@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/util/dnsname"
+	"github.com/WebP2P/dexnet/util/dnsname"
 )
 
 func TestParse(t *testing.T) {

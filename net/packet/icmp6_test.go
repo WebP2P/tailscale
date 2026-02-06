@@ -7,7 +7,7 @@ import (
 	"net/netip"
 	"testing"
 
-	"tailscale.com/types/ipproto"
+	"github.com/WebP2P/dexnet/types/ipproto"
 )
 
 func TestICMPv6PingResponse(t *testing.T) {

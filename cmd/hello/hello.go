@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 // The hello binary runs hello.ts.net.
-package main // import "tailscale.com/cmd/hello"
+package main // import "github.com/WebP2P/dexnet/cmd/hello"
 
 import (
 	"context"
@@ -18,9 +18,9 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/client/local"
-	"tailscale.com/client/tailscale/apitype"
-	"tailscale.com/tailcfg"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/client/tailscale/apitype"
+	"github.com/WebP2P/dexnet/tailcfg"
 )
 
 var (

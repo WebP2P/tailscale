@@ -9,9 +9,9 @@ import (
 	"maps"
 	"net/netip"
 
-	"tailscale.com/types/dnstype"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/types/dnstype"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // Clone makes a deep copy of Config.

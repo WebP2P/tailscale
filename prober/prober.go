@@ -24,8 +24,8 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 	"golang.org/x/sync/errgroup"
-	"tailscale.com/syncs"
-	"tailscale.com/tsweb"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/tsweb"
 )
 
 // recentHistSize is the number of recent probe results and latencies to keep

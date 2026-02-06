@@ -8,7 +8,7 @@ package linuxfw
 import (
 	"net/netip"
 
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // FakeNetfilterRunner is a fake netfilter runner for tests.

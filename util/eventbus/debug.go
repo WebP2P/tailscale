@@ -14,8 +14,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/syncs"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // slowSubscriberTimeout is a timeout after which a subscriber that does not

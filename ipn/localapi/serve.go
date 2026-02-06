@@ -12,10 +12,10 @@ import (
 	"net/http"
 	"runtime"
 
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnlocal"
-	"tailscale.com/util/httpm"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/ipn/ipnlocal"
+	"github.com/WebP2P/dexnet/util/httpm"
+	"github.com/WebP2P/dexnet/version"
 )
 
 func init() {

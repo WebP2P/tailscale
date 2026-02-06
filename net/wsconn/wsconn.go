@@ -16,7 +16,7 @@ import (
 	"time"
 
 	"github.com/coder/websocket"
-	"tailscale.com/syncs"
+	"github.com/WebP2P/dexnet/syncs"
 )
 
 // NetConn converts a *websocket.Conn into a net.Conn.

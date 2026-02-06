@@ -13,7 +13,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"tailscale.com/tsnet"
+	"github.com/WebP2P/dexnet/tsnet"
 )
 
 // ExampleServer shows you how to construct a ready-to-use tsnet instance.

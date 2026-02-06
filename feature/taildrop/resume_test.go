@@ -12,7 +12,7 @@ import (
 	"testing"
 	"testing/iotest"
 
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 func TestResume(t *testing.T) {

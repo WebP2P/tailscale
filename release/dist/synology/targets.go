@@ -3,7 +3,7 @@
 
 package synology
 
-import "tailscale.com/release/dist"
+import "github.com/WebP2P/dexnet/release/dist"
 
 var v5Models = []string{
 	"armv5",

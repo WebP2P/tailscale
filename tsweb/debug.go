@@ -13,9 +13,9 @@ import (
 	"os"
 	"runtime"
 
-	"tailscale.com/feature"
-	"tailscale.com/tsweb/varz"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/tsweb/varz"
+	"github.com/WebP2P/dexnet/version"
 )
 
 // DebugHandler is an http.Handler that serves a debugging "homepage",

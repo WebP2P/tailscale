@@ -8,12 +8,12 @@ package prefs_example
 import (
 	"net/netip"
 
-	"tailscale.com/drive"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/persist"
-	"tailscale.com/types/prefs"
-	"tailscale.com/types/preftype"
+	"github.com/WebP2P/dexnet/drive"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/opt"
+	"github.com/WebP2P/dexnet/types/persist"
+	"github.com/WebP2P/dexnet/types/prefs"
+	"github.com/WebP2P/dexnet/types/preftype"
 )
 
 // Clone makes a deep copy of Prefs.

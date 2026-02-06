@@ -1,20 +1,20 @@
 // Copyright (c) Tailscale Inc & contributors
 // SPDX-License-Identifier: BSD-3-Clause
 
-package main // import "tailscale.com/cmd/tailscaled"
+package main // import "github.com/WebP2P/dexnet/cmd/tailscaled"
 
 import (
 	"os"
 	"strings"
 	"testing"
 
-	"tailscale.com/envknob"
-	"tailscale.com/ipn"
-	"tailscale.com/net/netmon"
-	"tailscale.com/tsd"
-	"tailscale.com/tstest/deptest"
-	"tailscale.com/types/logid"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/tsd"
+	"github.com/WebP2P/dexnet/tstest/deptest"
+	"github.com/WebP2P/dexnet/types/logid"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 func TestNothing(t *testing.T) {

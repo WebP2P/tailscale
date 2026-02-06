@@ -6,7 +6,7 @@ package netns
 import (
 	"testing"
 
-	"tailscale.com/net/netmon"
+	"github.com/WebP2P/dexnet/net/netmon"
 )
 
 func TestGetInterfaceIndex(t *testing.T) {

@@ -8,7 +8,7 @@
 //   - About: https://tailscale.com/kb/1232/derp-servers
 //   - Protocol & Go docs: https://pkg.go.dev/tailscale.com/derp
 //   - Running a DERP server: https://github.com/tailscale/tailscale/tree/main/cmd/derper#derp
-package main // import "tailscale.com/cmd/derper"
+package main // import "github.com/WebP2P/dexnet/cmd/derper"
 
 import (
 	"cmp"
@@ -39,18 +39,18 @@ import (
 
 	"github.com/tailscale/setec/client/setec"
 	"golang.org/x/time/rate"
-	"tailscale.com/atomicfile"
-	"tailscale.com/derp/derpserver"
-	"tailscale.com/metrics"
-	"tailscale.com/net/ktimeout"
-	"tailscale.com/net/stunserver"
-	"tailscale.com/tsweb"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/atomicfile"
+	"github.com/WebP2P/dexnet/derp/derpserver"
+	"github.com/WebP2P/dexnet/metrics"
+	"github.com/WebP2P/dexnet/net/ktimeout"
+	"github.com/WebP2P/dexnet/net/stunserver"
+	"github.com/WebP2P/dexnet/tsweb"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/version"
 
 	// Support for prometheus varz in tsweb
-	_ "tailscale.com/tsweb/promvarz"
+	_ "github.com/WebP2P/dexnet/tsweb/promvarz"
 )
 
 var (

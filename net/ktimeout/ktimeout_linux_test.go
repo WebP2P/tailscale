@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"golang.org/x/sys/unix"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 func TestSetUserTimeout(t *testing.T) {

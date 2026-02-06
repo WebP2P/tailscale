@@ -13,10 +13,10 @@ import (
 	"syscall"
 
 	"golang.org/x/sys/unix"
-	"tailscale.com/envknob"
-	"tailscale.com/net/netmon"
-	"tailscale.com/tsconst"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/tsconst"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // socketMarkWorksOnce is the sync.Once & cached value for useSocketMark.

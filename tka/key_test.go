@@ -10,8 +10,8 @@ import (
 	"math/rand"
 	"testing"
 
-	"tailscale.com/types/key"
-	"tailscale.com/types/tkatype"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/tkatype"
 )
 
 // returns a random source based on the test name + extraSeed.

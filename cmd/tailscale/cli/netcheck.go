@@ -16,16 +16,16 @@ import (
 	"time"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/envknob"
-	"tailscale.com/feature/buildfeatures"
-	"tailscale.com/ipn"
-	"tailscale.com/net/netcheck"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/portmapper/portmappertype"
-	"tailscale.com/net/tlsdial"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/eventbus"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/net/netcheck"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/net/portmapper/portmappertype"
+	"github.com/WebP2P/dexnet/net/tlsdial"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/eventbus"
 
 	// The "netcheck" command also wants the portmapper linked.
 	//
@@ -33,7 +33,7 @@ import (
 	// tailscaled subcommand, to avoid making the CLI also link in the portmapper.
 	// For now (2025-09-15), keep doing what we've done for the past five years and
 	// keep linking it here.
-	_ "tailscale.com/feature/condregister/portmapper"
+	_ "github.com/WebP2P/dexnet/feature/condregister/portmapper"
 )
 
 var netcheckCmd = &ffcli.Command{

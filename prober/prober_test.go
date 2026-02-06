@@ -22,8 +22,8 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/prometheus/client_golang/prometheus/testutil"
-	"tailscale.com/tstest"
-	"tailscale.com/tsweb"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/tsweb"
 )
 
 const (

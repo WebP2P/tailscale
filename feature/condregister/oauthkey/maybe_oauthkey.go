@@ -5,4 +5,4 @@
 
 package oauthkey
 
-import _ "tailscale.com/feature/oauthkey"
+import _ "github.com/WebP2P/dexnet/feature/oauthkey"

@@ -18,14 +18,14 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/derp"
-	"tailscale.com/derp/derpserver"
-	"tailscale.com/disco"
-	"tailscale.com/metrics"
-	"tailscale.com/net/memnet"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/derp"
+	"github.com/WebP2P/dexnet/derp/derpserver"
+	"github.com/WebP2P/dexnet/disco"
+	"github.com/WebP2P/dexnet/metrics"
+	"github.com/WebP2P/dexnet/net/memnet"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 type (

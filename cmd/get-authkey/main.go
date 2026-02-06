@@ -16,7 +16,7 @@ import (
 	"strings"
 
 	"golang.org/x/oauth2/clientcredentials"
-	"tailscale.com/internal/client/tailscale"
+	"github.com/WebP2P/dexnet/internal/client/tailscale"
 )
 
 func main() {

@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/util/rands"
+	"github.com/WebP2P/dexnet/util/rands"
 )
 
 //go:embed ui-header.html

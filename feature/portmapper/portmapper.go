@@ -6,12 +6,12 @@
 package portmapper
 
 import (
-	"tailscale.com/feature"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/portmapper"
-	"tailscale.com/net/portmapper/portmappertype"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/eventbus"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/net/netmon"
+	"github.com/WebP2P/dexnet/net/portmapper"
+	"github.com/WebP2P/dexnet/net/portmapper/portmappertype"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/eventbus"
 )
 
 func init() {

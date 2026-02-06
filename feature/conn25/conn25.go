@@ -11,11 +11,11 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"tailscale.com/appc"
-	"tailscale.com/feature"
-	"tailscale.com/ipn/ipnext"
-	"tailscale.com/ipn/ipnlocal"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/appc"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/ipn/ipnext"
+	"github.com/WebP2P/dexnet/ipn/ipnlocal"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // featureName is the name of the feature implemented by this package.

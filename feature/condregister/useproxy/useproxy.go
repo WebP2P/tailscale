@@ -5,4 +5,4 @@
 
 package useproxy
 
-import _ "tailscale.com/feature/useproxy"
+import _ "github.com/WebP2P/dexnet/feature/useproxy"

@@ -7,7 +7,7 @@ import (
 	"iter"
 	"maps"
 
-	"tailscale.com/types/structs"
+	"github.com/WebP2P/dexnet/types/structs"
 )
 
 // SmallSet is a set that is optimized for reducing memory overhead when the

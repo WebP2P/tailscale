@@ -18,9 +18,9 @@ import (
 	"time"
 
 	"github.com/fxamacker/cbor/v2"
-	"tailscale.com/atomicfile"
-	"tailscale.com/tstime"
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/atomicfile"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/util/testenv"
 )
 
 // Chonk implementations provide durable storage for AUMs and other

@@ -13,8 +13,8 @@ import (
 	"net"
 	"net/netip"
 
-	"tailscale.com/net/netx"
-	"tailscale.com/syncs"
+	"github.com/WebP2P/dexnet/net/netx"
+	"github.com/WebP2P/dexnet/syncs"
 )
 
 var _ netx.Network = (*Network)(nil)

@@ -7,8 +7,8 @@ import (
 	"math"
 	"testing"
 
-	"tailscale.com/tstest"
-	"tailscale.com/util/must"
+	"github.com/WebP2P/dexnet/tstest"
+	"github.com/WebP2P/dexnet/util/must"
 )
 
 func TestIDs(t *testing.T) {

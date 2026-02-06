@@ -13,9 +13,9 @@ import (
 	"sort"
 	"time"
 
-	"tailscale.com/client/tailscale/apitype"
-	"tailscale.com/util/backoff"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/client/tailscale/apitype"
+	"github.com/WebP2P/dexnet/util/backoff"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // HasFilesWaiting reports whether any files are buffered in [Handler.Dir].

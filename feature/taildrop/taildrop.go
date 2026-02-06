@@ -23,11 +23,11 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"tailscale.com/ipn"
-	"tailscale.com/syncs"
-	"tailscale.com/tstime"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/multierr"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/multierr"
 )
 
 var (

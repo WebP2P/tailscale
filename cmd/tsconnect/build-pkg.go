@@ -13,8 +13,8 @@ import (
 	"path"
 
 	"github.com/tailscale/hujson"
-	"tailscale.com/util/precompress"
-	"tailscale.com/version"
+	"github.com/WebP2P/dexnet/util/precompress"
+	"github.com/WebP2P/dexnet/version"
 )
 
 func runBuildPkg() {

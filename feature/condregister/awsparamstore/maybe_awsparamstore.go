@@ -5,4 +5,4 @@
 
 package awsparamstore
 
-import _ "tailscale.com/feature/awsparamstore"
+import _ "github.com/WebP2P/dexnet/feature/awsparamstore"

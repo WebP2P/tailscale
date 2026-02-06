@@ -9,9 +9,9 @@ package main
 import (
 	"flag"
 
-	"tailscale.com/client/local"
-	"tailscale.com/client/systray"
-	"tailscale.com/paths"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/client/systray"
+	"github.com/WebP2P/dexnet/paths"
 )
 
 var socket = flag.String("socket", paths.DefaultTailscaledSocket(), "path to tailscaled socket")

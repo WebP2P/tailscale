@@ -15,8 +15,8 @@ import (
 	"io"
 	"sync"
 
-	"tailscale.com/control/controlbase"
-	"tailscale.com/tailcfg"
+	"github.com/WebP2P/dexnet/control/controlbase"
+	"github.com/WebP2P/dexnet/tailcfg"
 )
 
 // Conn is a wrapper around controlbase.Conn.

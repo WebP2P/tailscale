@@ -10,7 +10,7 @@ package usermetric
 import (
 	"sync"
 
-	"tailscale.com/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
 )
 
 // Metrics contains user-facing metrics that are used by multiple packages.

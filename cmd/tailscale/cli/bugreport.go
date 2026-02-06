@@ -10,7 +10,7 @@ import (
 	"fmt"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/client/local"
+	"github.com/WebP2P/dexnet/client/local"
 )
 
 var bugReportCmd = &ffcli.Command{

@@ -7,7 +7,7 @@ package dnsname
 import (
 	"strings"
 
-	"tailscale.com/util/vizerror"
+	"github.com/WebP2P/dexnet/util/vizerror"
 )
 
 const (

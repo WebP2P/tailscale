@@ -8,8 +8,8 @@ package logtail
 import (
 	"context"
 
-	tslogger "tailscale.com/types/logger"
-	"tailscale.com/types/logid"
+	tslogger "github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/logid"
 )
 
 // Noop implementations of everything when ts_omit_logtail is set.

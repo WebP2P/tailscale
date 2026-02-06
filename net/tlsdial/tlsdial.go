@@ -26,13 +26,13 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/derp/derpconst"
-	"tailscale.com/envknob"
-	"tailscale.com/feature/buildfeatures"
-	"tailscale.com/health"
-	"tailscale.com/hostinfo"
-	"tailscale.com/net/bakedroots"
-	"tailscale.com/net/tlsdial/blockblame"
+	"github.com/WebP2P/dexnet/derp/derpconst"
+	"github.com/WebP2P/dexnet/envknob"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/health"
+	"github.com/WebP2P/dexnet/hostinfo"
+	"github.com/WebP2P/dexnet/net/bakedroots"
+	"github.com/WebP2P/dexnet/net/tlsdial/blockblame"
 )
 
 var counterFallbackOK int32 // atomic

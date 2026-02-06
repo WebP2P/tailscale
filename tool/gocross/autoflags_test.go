@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"testing"
 
-	"tailscale.com/version/mkversion"
+	"github.com/WebP2P/dexnet/version/mkversion"
 )
 
 var fakeVersion = mkversion.VersionInfo{

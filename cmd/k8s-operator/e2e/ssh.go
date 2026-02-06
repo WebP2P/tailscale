@@ -24,8 +24,8 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 	"k8s.io/client-go/rest"
 	"sigs.k8s.io/controller-runtime/pkg/client"
-	tailscaleroot "tailscale.com"
-	"tailscale.com/types/ptr"
+	dexnetroot "github.com/WebP2P/dexnet"
+	"github.com/WebP2P/dexnet/types/ptr"
 )
 
 const (
@@ -49,7 +49,7 @@ var privateKeyPath = filepath.Join(tmp, "id_ed25519")
 func connectClusterToDevcontrol(ctx context.Context, logger *zap.SugaredLogger, cl client.WithWatch, restConfig *rest.Config, privKey ed25519.PrivateKey, pubKey []byte) (clusterIP string, _ error) {
 	logger.Info("Setting up SSH reverse tunnel from cluster to devcontrol...")
 	var err error
-	if clusterIP, err = applySSHResources(ctx, cl, tailscaleroot.AlpineDockerTag, pubKey); err != nil {
+	if clusterIP, err = applySSHResources(ctx, cl, dexnetroot.AlpineDockerTag, pubKey); err != nil {
 		return "", fmt.Errorf("failed to apply ssh-server resources: %w", err)
 	}
 	sshPodName, err := waitForPodReady(ctx, logger, cl, ns, client.MatchingLabels{"app": "ssh-server"})

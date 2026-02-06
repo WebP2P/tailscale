@@ -8,10 +8,10 @@ package ipnlocal
 import (
 	"errors"
 
-	"tailscale.com/feature"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/persist"
+	"github.com/WebP2P/dexnet/feature"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/types/persist"
 )
 
 func init() {

@@ -10,7 +10,7 @@ import (
 	"net/netip"
 	"sync"
 
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // ForEachAddrOpts contains options for ForEachAddr. The zero value for all

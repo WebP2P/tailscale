@@ -17,10 +17,10 @@ import (
 	"time"
 
 	"github.com/fsnotify/fsnotify"
-	"tailscale.com/kube/ingressservices"
-	"tailscale.com/kube/kubeclient"
-	"tailscale.com/util/linuxfw"
-	"tailscale.com/util/mak"
+	"github.com/WebP2P/dexnet/kube/ingressservices"
+	"github.com/WebP2P/dexnet/kube/kubeclient"
+	"github.com/WebP2P/dexnet/util/linuxfw"
+	"github.com/WebP2P/dexnet/util/mak"
 )
 
 // ingressProxy corresponds to a Kubernetes Operator's network layer ingress

@@ -15,7 +15,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"tailscale.com/util/linuxfw"
+	"github.com/WebP2P/dexnet/util/linuxfw"
 )
 
 // ensureIPForwarding enables IPv4/IPv6 forwarding for the container.

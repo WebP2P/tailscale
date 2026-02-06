@@ -12,8 +12,8 @@ import (
 	"testing"
 
 	"go4.org/mem"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/types/logger"
+	"github.com/WebP2P/dexnet/util/testenv"
 )
 
 type testLogWriter struct {

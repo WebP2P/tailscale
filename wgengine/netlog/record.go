@@ -13,10 +13,10 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/bools"
-	"tailscale.com/types/netlogtype"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/bools"
+	"github.com/WebP2P/dexnet/types/netlogtype"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // maxLogSize is the maximum number of bytes for a log message.

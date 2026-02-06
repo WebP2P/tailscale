@@ -9,10 +9,10 @@ import (
 	"slices"
 	"sync"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/appctype"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/appctype"
+	"github.com/WebP2P/dexnet/util/mak"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // Conn25 holds the developing state for the as yet nascent next generation app connector.
@@ -114,7 +114,7 @@ type ConnectorTransitIPResponse struct {
 	TransitIPs []TransitIPResponse `json:"transitIPs,omitempty"`
 }
 
-const AppConnectorsExperimentalAttrName = "tailscale.com/app-connectors-experimental"
+const AppConnectorsExperimentalAttrName = "github.com/WebP2P/dexnet/app-connectors-experimental"
 
 // PickSplitDNSPeers looks at the netmap peers capabilities and finds which peers
 // want to be connectors for which domains.

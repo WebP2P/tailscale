@@ -9,7 +9,7 @@ import (
 	"context"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/client/systray"
+	"github.com/WebP2P/dexnet/client/systray"
 )
 
 var systrayCmd = &ffcli.Command{

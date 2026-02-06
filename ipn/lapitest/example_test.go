@@ -7,7 +7,7 @@ import (
 	"context"
 	"testing"
 
-	"tailscale.com/ipn"
+	"github.com/WebP2P/dexnet/ipn"
 )
 
 func TestClientServer(t *testing.T) {

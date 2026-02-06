@@ -8,7 +8,7 @@ import (
 	"errors"
 	"reflect"
 
-	"tailscale.com/util/testenv"
+	"github.com/WebP2P/dexnet/util/testenv"
 )
 
 var ErrUnavailable = errors.New("feature not included in this build")

@@ -8,7 +8,7 @@ package prefs
 import (
 	"net/netip"
 
-	"tailscale.com/types/ptr"
+	"github.com/WebP2P/dexnet/types/ptr"
 )
 
 // Clone makes a deep copy of TestPrefs.

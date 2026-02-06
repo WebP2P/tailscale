@@ -34,12 +34,12 @@ import (
 	"golang.org/x/crypto/ssh"
 	gossh "golang.org/x/crypto/ssh"
 	"golang.org/x/crypto/ssh/agent"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/tailcfg"
-	glider "tailscale.com/tempfork/gliderlabs/ssh"
-	"tailscale.com/types/key"
-	"tailscale.com/types/netmap"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/net/tsdial"
+	"github.com/WebP2P/dexnet/tailcfg"
+	glider "github.com/WebP2P/dexnet/tempfork/gliderlabs/ssh"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/types/netmap"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // This file contains integration tests of the SSH functionality. These tests

@@ -16,9 +16,9 @@ import (
 	"time"
 
 	"github.com/godbus/dbus/v5"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/util/cmpver"
-	"tailscale.com/util/dnsname"
+	"github.com/WebP2P/dexnet/net/tsaddr"
+	"github.com/WebP2P/dexnet/util/cmpver"
+	"github.com/WebP2P/dexnet/util/dnsname"
 )
 
 const (

@@ -7,7 +7,7 @@ package policy
 import (
 	"time"
 
-	"tailscale.com/util/winutil"
+	"github.com/WebP2P/dexnet/util/winutil"
 )
 
 // PreferenceOptionPolicy is a policy that governs whether a boolean variable

@@ -10,8 +10,8 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/tsconst"
+	"github.com/WebP2P/dexnet/net/tsaddr"
+	"github.com/WebP2P/dexnet/tsconst"
 )
 
 var testIsNotExistErr = "exitcode:1"

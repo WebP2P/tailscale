@@ -6,7 +6,7 @@ package dist
 import (
 	"sync"
 
-	"tailscale.com/util/deephash"
+	"github.com/WebP2P/dexnet/util/deephash"
 )
 
 // MemoizedFn is a function that memoize.Do can call.

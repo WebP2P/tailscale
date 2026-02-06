@@ -30,31 +30,31 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	"tailscale.com/internal/client/tailscale"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnstate"
-	tsoperator "tailscale.com/k8s-operator"
-	tsapi "tailscale.com/k8s-operator/apis/v1alpha1"
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/tailcfg"
-	"tailscale.com/util/clientmetric"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/internal/client/tailscale"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/ipn/ipnstate"
+	tsoperator "github.com/WebP2P/dexnet/k8s-operator"
+	tsapi "github.com/WebP2P/dexnet/k8s-operator/apis/v1alpha1"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/util/clientmetric"
+	"github.com/WebP2P/dexnet/util/dnsname"
+	"github.com/WebP2P/dexnet/util/mak"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 const (
 	serveConfigKey       = "serve-config.json"
-	TailscaleSvcOwnerRef = "tailscale.com/k8s-operator:owned-by:%s"
+	TailscaleSvcOwnerRef = "github.com/WebP2P/dexnet/k8s-operator:owned-by:%s"
 	// FinalizerNamePG is the finalizer used by the IngressPGReconciler
-	FinalizerNamePG = "tailscale.com/ingress-pg-finalizer"
+	FinalizerNamePG = "github.com/WebP2P/dexnet/ingress-pg-finalizer"
 
 	indexIngressProxyGroup = ".metadata.annotations.ingress-proxy-group"
 	// annotationHTTPEndpoint can be used to configure the Ingress to expose an HTTP endpoint to tailnet (as
 	// well as the default HTTPS endpoint).
-	annotationHTTPEndpoint = "tailscale.com/http-endpoint"
+	annotationHTTPEndpoint = "github.com/WebP2P/dexnet/http-endpoint"
 
-	labelDomain              = "tailscale.com/domain"
+	labelDomain              = "github.com/WebP2P/dexnet/domain"
 	msgFeatureFlagNotEnabled = "Tailscale Service feature flag is not enabled for this tailnet, skipping provisioning. " +
 		"Please contact Tailscale support through https://tailscale.com/contact/support to enable the feature flag, then recreate the operator's Pod."
 
@@ -852,7 +852,7 @@ func numberPodsAdvertising(ctx context.Context, cl client.Client, tsNamespace, p
 	return count, nil
 }
 
-const ownerAnnotation = "tailscale.com/owner-references"
+const ownerAnnotation = "github.com/WebP2P/dexnet/owner-references"
 
 // ownerAnnotationValue is the content of the TailscaleService.Annotation[ownerAnnotation] field.
 type ownerAnnotationValue struct {

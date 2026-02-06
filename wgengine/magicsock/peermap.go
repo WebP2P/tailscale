@@ -4,9 +4,9 @@
 package magicsock
 
 import (
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/util/set"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/key"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 // peerInfo is all the information magicsock tracks about a particular

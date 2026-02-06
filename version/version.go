@@ -11,8 +11,8 @@ import (
 	"strings"
 	"sync"
 
-	tailscaleroot "tailscale.com"
-	"tailscale.com/types/lazy"
+	dexnetroot "github.com/WebP2P/dexnet"
+	"github.com/WebP2P/dexnet/types/lazy"
 )
 
 // Stamp vars can have their value set at build time by linker flags (see
@@ -77,9 +77,9 @@ func Long() string {
 		}
 		bi := getEmbeddedInfo()
 		if !bi.valid {
-			return strings.TrimSpace(tailscaleroot.VersionDotTxt) + "-ERR-BuildInfo"
+			return strings.TrimSpace(dexnetroot.VersionDotTxt) + "-ERR-BuildInfo"
 		}
-		return fmt.Sprintf("%s-dev%s-t%s%s", strings.TrimSpace(tailscaleroot.VersionDotTxt), bi.commitDate, bi.commitAbbrev(), dirtyString())
+		return fmt.Sprintf("%s-dev%s-t%s%s", strings.TrimSpace(dexnetroot.VersionDotTxt), bi.commitDate, bi.commitAbbrev(), dirtyString())
 	})
 }
 
@@ -97,9 +97,9 @@ func Short() string {
 		}
 		bi := getEmbeddedInfo()
 		if !bi.valid {
-			return strings.TrimSpace(tailscaleroot.VersionDotTxt) + "-ERR-BuildInfo"
+			return strings.TrimSpace(dexnetroot.VersionDotTxt) + "-ERR-BuildInfo"
 		}
-		return strings.TrimSpace(tailscaleroot.VersionDotTxt) + "-dev" + bi.commitDate
+		return strings.TrimSpace(dexnetroot.VersionDotTxt) + "-dev" + bi.commitDate
 	})
 }
 

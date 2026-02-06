@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/net/packet"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstime/mono"
-	"tailscale.com/types/key"
+	"github.com/WebP2P/dexnet/net/packet"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/tstime/mono"
+	"github.com/WebP2P/dexnet/types/key"
 )
 
 func TestProbeUDPLifetimeConfig_Equals(t *testing.T) {

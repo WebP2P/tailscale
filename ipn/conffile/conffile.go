@@ -12,8 +12,8 @@ import (
 	"os"
 	"runtime"
 
-	"tailscale.com/feature/buildfeatures"
-	"tailscale.com/ipn"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/ipn"
 )
 
 // Config describes a config file.

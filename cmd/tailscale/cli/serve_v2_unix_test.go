@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"tailscale.com/ipn"
+	"github.com/WebP2P/dexnet/ipn"
 )
 
 func TestServeUnixSocketCLI(t *testing.T) {

@@ -11,7 +11,7 @@ import (
 	"log"
 	"net/http"
 
-	"tailscale.com/client/local"
+	"github.com/WebP2P/dexnet/client/local"
 )
 
 func main() {

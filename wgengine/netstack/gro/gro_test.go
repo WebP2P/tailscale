@@ -10,7 +10,7 @@ import (
 
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/header"
-	"tailscale.com/net/packet"
+	"github.com/WebP2P/dexnet/net/packet"
 )
 
 func Test_RXChecksumOffload(t *testing.T) {

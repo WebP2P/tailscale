@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"testing"
 
-	"tailscale.com/types/preftype"
+	"github.com/WebP2P/dexnet/types/preftype"
 )
 
 func TestConfigEqual(t *testing.T) {

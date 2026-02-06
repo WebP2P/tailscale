@@ -11,9 +11,9 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/ipn"
-	"tailscale.com/tstime"
-	"tailscale.com/types/logger"
+	"github.com/WebP2P/dexnet/ipn"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/types/logger"
 )
 
 // deleteDelay is the amount of time to wait before we delete a file.

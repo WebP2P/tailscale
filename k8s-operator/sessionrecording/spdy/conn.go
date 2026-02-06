@@ -20,8 +20,8 @@ import (
 
 	"go.uber.org/zap"
 	corev1 "k8s.io/api/core/v1"
-	"tailscale.com/k8s-operator/sessionrecording/tsrecorder"
-	"tailscale.com/sessionrecording"
+	"github.com/WebP2P/dexnet/k8s-operator/sessionrecording/tsrecorder"
+	"github.com/WebP2P/dexnet/sessionrecording"
 )
 
 // New wraps the provided network connection and returns a connection whose reads and writes will get triggered as data is received on the hijacked connection.

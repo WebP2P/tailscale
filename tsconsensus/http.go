@@ -14,7 +14,7 @@ import (
 	"net/http"
 	"time"
 
-	"tailscale.com/util/httpm"
+	"github.com/WebP2P/dexnet/util/httpm"
 )
 
 type joinRequest struct {

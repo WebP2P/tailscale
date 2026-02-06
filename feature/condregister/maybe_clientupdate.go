@@ -5,4 +5,4 @@
 
 package condregister
 
-import _ "tailscale.com/feature/clientupdate"
+import _ "github.com/WebP2P/dexnet/feature/clientupdate"

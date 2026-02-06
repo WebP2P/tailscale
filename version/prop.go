@@ -11,8 +11,8 @@ import (
 	"strings"
 	"sync"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/lazy"
+	"github.com/WebP2P/dexnet/tailcfg"
+	"github.com/WebP2P/dexnet/types/lazy"
 )
 
 // AppIdentifierFn, if non-nil, is a callback function that returns the

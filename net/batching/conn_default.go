@@ -6,7 +6,7 @@
 package batching
 
 import (
-	"tailscale.com/types/nettype"
+	"github.com/WebP2P/dexnet/types/nettype"
 )
 
 // TryUpgradeToConn is no-op on all platforms except linux.

@@ -16,10 +16,10 @@ import (
 	"time"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/client/local"
-	"tailscale.com/cmd/tailscale/cli/ffcomplete"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/tailcfg"
+	"github.com/WebP2P/dexnet/client/local"
+	"github.com/WebP2P/dexnet/cmd/tailscale/cli/ffcomplete"
+	"github.com/WebP2P/dexnet/ipn/ipnstate"
+	"github.com/WebP2P/dexnet/tailcfg"
 )
 
 var pingCmd = &ffcli.Command{

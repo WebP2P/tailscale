@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/util/must"
-	"tailscale.com/util/syspolicy/pkey"
-	"tailscale.com/util/syspolicy/ptype"
-	"tailscale.com/util/syspolicy/setting"
+	"github.com/WebP2P/dexnet/util/must"
+	"github.com/WebP2P/dexnet/util/syspolicy/pkey"
+	"github.com/WebP2P/dexnet/util/syspolicy/ptype"
+	"github.com/WebP2P/dexnet/util/syspolicy/setting"
 )
 
 func TestReaderLifecycle(t *testing.T) {

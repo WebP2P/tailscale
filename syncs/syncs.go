@@ -10,7 +10,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"tailscale.com/util/mak"
+	"github.com/WebP2P/dexnet/util/mak"
 )
 
 // ClosedChan returns a channel that's already closed.

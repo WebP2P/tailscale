@@ -14,12 +14,12 @@ import (
 	"time"
 
 	"github.com/gaissmai/bart"
-	"tailscale.com/net/flowtrack"
-	"tailscale.com/net/packet"
-	"tailscale.com/net/tstun"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/util/mak"
-	"tailscale.com/wgengine/filter"
+	"github.com/WebP2P/dexnet/net/flowtrack"
+	"github.com/WebP2P/dexnet/net/packet"
+	"github.com/WebP2P/dexnet/net/tstun"
+	"github.com/WebP2P/dexnet/types/ipproto"
+	"github.com/WebP2P/dexnet/util/mak"
+	"github.com/WebP2P/dexnet/wgengine/filter"
 )
 
 type flowtrackTuple = flowtrack.Tuple

@@ -8,7 +8,7 @@ package clonerex
 import (
 	"maps"
 
-	"tailscale.com/types/ptr"
+	"github.com/WebP2P/dexnet/types/ptr"
 )
 
 // Clone makes a deep copy of SliceContainer.

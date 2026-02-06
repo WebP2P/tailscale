@@ -13,10 +13,10 @@ import (
 	"runtime"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/clientupdate"
-	"tailscale.com/util/prompt"
-	"tailscale.com/version"
-	"tailscale.com/version/distro"
+	"github.com/WebP2P/dexnet/clientupdate"
+	"github.com/WebP2P/dexnet/util/prompt"
+	"github.com/WebP2P/dexnet/version"
+	"github.com/WebP2P/dexnet/version/distro"
 )
 
 func init() {

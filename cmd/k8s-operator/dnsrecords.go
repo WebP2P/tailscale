@@ -22,15 +22,15 @@ import (
 	"k8s.io/utils/net"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
-	operatorutils "tailscale.com/k8s-operator"
-	tsapi "tailscale.com/k8s-operator/apis/v1alpha1"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/set"
+	operatorutils "github.com/WebP2P/dexnet/k8s-operator"
+	tsapi "github.com/WebP2P/dexnet/k8s-operator/apis/v1alpha1"
+	"github.com/WebP2P/dexnet/util/mak"
+	"github.com/WebP2P/dexnet/util/set"
 )
 
 const (
-	dnsRecordsRecocilerFinalizer = "tailscale.com/dns-records-reconciler"
-	annotationTSMagicDNSName     = "tailscale.com/magic-dnsname"
+	dnsRecordsRecocilerFinalizer = "github.com/WebP2P/dexnet/dns-records-reconciler"
+	annotationTSMagicDNSName     = "github.com/WebP2P/dexnet/magic-dnsname"
 
 	// Service types for consistent string usage
 	serviceTypeIngress = "ingress"

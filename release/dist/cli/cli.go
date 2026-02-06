@@ -17,8 +17,8 @@ import (
 	"time"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/clientupdate/distsign"
-	"tailscale.com/release/dist"
+	"github.com/WebP2P/dexnet/clientupdate/distsign"
+	"github.com/WebP2P/dexnet/release/dist"
 )
 
 // CLI returns a CLI root command to build release packages.

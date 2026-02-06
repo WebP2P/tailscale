@@ -16,7 +16,7 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/tstime/mono"
+	"github.com/WebP2P/dexnet/tstime/mono"
 )
 
 func closeEnough(a, b Limit) bool {

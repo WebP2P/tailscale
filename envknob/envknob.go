@@ -31,12 +31,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/feature/buildfeatures"
-	"tailscale.com/kube/kubetypes"
-	"tailscale.com/syncs"
-	"tailscale.com/types/opt"
-	"tailscale.com/version"
-	"tailscale.com/version/distro"
+	"github.com/WebP2P/dexnet/feature/buildfeatures"
+	"github.com/WebP2P/dexnet/kube/kubetypes"
+	"github.com/WebP2P/dexnet/syncs"
+	"github.com/WebP2P/dexnet/types/opt"
+	"github.com/WebP2P/dexnet/version"
+	"github.com/WebP2P/dexnet/version/distro"
 )
 
 var (

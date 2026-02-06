@@ -9,8 +9,8 @@ import (
 	"net/netip"
 	"time"
 
-	"tailscale.com/tstime"
-	"tailscale.com/types/key"
+	"github.com/WebP2P/dexnet/tstime"
+	"github.com/WebP2P/dexnet/types/key"
 )
 
 // ServerRetryAfter is the default

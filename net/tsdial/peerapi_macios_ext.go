@@ -14,7 +14,7 @@ import (
 	"net"
 	"syscall"
 
-	"tailscale.com/net/netns"
+	"github.com/WebP2P/dexnet/net/netns"
 )
 
 func init() {
