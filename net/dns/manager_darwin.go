@@ -7,15 +7,13 @@ import (
 	"bytes"
 	"os"
 
-	"go4.org/mem"
 	"github.com/WebP2P/dexnet/control/controlknobs"
 	"github.com/WebP2P/dexnet/health"
-	"github.com/WebP2P/dexnet/net/dns/resolvconffile"
-	"github.com/WebP2P/dexnet/net/tsaddr"
 	"github.com/WebP2P/dexnet/types/logger"
 	"github.com/WebP2P/dexnet/util/eventbus"
 	"github.com/WebP2P/dexnet/util/mak"
 	"github.com/WebP2P/dexnet/util/syspolicy/policyclient"
+	"go4.org/mem"
 )
 
 // NewOSConfigurator creates a new OS configurator.
@@ -25,9 +23,9 @@ func NewOSConfigurator(logf logger.Logf, _ *health.Tracker, _ *eventbus.Bus, _ p
 	return &darwinConfigurator{logf: logf, ifName: ifName}, nil
 }
 
-// darwinConfigurator is the tailscaled-on-macOS DNS OS configurator that
+// darwinConfigurator is the dex meshd macOS DNS OS configurator that
 // maintains the Split DNS nameserver entries pointing MagicDNS DNS suffixes
-// to 100.100.100.100 using the macOS /etc/resolver/$SUFFIX files.
+// to the mesh service IP using the macOS /etc/resolver/$SUFFIX files.
 type darwinConfigurator struct {
 	logf   logger.Logf
 	ifName string
@@ -60,7 +58,7 @@ func (c *darwinConfigurator) SetDNS(cfg OSConfig) error {
 	// Add a dummy file to /etc/resolver with a "search ..." directive if we have
 	// search suffixes to add.
 	if len(cfg.SearchDomains) > 0 {
-		const searchFile = "search.tailscale" // fake DNS suffix+TLD to put our search
+		const searchFile = "search.dex" // fake DNS suffix+TLD to put our search
 		mak.Set(&keep, searchFile, true)
 		var sbuf bytes.Buffer
 		sbuf.WriteString(macResolverFileHeader)
@@ -87,39 +85,18 @@ func (c *darwinConfigurator) SetDNS(cfg OSConfig) error {
 	return c.removeResolverFiles(func(domain string) bool { return !keep[domain] })
 }
 
-// GetBaseConfig returns the current OS DNS configuration, extracting it from /etc/resolv.conf.
-// We should really be using the SystemConfiguration framework to get this information, as this
-// is not a stable public API, and is provided mostly as a compatibility effort with Unix
-// tools. Apple might break this in the future. But honestly, parsing the output of `scutil --dns`
-// is *even more* likely to break in the future.
+// GetBaseConfig returns ErrGetBaseConfigNotSupported on macOS daemon mode.
+// This causes the DNS manager (manager.go:392-404) to fall back to split DNS
+// mode with MatchDomains populated, which in turn causes SetDNS to create
+// /etc/resolver/<domain> files pointing mesh DNS suffixes to the service IP.
+// Without this, the upstream logic skips MatchDomains on Apple platforms (since
+// the GUI app uses NetworkExtension for DNS), leaving daemon mode with no way
+// for macOS apps to discover mesh hostnames.
 func (c *darwinConfigurator) GetBaseConfig() (OSConfig, error) {
-	cfg := OSConfig{}
-
-	resolvConf, err := resolvconffile.ParseFile("/etc/resolv.conf")
-	if err != nil {
-		c.logf("failed to parse /etc/resolv.conf: %v", err)
-		return cfg, ErrGetBaseConfigNotSupported
-	}
-
-	for _, ns := range resolvConf.Nameservers {
-		if ns == tsaddr.TailscaleServiceIP() || ns == tsaddr.TailscaleServiceIPv6() {
-			// If we find Quad100 in /etc/resolv.conf, we should ignore it
-			c.logf("ignoring 100.100.100.100 resolver IP found in /etc/resolv.conf")
-			continue
-		}
-		cfg.Nameservers = append(cfg.Nameservers, ns)
-	}
-	cfg.SearchDomains = resolvConf.SearchDomains
-
-	if len(cfg.Nameservers) == 0 {
-		// Log a warning in case we couldn't find any nameservers in /etc/resolv.conf.
-		c.logf("no nameservers found in /etc/resolv.conf, DNS resolution might fail")
-	}
-
-	return cfg, nil
+	return OSConfig{}, ErrGetBaseConfigNotSupported
 }
 
-const macResolverFileHeader = "# Added by tailscaled\n"
+const macResolverFileHeader = "# Added by dex\n"
 
 // removeResolverFiles deletes all files in /etc/resolver for which the shouldDelete
 // func returns true.
