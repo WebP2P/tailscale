@@ -130,7 +130,7 @@ func TestImpersonationHeaders(t *testing.T) {
 }
 
 func Test_determineRecorderConfig(t *testing.T) {
-	addr1, addr2 := netip.MustParseAddrPort("[fd7a:115c:a1e0:ab12:4843:cd96:626b:628b]:80"), netip.MustParseAddrPort("100.99.99.99:80")
+	addr1, addr2 := netip.MustParseAddrPort("[fd0d:e100:d3c5:ab12:4843:cd96:626b:628b]:80"), netip.MustParseAddrPort("100.99.99.99:80")
 	tests := []struct {
 		name                  string
 		wantFailOpen          bool
@@ -139,18 +139,18 @@ func Test_determineRecorderConfig(t *testing.T) {
 	}{
 		{
 			name:                  "two_ips_fail_closed",
-			who:                   whoResp(map[string][]string{string(tailcfg.PeerCapabilityKubernetes): {`{"recorderAddrs":["[fd7a:115c:a1e0:ab12:4843:cd96:626b:628b]:80","100.99.99.99:80"],"enforceRecorder":true}`}}),
+			who:                   whoResp(map[string][]string{string(tailcfg.PeerCapabilityKubernetes): {`{"recorderAddrs":["[fd0d:e100:d3c5:ab12:4843:cd96:626b:628b]:80","100.99.99.99:80"],"enforceRecorder":true}`}}),
 			wantRecorderAddresses: []netip.AddrPort{addr1, addr2},
 		},
 		{
 			name:                  "two_ips_fail_open",
-			who:                   whoResp(map[string][]string{string(tailcfg.PeerCapabilityKubernetes): {`{"recorderAddrs":["[fd7a:115c:a1e0:ab12:4843:cd96:626b:628b]:80","100.99.99.99:80"]}`}}),
+			who:                   whoResp(map[string][]string{string(tailcfg.PeerCapabilityKubernetes): {`{"recorderAddrs":["[fd0d:e100:d3c5:ab12:4843:cd96:626b:628b]:80","100.99.99.99:80"]}`}}),
 			wantRecorderAddresses: []netip.AddrPort{addr1, addr2},
 			wantFailOpen:          true,
 		},
 		{
 			name:                  "odd_rule_combination_fail_closed",
-			who:                   whoResp(map[string][]string{string(tailcfg.PeerCapabilityKubernetes): {`{"recorderAddrs":["100.99.99.99:80"],"enforceRecorder":false}`, `{"recorderAddrs":["[fd7a:115c:a1e0:ab12:4843:cd96:626b:628b]:80"]}`, `{"enforceRecorder":true,"impersonate":{"groups":["system:masters"]}}`}}),
+			who:                   whoResp(map[string][]string{string(tailcfg.PeerCapabilityKubernetes): {`{"recorderAddrs":["100.99.99.99:80"],"enforceRecorder":false}`, `{"recorderAddrs":["[fd0d:e100:d3c5:ab12:4843:cd96:626b:628b]:80"]}`, `{"enforceRecorder":true,"impersonate":{"groups":["system:masters"]}}`}}),
 			wantRecorderAddresses: []netip.AddrPort{addr2, addr1},
 		},
 		{

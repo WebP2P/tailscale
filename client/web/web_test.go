@@ -19,7 +19,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/google/go-cmp/cmp"
 	"github.com/WebP2P/dexnet/client/local"
 	"github.com/WebP2P/dexnet/client/tailscale/apitype"
 	"github.com/WebP2P/dexnet/ipn"
@@ -29,6 +28,7 @@ import (
 	"github.com/WebP2P/dexnet/types/views"
 	"github.com/WebP2P/dexnet/util/httpm"
 	"github.com/WebP2P/dexnet/util/syspolicy/policyclient"
+	"github.com/google/go-cmp/cmp"
 )
 
 func TestQnapAuthnURL(t *testing.T) {
@@ -1115,8 +1115,8 @@ func TestPathPrefix(t *testing.T) {
 func TestRequireTailscaleIP(t *testing.T) {
 	self := &ipnstate.PeerStatus{
 		TailscaleIPs: []netip.Addr{
-			netip.MustParseAddr("100.1.2.3"),
-			netip.MustParseAddr("fd7a:115c::1234"),
+			netip.MustParseAddr("10.200.1.2"),
+			netip.MustParseAddr("fd0d:e100::1234"),
 		},
 	}
 
@@ -1143,48 +1143,48 @@ func TestRequireTailscaleIP(t *testing.T) {
 			name:         "localhost",
 			target:       "http://localhost/",
 			wantHandled:  true,
-			wantLocation: "http://100.1.2.3:5252/",
+			wantLocation: "http://10.200.1.2:5252/",
 		},
 		{
 			name:         "ipv4-no-port",
-			target:       "http://100.1.2.3/",
+			target:       "http://10.200.1.2/",
 			wantHandled:  true,
-			wantLocation: "http://100.1.2.3:5252/",
+			wantLocation: "http://10.200.1.2:5252/",
 		},
 		{
 			name:        "ipv4-correct-port",
-			target:      "http://100.1.2.3:5252/",
+			target:      "http://10.200.1.2:5252/",
 			wantHandled: false,
 		},
 		{
 			name:         "ipv6-no-port",
-			target:       "http://[fd7a:115c::1234]/",
+			target:       "http://[fd0d:e100::1234]/",
 			wantHandled:  true,
-			wantLocation: "http://100.1.2.3:5252/",
+			wantLocation: "http://10.200.1.2:5252/",
 		},
 		{
 			name:        "ipv6-correct-port",
-			target:      "http://[fd7a:115c::1234]:5252/",
+			target:      "http://[fd0d:e100::1234]:5252/",
 			wantHandled: false,
 		},
 		{
 			name:        "quad-100",
-			target:      "http://100.100.100.100/",
+			target:      "http://10.200.0.1/",
 			wantHandled: false,
 		},
 		{
 			name:        "ipv6-service-addr",
-			target:      "http://[fd7a:115c:a1e0::53]/",
+			target:      "http://[fd0d:e100:d3c5:de1::1]/",
 			wantHandled: false,
 		},
 		{
 			name:        "quad-100:80",
-			target:      "http://100.100.100.100:80/",
+			target:      "http://10.200.0.1:80/",
 			wantHandled: false,
 		},
 		{
 			name:        "ipv6-service-addr:80",
-			target:      "http://[fd7a:115c:a1e0::53]:80/",
+			target:      "http://[fd0d:e100:d3c5:de1::1]:80/",
 			wantHandled: false,
 		},
 	}

@@ -3269,8 +3269,8 @@ const LBHeader = "Ts-Lb"
 // This is of the form:
 //
 //	{
-//	  "svc:samba": ["100.65.32.1", "fd7a:115c:a1e0::1234"],
-//	  "svc:web": ["100.102.42.3", "fd7a:115c:a1e0::abcd"],
+//	  "svc:samba": ["100.65.32.1", "fd0d:e100:d3c5::1234"],
+//	  "svc:web": ["100.102.42.3", "fd0d:e100:d3c5::abcd"],
 //	}
 //
 // where the IP addresses are the IPs of the VIP services. These IPs are also

@@ -13,10 +13,6 @@ import (
 	"testing"
 	"time"
 
-	"gvisor.dev/gvisor/pkg/buffer"
-	"gvisor.dev/gvisor/pkg/tcpip"
-	"gvisor.dev/gvisor/pkg/tcpip/header"
-	"gvisor.dev/gvisor/pkg/tcpip/stack"
 	"github.com/WebP2P/dexnet/envknob"
 	"github.com/WebP2P/dexnet/ipn"
 	"github.com/WebP2P/dexnet/ipn/ipnlocal"
@@ -34,6 +30,10 @@ import (
 	"github.com/WebP2P/dexnet/types/netmap"
 	"github.com/WebP2P/dexnet/wgengine"
 	"github.com/WebP2P/dexnet/wgengine/filter"
+	"gvisor.dev/gvisor/pkg/buffer"
+	"gvisor.dev/gvisor/pkg/tcpip"
+	"gvisor.dev/gvisor/pkg/tcpip/header"
+	"gvisor.dev/gvisor/pkg/tcpip/stack"
 )
 
 // TestInjectInboundLeak tests that injectInbound doesn't leak memory.
@@ -207,7 +207,7 @@ func TestShouldHandlePing(t *testing.T) {
 	})
 
 	t.Run("ICMP6-tailscale-addr", func(t *testing.T) {
-		dst := netip.MustParseAddr("fd7a:115c:a1e0:ab12::1")
+		dst := netip.MustParseAddr("fd0d:e100:d3c5:ab12::1")
 		icmph := packet.ICMP6Header{
 			IP6Header: packet.IP6Header{
 				IPProto: ipproto.ICMPv6,
@@ -238,7 +238,7 @@ func TestShouldHandlePing(t *testing.T) {
 		t.Run("ICMP6-4via6-ProcessSubnets-"+fmt.Sprint(subnets), func(t *testing.T) {
 			// The 4via6 route 10.1.1.0/24 siteid 7, and then the IP
 			// 10.1.1.9 within that route.
-			dst := netip.MustParseAddr("fd7a:115c:a1e0:b1a:0:7:a01:109")
+			dst := netip.MustParseAddr("fd0d:e100:d3c5:b1a:0:7:a01:109")
 			expectedPingDst := netip.MustParseAddr("10.1.1.9")
 			icmph := packet.ICMP6Header{
 				IP6Header: packet.IP6Header{
@@ -293,16 +293,16 @@ func TestShouldProcessInbound(t *testing.T) {
 				Src:       netip.MustParseAddrPort("100.101.102.103:1234"),
 
 				// $ tailscale debug via 7 10.1.1.9/24
-				// fd7a:115c:a1e0:b1a:0:7:a01:109/120
-				Dst:      netip.MustParseAddrPort("[fd7a:115c:a1e0:b1a:0:7:a01:109]:5678"),
+				// fd0d:e100:d3c5:b1a:0:7:a01:109/120
+				Dst:      netip.MustParseAddrPort("[fd0d:e100:d3c5:b1a:0:7:a01:109]:5678"),
 				TCPFlags: packet.TCPSyn,
 			},
 			afterStart: func(i *Impl) {
 				prefs := ipn.NewPrefs()
 				prefs.AdvertiseRoutes = []netip.Prefix{
 					// $ tailscale debug via 7 10.1.1.0/24
-					// fd7a:115c:a1e0:b1a:0:7:a01:100/120
-					netip.MustParsePrefix("fd7a:115c:a1e0:b1a:0:7:a01:100/120"),
+					// fd0d:e100:d3c5:b1a:0:7:a01:100/120
+					netip.MustParsePrefix("fd0d:e100:d3c5:b1a:0:7:a01:100/120"),
 				}
 				i.lb.Start(ipn.Options{
 					UpdatePrefs: prefs,
@@ -326,16 +326,16 @@ func TestShouldProcessInbound(t *testing.T) {
 				Src:       netip.MustParseAddrPort("100.101.102.103:1234"),
 
 				// $ tailscale debug via 7 10.1.1.9/24
-				// fd7a:115c:a1e0:b1a:0:7:a01:109/120
-				Dst:      netip.MustParseAddrPort("[fd7a:115c:a1e0:b1a:0:7:a01:109]:5678"),
+				// fd0d:e100:d3c5:b1a:0:7:a01:109/120
+				Dst:      netip.MustParseAddrPort("[fd0d:e100:d3c5:b1a:0:7:a01:109]:5678"),
 				TCPFlags: packet.TCPSyn,
 			},
 			afterStart: func(i *Impl) {
 				prefs := ipn.NewPrefs()
 				prefs.AdvertiseRoutes = []netip.Prefix{
 					// tailscale debug via 7 10.1.2.0/24
-					// fd7a:115c:a1e0:b1a:0:7:a01:200/120
-					netip.MustParsePrefix("fd7a:115c:a1e0:b1a:0:7:a01:200/120"),
+					// fd0d:e100:d3c5:b1a:0:7:a01:200/120
+					netip.MustParsePrefix("fd0d:e100:d3c5:b1a:0:7:a01:200/120"),
 				}
 				i.lb.Start(ipn.Options{
 					UpdatePrefs: prefs,
@@ -726,7 +726,7 @@ func TestTCPForwardLimits_PerClient(t *testing.T) {
 func TestHandleLocalPackets(t *testing.T) {
 	var (
 		selfIP4 = netip.MustParseAddr("100.64.1.2")
-		selfIP6 = netip.MustParseAddr("fd7a:115c:a1e0::123")
+		selfIP6 = netip.MustParseAddr("fd0d:e100:d3c5::123")
 	)
 
 	impl := makeNetstack(t, func(impl *Impl) {
@@ -740,8 +740,8 @@ func TestHandleLocalPackets(t *testing.T) {
 	prefs := ipn.NewPrefs()
 	prefs.AdvertiseRoutes = []netip.Prefix{
 		// $ tailscale debug via 7 10.1.1.0/24
-		// fd7a:115c:a1e0:b1a:0:7:a01:100/120
-		netip.MustParsePrefix("fd7a:115c:a1e0:b1a:0:7:a01:100/120"),
+		// fd0d:e100:d3c5:b1a:0:7:a01:100/120
+		netip.MustParsePrefix("fd0d:e100:d3c5:b1a:0:7:a01:100/120"),
 	}
 	prefs.AdvertiseServices = []string{"svc:test-service"}
 	_, err := impl.lb.EditPrefs(&ipn.MaskedPrefs{
@@ -754,7 +754,7 @@ func TestHandleLocalPackets(t *testing.T) {
 	}
 	IPServiceMap := netmap.IPServiceMappings{
 		netip.MustParseAddr("100.99.55.111"):        "svc:test-service",
-		netip.MustParseAddr("fd7a:115c:a1e0::abcd"): "svc:test-service",
+		netip.MustParseAddr("fd0d:e100:d3c5::abcd"): "svc:test-service",
 	}
 	impl.lb.SetIPServiceMappingsForTest(IPServiceMap)
 
@@ -763,7 +763,7 @@ func TestHandleLocalPackets(t *testing.T) {
 			IPVersion: 4,
 			IPProto:   ipproto.TCP,
 			Src:       netip.MustParseAddrPort("127.0.0.1:9999"),
-			Dst:       netip.MustParseAddrPort("100.100.100.100:53"),
+			Dst:       netip.MustParseAddrPort("10.200.0.1:53"),
 			TCPFlags:  packet.TCPSyn,
 		}
 		resp, _ := impl.handleLocalPackets(pkt, impl.tundev, nil)
@@ -779,8 +779,8 @@ func TestHandleLocalPackets(t *testing.T) {
 
 			// This is an IP in the above 4via6 subnet that this node handles.
 			//    $ tailscale debug via 7 10.1.1.9/24
-			//    fd7a:115c:a1e0:b1a:0:7:a01:109/120
-			Dst:      netip.MustParseAddrPort("[fd7a:115c:a1e0:b1a:0:7:a01:109]:5678"),
+			//    fd0d:e100:d3c5:b1a:0:7:a01:109/120
+			Dst:      netip.MustParseAddrPort("[fd0d:e100:d3c5:b1a:0:7:a01:109]:5678"),
 			TCPFlags: packet.TCPSyn,
 		}
 		resp, _ := impl.handleLocalPackets(pkt, impl.tundev, nil)
@@ -814,8 +814,8 @@ func TestHandleLocalPackets(t *testing.T) {
 
 			// This IP is *not* in the above 4via6 route
 			//    $ tailscale debug via 99 10.1.1.9/24
-			//    fd7a:115c:a1e0:b1a:0:63:a01:109/120
-			Dst:      netip.MustParseAddrPort("[fd7a:115c:a1e0:b1a:0:63:a01:109]:5678"),
+			//    fd0d:e100:d3c5:b1a:0:63:a01:109/120
+			Dst:      netip.MustParseAddrPort("[fd0d:e100:d3c5:b1a:0:63:a01:109]:5678"),
 			TCPFlags: packet.TCPSyn,
 		}
 		resp, _ := impl.handleLocalPackets(pkt, impl.tundev, nil)
@@ -832,9 +832,9 @@ func TestHandleLocalPackets(t *testing.T) {
 func TestShouldSendToHost(t *testing.T) {
 	var (
 		selfIP4             = netip.MustParseAddr("100.64.1.2")
-		selfIP6             = netip.MustParseAddr("fd7a:115c:a1e0::123")
+		selfIP6             = netip.MustParseAddr("fd0d:e100:d3c5::123")
 		tailscaleServiceIP4 = netip.MustParseAddr("100.99.55.111")
-		tailscaleServiceIP6 = netip.MustParseAddr("fd7a:115c:a1e0::abcd")
+		tailscaleServiceIP6 = netip.MustParseAddr("fd0d:e100:d3c5::abcd")
 	)
 
 	makeTestNetstack := func(tb testing.TB) *Impl {
@@ -852,8 +852,8 @@ func TestShouldSendToHost(t *testing.T) {
 		prefs := ipn.NewPrefs()
 		prefs.AdvertiseRoutes = []netip.Prefix{
 			// $ tailscale debug via 7 10.1.1.0/24
-			// fd7a:115c:a1e0:b1a:0:7:a01:100/120
-			netip.MustParsePrefix("fd7a:115c:a1e0:b1a:0:7:a01:100/120"),
+			// fd0d:e100:d3c5:b1a:0:7:a01:100/120
+			netip.MustParsePrefix("fd0d:e100:d3c5:b1a:0:7:a01:100/120"),
 		}
 		_, err := impl.lb.EditPrefs(&ipn.MaskedPrefs{
 			Prefs:              *prefs,
@@ -905,8 +905,8 @@ func TestShouldSendToHost(t *testing.T) {
 			name: "4via6_to_remote",
 
 			// $ tailscale debug via 7 10.1.1.99/24
-			// fd7a:115c:a1e0:b1a:0:7:a01:163/120
-			src:  netip.MustParseAddrPort("[fd7a:115c:a1e0:b1a:0:7:a01:163]:12345"),
+			// fd0d:e100:d3c5:b1a:0:7:a01:163/120
+			src:  netip.MustParseAddrPort("[fd0d:e100:d3c5:b1a:0:7:a01:163]:12345"),
 			dst:  netip.MustParseAddrPort("[fd7a:115:a1e0::99]:7777"),
 			want: false,
 		},
@@ -917,8 +917,8 @@ func TestShouldSendToHost(t *testing.T) {
 			name: "4via6_to_local",
 
 			// $ tailscale debug via 7 10.1.1.99/24
-			// fd7a:115c:a1e0:b1a:0:7:a01:163/120
-			src:  netip.MustParseAddrPort("[fd7a:115c:a1e0:b1a:0:7:a01:163]:12345"),
+			// fd0d:e100:d3c5:b1a:0:7:a01:163/120
+			src:  netip.MustParseAddrPort("[fd0d:e100:d3c5:b1a:0:7:a01:163]:12345"),
 			dst:  netip.AddrPortFrom(selfIP6, 7777),
 			want: true,
 		},
@@ -932,8 +932,8 @@ func TestShouldSendToHost(t *testing.T) {
 			name: "other_4via6_to_local",
 
 			// $ tailscale debug via 4444 10.1.1.88/24
-			// fd7a:115c:a1e0:b1a:0:7:a01:163/120
-			src:  netip.MustParseAddrPort("[fd7a:115c:a1e0:b1a:0:115c:a01:158]:12345"),
+			// fd0d:e100:d3c5:b1a:0:7:a01:163/120
+			src:  netip.MustParseAddrPort("[fd0d:e100:d3c5:b1a:0:115c:a01:158]:12345"),
 			dst:  netip.AddrPortFrom(selfIP6, 7777),
 			want: false,
 		},
@@ -941,8 +941,8 @@ func TestShouldSendToHost(t *testing.T) {
 			name: "other_4via6_to_remote",
 
 			// $ tailscale debug via 4444 10.1.1.88/24
-			// fd7a:115c:a1e0:b1a:0:7:a01:163/120
-			src:  netip.MustParseAddrPort("[fd7a:115c:a1e0:b1a:0:115c:a01:158]:12345"),
+			// fd0d:e100:d3c5:b1a:0:7:a01:163/120
+			src:  netip.MustParseAddrPort("[fd0d:e100:d3c5:b1a:0:115c:a01:158]:12345"),
 			dst:  netip.MustParseAddrPort("[fd7a:115:a1e0::99]:7777"),
 			want: false,
 		},

@@ -31,10 +31,10 @@ func TestULA(t *testing.T) {
 		siteID   uint16
 		expected string
 	}{
-		{"zero", 0, "fd7a:115c:a1e0:a99c:0000::/80"},
-		{"one", 1, "fd7a:115c:a1e0:a99c:0001::/80"},
-		{"max", 65535, "fd7a:115c:a1e0:a99c:ffff::/80"},
-		{"random", 12345, "fd7a:115c:a1e0:a99c:3039::/80"},
+		{"zero", 0, "fd0d:e100:d3c5:a99c:0000::/80"},
+		{"one", 1, "fd0d:e100:d3c5:a99c:0001::/80"},
+		{"max", 65535, "fd0d:e100:d3c5:a99c:ffff::/80"},
+		{"random", 12345, "fd0d:e100:d3c5:a99c:3039::/80"},
 	}
 
 	for _, tc := range tests {
@@ -169,7 +169,7 @@ func TestDNSResponse(t *testing.T) {
 				{
 					name:  "example.com.",
 					qType: dnsmessage.TypeAAAA,
-					addr:  netip.MustParseAddr("fd7a:115c:a1e0::"),
+					addr:  netip.MustParseAddr("fd0d:e100:d3c5::"),
 				},
 			},
 		},
@@ -460,9 +460,9 @@ func TestV6V4(t *testing.T) {
 	v6ULA := ula(1)
 
 	tests := [][]string{
-		{"100.64.0.0", "fd7a:115c:a1e0:a99c:1:0:6440:0"},
-		{"0.0.0.0", "fd7a:115c:a1e0:a99c:1::"},
-		{"255.255.255.255", "fd7a:115c:a1e0:a99c:1:0:ffff:ffff"},
+		{"100.64.0.0", "fd0d:e100:d3c5:a99c:1:0:6440:0"},
+		{"0.0.0.0", "fd0d:e100:d3c5:a99c:1::"},
+		{"255.255.255.255", "fd0d:e100:d3c5:a99c:1:0:ffff:ffff"},
 	}
 
 	for i, test := range tests {

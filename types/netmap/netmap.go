@@ -480,8 +480,8 @@ const (
 //
 //	{
 //	  "100.65.32.1": "svc:samba",
-//	  "fd7a:115c:a1e0::1234": "svc:samba",
+//	  "fd0d:e100:d3c5::1234": "svc:samba",
 //	  "100.102.42.3": "svc:web",
-//	  "fd7a:115c:a1e0::abcd": "svc:web",
+//	  "fd0d:e100:d3c5::abcd": "svc:web",
 //	}
 type IPServiceMappings map[netip.Addr]tailcfg.ServiceName

@@ -345,11 +345,11 @@ func TestServeConfigServices(t *testing.T) {
 	svcIPMap := tailcfg.ServiceIPMappings{
 		"svc:foo": []netip.Addr{
 			netip.MustParseAddr("100.101.101.101"),
-			netip.MustParseAddr("fd7a:115c:a1e0:ab12:4843:cd96:6565:6565"),
+			netip.MustParseAddr("fd0d:e100:d3c5:ab12:4843:cd96:6565:6565"),
 		},
 		"svc:bar": []netip.Addr{
 			netip.MustParseAddr("100.99.99.99"),
-			netip.MustParseAddr("fd7a:115c:a1e0:ab12:4843:cd96:626b:628b"),
+			netip.MustParseAddr("fd0d:e100:d3c5:ab12:4843:cd96:626b:628b"),
 		},
 	}
 	svcIPMapJSON, err := json.Marshal(svcIPMap)
@@ -417,7 +417,7 @@ func TestServeConfigServices(t *testing.T) {
 			},
 			packetDstAddrPort: []netip.AddrPort{
 				netip.MustParseAddrPort("100.101.101.101:80"),
-				netip.MustParseAddrPort("[fd7a:115c:a1e0:ab12:4843:cd96:6565:6565]:80"),
+				netip.MustParseAddrPort("[fd0d:e100:d3c5:ab12:4843:cd96:6565:6565]:80"),
 			},
 			intercepted: true,
 		},
@@ -436,9 +436,9 @@ func TestServeConfigServices(t *testing.T) {
 			},
 			packetDstAddrPort: []netip.AddrPort{
 				netip.MustParseAddrPort("100.99.99.99:80"),
-				netip.MustParseAddrPort("[fd7a:115c:a1e0:ab12:4843:cd96:626b:628b]:80"),
+				netip.MustParseAddrPort("[fd0d:e100:d3c5:ab12:4843:cd96:626b:628b]:80"),
 				netip.MustParseAddrPort("100.101.101.101:82"),
-				netip.MustParseAddrPort("[fd7a:115c:a1e0:ab12:4843:cd96:6565:6565]:82"),
+				netip.MustParseAddrPort("[fd0d:e100:d3c5:ab12:4843:cd96:6565:6565]:82"),
 			},
 			intercepted: false,
 		},
@@ -464,9 +464,9 @@ func TestServeConfigServices(t *testing.T) {
 			},
 			packetDstAddrPort: []netip.AddrPort{
 				netip.MustParseAddrPort("100.99.99.99:80"),
-				netip.MustParseAddrPort("[fd7a:115c:a1e0:ab12:4843:cd96:626b:628b]:80"),
+				netip.MustParseAddrPort("[fd0d:e100:d3c5:ab12:4843:cd96:626b:628b]:80"),
 				netip.MustParseAddrPort("100.101.101.101:81"),
-				netip.MustParseAddrPort("[fd7a:115c:a1e0:ab12:4843:cd96:6565:6565]:81"),
+				netip.MustParseAddrPort("[fd0d:e100:d3c5:ab12:4843:cd96:6565:6565]:81"),
 			},
 			intercepted: true,
 		},
@@ -493,12 +493,12 @@ func TestServeConfigServices(t *testing.T) {
 			packetDstAddrPort: []netip.AddrPort{
 				// ips in capmap but port is not hosting service
 				netip.MustParseAddrPort("100.99.99.99:77"),
-				netip.MustParseAddrPort("[fd7a:115c:a1e0:ab12:4843:cd96:626b:628b]:77"),
+				netip.MustParseAddrPort("[fd0d:e100:d3c5:ab12:4843:cd96:626b:628b]:77"),
 				netip.MustParseAddrPort("100.101.101.101:85"),
-				netip.MustParseAddrPort("[fd7a:115c:a1e0:ab12:4843:cd96:6565:6565]:85"),
+				netip.MustParseAddrPort("[fd0d:e100:d3c5:ab12:4843:cd96:6565:6565]:85"),
 				// ips not in capmap
 				netip.MustParseAddrPort("100.102.102.102:80"),
-				netip.MustParseAddrPort("[fd7a:115c:a1e0:ab12:4843:cd96:6666:6666]:80"),
+				netip.MustParseAddrPort("[fd0d:e100:d3c5:ab12:4843:cd96:6666:6666]:80"),
 			},
 			intercepted: false,
 		},

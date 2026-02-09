@@ -24,11 +24,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/google/go-cmp/cmp"
-	"github.com/google/go-cmp/cmp/cmpopts"
-	memro "go4.org/mem"
-	"go4.org/netipx"
-	"golang.org/x/net/dns/dnsmessage"
 	"github.com/WebP2P/dexnet/appc"
 	"github.com/WebP2P/dexnet/appc/appctest"
 	"github.com/WebP2P/dexnet/control/controlclient"
@@ -76,6 +71,11 @@ import (
 	"github.com/WebP2P/dexnet/wgengine/filter"
 	"github.com/WebP2P/dexnet/wgengine/filter/filtertype"
 	"github.com/WebP2P/dexnet/wgengine/wgcfg"
+	"github.com/google/go-cmp/cmp"
+	"github.com/google/go-cmp/cmp/cmpopts"
+	memro "go4.org/mem"
+	"go4.org/netipx"
+	"golang.org/x/net/dns/dnsmessage"
 )
 
 func inRemove(ip netip.Addr) bool {
@@ -108,15 +108,15 @@ func TestShrinkDefaultRoute(t *testing.T) {
 	}{
 		{
 			route: "0.0.0.0/0",
-			in:    []string{"1.2.3.4", "25.0.0.1"},
+			in:    []string{"1.2.3.4", "25.0.0.1", "100.101.102.103"},
 			out: []string{
 				"10.0.0.1",
 				"10.255.255.255",
+				"10.200.1.1",
 				"192.168.0.1",
 				"192.168.255.255",
 				"172.16.0.1",
 				"172.31.255.255",
-				"100.101.102.103",
 				"224.0.0.1",
 				"169.254.169.254",
 				// Some random IPv6 stuff that shouldn't be in a v4
@@ -197,12 +197,12 @@ func TestPeerRoutes(t *testing.T) {
 			peers: []wgcfg.Peer{
 				{
 					AllowedIPs: []netip.Prefix{
-						pp("100.101.102.103/32"),
+						pp("10.200.1.1/32"),
 					},
 				},
 			},
 			want: []netip.Prefix{
-				pp("100.101.102.103/32"),
+				pp("10.200.1.1/32"),
 			},
 		},
 		{
@@ -210,14 +210,14 @@ func TestPeerRoutes(t *testing.T) {
 			peers: []wgcfg.Peer{
 				{
 					AllowedIPs: []netip.Prefix{
-						pp("100.101.102.103/32"),
-						pp("100.101.102.104/32"),
-						pp("100.101.102.105/32"),
+						pp("10.200.1.1/32"),
+						pp("10.200.1.2/32"),
+						pp("10.200.1.3/32"),
 					},
 				},
 			},
 			want: []netip.Prefix{
-				pp("100.64.0.0/10"),
+				pp("10.200.0.0/16"),
 			},
 		},
 		{
@@ -225,12 +225,12 @@ func TestPeerRoutes(t *testing.T) {
 			peers: []wgcfg.Peer{
 				{
 					AllowedIPs: []netip.Prefix{
-						pp("fd7a:115c:a1e0:ab12:4843:cd96:6258:b240/128"),
+						pp("fd0d:e100:d3c5:ab12:4843:cd96:6258:b240/128"),
 					},
 				},
 			},
 			want: []netip.Prefix{
-				pp("fd7a:115c:a1e0::/48"),
+				pp("fd0d:e100:d3c5::/48"),
 			},
 		},
 		{
@@ -238,13 +238,13 @@ func TestPeerRoutes(t *testing.T) {
 			peers: []wgcfg.Peer{
 				{
 					AllowedIPs: []netip.Prefix{
-						pp("fd7a:115c:a1e0:ab12:4843:cd96:6258:b240/128"),
-						pp("fd7a:115c:a1e0:ab12:4843:cd96:6258:b241/128"),
+						pp("fd0d:e100:d3c5:ab12:4843:cd96:6258:b240/128"),
+						pp("fd0d:e100:d3c5:ab12:4843:cd96:6258:b241/128"),
 					},
 				},
 			},
 			want: []netip.Prefix{
-				pp("fd7a:115c:a1e0::/48"),
+				pp("fd0d:e100:d3c5::/48"),
 			},
 		},
 		{
@@ -252,17 +252,17 @@ func TestPeerRoutes(t *testing.T) {
 			peers: []wgcfg.Peer{
 				{
 					AllowedIPs: []netip.Prefix{
-						pp("100.101.102.103/32"),
-						pp("100.101.102.104/32"),
-						pp("100.101.102.105/32"),
-						pp("fd7a:115c:a1e0:ab12:4843:cd96:6258:b240/128"),
-						pp("fd7a:115c:a1e0:ab12:4843:cd96:6258:b241/128"),
+						pp("10.200.1.1/32"),
+						pp("10.200.1.2/32"),
+						pp("10.200.1.3/32"),
+						pp("fd0d:e100:d3c5:ab12:4843:cd96:6258:b240/128"),
+						pp("fd0d:e100:d3c5:ab12:4843:cd96:6258:b241/128"),
 					},
 				},
 			},
 			want: []netip.Prefix{
-				pp("100.64.0.0/10"),
-				pp("fd7a:115c:a1e0::/48"),
+				pp("10.200.0.0/16"),
+				pp("fd0d:e100:d3c5::/48"),
 			},
 		},
 		{
@@ -270,13 +270,13 @@ func TestPeerRoutes(t *testing.T) {
 			peers: []wgcfg.Peer{
 				{
 					AllowedIPs: []netip.Prefix{
-						pp("100.64.0.2/32"),
+						pp("10.200.0.2/32"),
 						pp("10.0.0.0/16"),
 					},
 				},
 				{
 					AllowedIPs: []netip.Prefix{
-						pp("100.64.0.1/32"),
+						pp("10.200.0.1/32"),
 						pp("10.0.0.0/8"),
 					},
 				},
@@ -284,8 +284,8 @@ func TestPeerRoutes(t *testing.T) {
 			want: []netip.Prefix{
 				pp("10.0.0.0/8"),
 				pp("10.0.0.0/16"),
-				pp("100.64.0.1/32"),
-				pp("100.64.0.2/32"),
+				pp("10.200.0.1/32"),
+				pp("10.200.0.2/32"),
 			},
 		},
 		{
@@ -294,13 +294,13 @@ func TestPeerRoutes(t *testing.T) {
 				{
 					PublicKey: key.NewNode().Public(),
 					AllowedIPs: []netip.Prefix{
-						pp("100.64.0.2/32"),
+						pp("10.200.0.2/32"),
 						pp("10.0.0.100/16"),
 					},
 				},
 			},
 			want: []netip.Prefix{
-				pp("100.64.0.2/32"),
+				pp("10.200.0.2/32"),
 			},
 		},
 	}
@@ -3794,49 +3794,49 @@ func TestTCPHandlerForDst(t *testing.T) {
 	}{
 		{
 			desc:      "intercept port 80 (Web UI) on quad100 IPv4",
-			dst:       "100.100.100.100:80",
+			dst:       "10.200.0.1:80",
 			intercept: true,
 		},
 		{
 			desc:      "intercept port 80 (Web UI) on quad100 IPv6",
-			dst:       "[fd7a:115c:a1e0::53]:80",
+			dst:       "[fd0d:e100:d3c5:de1::1]:80",
 			intercept: true,
 		},
 		{
 			desc:      "don't intercept port 80 on local ip",
-			dst:       "100.100.103.100:80",
+			dst:       "10.200.103.100:80",
 			intercept: false,
 		},
 		{
 			desc:      "intercept port 8080 (Taildrive) on quad100 IPv4",
-			dst:       "[fd7a:115c:a1e0::53]:8080",
+			dst:       "[fd0d:e100:d3c5:de1::1]:8080",
 			intercept: true,
 		},
 		{
 			desc:      "don't intercept port 8080 on local ip",
-			dst:       "100.100.103.100:8080",
+			dst:       "10.200.103.100:8080",
 			intercept: false,
 		},
 		{
 			desc:      "don't intercept port 9080 on quad100 IPv4",
-			dst:       "100.100.100.100:9080",
+			dst:       "10.200.0.1:9080",
 			intercept: false,
 		},
 		{
 			desc:      "don't intercept port 9080 on quad100 IPv6",
-			dst:       "[fd7a:115c:a1e0::53]:9080",
+			dst:       "[fd0d:e100:d3c5:de1::1]:9080",
 			intercept: false,
 		},
 		{
 			desc:      "don't intercept port 9080 on local ip",
-			dst:       "100.100.103.100:9080",
+			dst:       "10.200.103.100:9080",
 			intercept: false,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.dst, func(t *testing.T) {
 			t.Log(tt.desc)
-			src := netip.MustParseAddrPort("100.100.102.100:51234")
+			src := netip.MustParseAddrPort("10.200.102.100:51234")
 			h, _ := b.TCPHandlerForDst(src, netip.MustParseAddrPort(tt.dst))
 			if !tt.intercept && h != nil {
 				t.Error("intercepted traffic we shouldn't have")
@@ -3852,15 +3852,15 @@ func TestTCPHandlerForDstWithVIPService(t *testing.T) {
 	svcIPMap := tailcfg.ServiceIPMappings{
 		"svc:foo": []netip.Addr{
 			netip.MustParseAddr("100.101.101.101"),
-			netip.MustParseAddr("fd7a:115c:a1e0:ab12:4843:cd96:6565:6565"),
+			netip.MustParseAddr("fd0d:e100:d3c5:ab12:4843:cd96:6565:6565"),
 		},
 		"svc:bar": []netip.Addr{
 			netip.MustParseAddr("100.99.99.99"),
-			netip.MustParseAddr("fd7a:115c:a1e0:ab12:4843:cd96:626b:628b"),
+			netip.MustParseAddr("fd0d:e100:d3c5:ab12:4843:cd96:626b:628b"),
 		},
 		"svc:baz": []netip.Addr{
 			netip.MustParseAddr("100.133.133.133"),
-			netip.MustParseAddr("fd7a:115c:a1e0:ab12:4843:cd96:8585:8585"),
+			netip.MustParseAddr("fd0d:e100:d3c5:ab12:4843:cd96:8585:8585"),
 		},
 	}
 	svcIPMapJSON, err := json.Marshal(svcIPMap)
@@ -3939,47 +3939,47 @@ func TestTCPHandlerForDstWithVIPService(t *testing.T) {
 	}{
 		{
 			desc:      "intercept port 80 (Web UI) on quad100 IPv4",
-			dst:       "100.100.100.100:80",
+			dst:       "10.200.0.1:80",
 			intercept: true,
 		},
 		{
 			desc:      "intercept port 80 (Web UI) on quad100 IPv6",
-			dst:       "[fd7a:115c:a1e0::53]:80",
+			dst:       "[fd0d:e100:d3c5:de1::1]:80",
 			intercept: true,
 		},
 		{
 			desc:      "don't intercept port 80 on local ip",
-			dst:       "100.100.103.100:80",
+			dst:       "10.200.103.100:80",
 			intercept: false,
 		},
 		{
 			desc:      "intercept port 8080 (Taildrive) on quad100 IPv4",
-			dst:       "100.100.100.100:8080",
+			dst:       "10.200.0.1:8080",
 			intercept: true,
 		},
 		{
 			desc:      "intercept port 8080 (Taildrive) on quad100 IPv6",
-			dst:       "[fd7a:115c:a1e0::53]:8080",
+			dst:       "[fd0d:e100:d3c5:de1::1]:8080",
 			intercept: true,
 		},
 		{
 			desc:      "don't intercept port 8080 on local ip",
-			dst:       "100.100.103.100:8080",
+			dst:       "10.200.103.100:8080",
 			intercept: false,
 		},
 		{
 			desc:      "don't intercept port 9080 on quad100 IPv4",
-			dst:       "100.100.100.100:9080",
+			dst:       "10.200.0.1:9080",
 			intercept: false,
 		},
 		{
 			desc:      "don't intercept port 9080 on quad100 IPv6",
-			dst:       "[fd7a:115c:a1e0::53]:9080",
+			dst:       "[fd0d:e100:d3c5:de1::1]:9080",
 			intercept: false,
 		},
 		{
 			desc:      "don't intercept port 9080 on local ip",
-			dst:       "100.100.103.100:9080",
+			dst:       "10.200.103.100:9080",
 			intercept: false,
 		},
 		// VIP service destinations
@@ -3990,7 +3990,7 @@ func TestTCPHandlerForDstWithVIPService(t *testing.T) {
 		},
 		{
 			desc:      "intercept port 882 (HTTP) on service foo IPv6",
-			dst:       "[fd7a:115c:a1e0:ab12:4843:cd96:6565:6565]:882",
+			dst:       "[fd0d:e100:d3c5:ab12:4843:cd96:6565:6565]:882",
 			intercept: true,
 		},
 		{
@@ -4000,7 +4000,7 @@ func TestTCPHandlerForDstWithVIPService(t *testing.T) {
 		},
 		{
 			desc:      "intercept port 883 (HTTPS) on service foo IPv6",
-			dst:       "[fd7a:115c:a1e0:ab12:4843:cd96:6565:6565]:883",
+			dst:       "[fd0d:e100:d3c5:ab12:4843:cd96:6565:6565]:883",
 			intercept: true,
 		},
 		{
@@ -4010,7 +4010,7 @@ func TestTCPHandlerForDstWithVIPService(t *testing.T) {
 		},
 		{
 			desc:      "intercept port 990 (TCPForward) on service bar IPv6",
-			dst:       "[fd7a:115c:a1e0:ab12:4843:cd96:626b:628b]:990",
+			dst:       "[fd0d:e100:d3c5:ab12:4843:cd96:626b:628b]:990",
 			intercept: true,
 		},
 		{
@@ -4020,7 +4020,7 @@ func TestTCPHandlerForDstWithVIPService(t *testing.T) {
 		},
 		{
 			desc:      "intercept port 991 (TCPForward with TerminateTLS) on service bar IPv6",
-			dst:       "[fd7a:115c:a1e0:ab12:4843:cd96:626b:628b]:990",
+			dst:       "[fd0d:e100:d3c5:ab12:4843:cd96:626b:628b]:990",
 			intercept: true,
 		},
 		{
@@ -4030,7 +4030,7 @@ func TestTCPHandlerForDstWithVIPService(t *testing.T) {
 		},
 		{
 			desc:      "don't intercept port 4444 on service foo IPv6",
-			dst:       "[fd7a:115c:a1e0:ab12:4843:cd96:6565:6565]:4444",
+			dst:       "[fd0d:e100:d3c5:ab12:4843:cd96:6565:6565]:4444",
 			intercept: false,
 		},
 		{
@@ -4040,7 +4040,7 @@ func TestTCPHandlerForDstWithVIPService(t *testing.T) {
 		},
 		{
 			desc:      "don't intercept port 600 on unknown service IPv6",
-			dst:       "[fd7a:115c:a1e0:ab12:4843:cd96:626b:628b]:883",
+			dst:       "[fd0d:e100:d3c5:ab12:4843:cd96:626b:628b]:883",
 			intercept: false,
 		},
 		{
@@ -4050,7 +4050,7 @@ func TestTCPHandlerForDstWithVIPService(t *testing.T) {
 		},
 		{
 			desc:      "don't intercept port 600 (HTTPS) on service baz IPv6",
-			dst:       "[fd7a:115c:a1e0:ab12:4843:cd96:8585:8585]:600",
+			dst:       "[fd0d:e100:d3c5:ab12:4843:cd96:8585:8585]:600",
 			intercept: false,
 		},
 	}
@@ -4058,7 +4058,7 @@ func TestTCPHandlerForDstWithVIPService(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.dst, func(t *testing.T) {
 			t.Log(tt.desc)
-			src := netip.MustParseAddrPort("100.100.102.100:51234")
+			src := netip.MustParseAddrPort("10.200.102.100:51234")
 			h, _ := b.TCPHandlerForDst(src, netip.MustParseAddrPort(tt.dst))
 			if !tt.intercept && h != nil {
 				t.Error("intercepted traffic we shouldn't have")
@@ -7362,7 +7362,7 @@ func TestRouteAllDisabled(t *testing.T) {
 				{
 					AllowedIPs: []netip.Prefix{
 						// if one ip in the Tailscale ULA range is added, the entire range is added to the router config
-						pp("fd7a:115c:a1e0::2501:9b83/128"),
+						pp("fd0d:e100:d3c5::2501:9b83/128"),
 						pp("100.80.207.38/32"),
 						pp("100.80.207.56/32"),
 						pp("100.80.207.40/32"),
@@ -7385,7 +7385,7 @@ func TestRouteAllDisabled(t *testing.T) {
 				pp("100.80.207.40/32"),
 				pp("100.94.122.93/32"),
 				pp("100.79.141.115/32"),
-				pp("fd7a:115c:a1e0::/48"),
+				pp("fd0d:e100:d3c5::/48"),
 			},
 		},
 		{
@@ -7395,7 +7395,7 @@ func TestRouteAllDisabled(t *testing.T) {
 				{
 					AllowedIPs: []netip.Prefix{
 						// if one ip in the Tailscale ULA range is added, the entire range is added to the router config
-						pp("fd7a:115c:a1e0::2501:9b83/128"),
+						pp("fd0d:e100:d3c5::2501:9b83/128"),
 						pp("100.80.207.38/32"),
 						pp("100.80.207.56/32"),
 						pp("100.80.207.40/32"),
@@ -7416,7 +7416,7 @@ func TestRouteAllDisabled(t *testing.T) {
 				pp("100.94.122.93/32"),
 				pp("100.79.141.115/32"),
 				pp("192.168.0.45/32"),
-				pp("fd7a:115c:a1e0::/48"),
+				pp("fd0d:e100:d3c5::/48"),
 				pp("fd7a:115c:b1e0::2501:9b83/128"),
 				pp("fdf8:f966:e27c:0:5:0:0:10/128"),
 			},

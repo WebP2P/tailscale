@@ -18,13 +18,6 @@ import (
 	"unicode"
 	"unsafe"
 
-	"github.com/google/go-cmp/cmp"
-	"github.com/google/go-cmp/cmp/cmpopts"
-	"github.com/tailscale/wireguard-go/tun/tuntest"
-	"go4.org/mem"
-	"go4.org/netipx"
-	"gvisor.dev/gvisor/pkg/buffer"
-	"gvisor.dev/gvisor/pkg/tcpip/stack"
 	"github.com/WebP2P/dexnet/disco"
 	"github.com/WebP2P/dexnet/net/netaddr"
 	"github.com/WebP2P/dexnet/net/packet"
@@ -42,6 +35,13 @@ import (
 	"github.com/WebP2P/dexnet/util/usermetric"
 	"github.com/WebP2P/dexnet/wgengine/filter"
 	"github.com/WebP2P/dexnet/wgengine/wgcfg"
+	"github.com/google/go-cmp/cmp"
+	"github.com/google/go-cmp/cmp/cmpopts"
+	"github.com/tailscale/wireguard-go/tun/tuntest"
+	"go4.org/mem"
+	"go4.org/netipx"
+	"gvisor.dev/gvisor/pkg/buffer"
+	"gvisor.dev/gvisor/pkg/tcpip/stack"
 )
 
 func udp4(src, dst string, sport, dport uint16) []byte {
@@ -529,7 +529,7 @@ func TestPeerAPIBypass(t *testing.T) {
 	reg := new(usermetric.Registry)
 	wrapperWithPeerAPI := &Wrapper{
 		PeerAPIPort: func(ip netip.Addr) (port uint16, ok bool) {
-			if ip == netip.MustParseAddr("100.64.1.2") {
+			if ip == netip.MustParseAddr("10.200.1.2") {
 				return 60000, true
 			}
 			return
@@ -552,7 +552,7 @@ func TestPeerAPIBypass(t *testing.T) {
 				},
 				metrics: registerMetrics(reg),
 			},
-			pkt:  tcp4syn("1.2.3.4", "100.64.1.2", 1234, 60000),
+			pkt:  tcp4syn("1.2.3.4", "10.200.1.2", 1234, 60000),
 			want: filter.Drop,
 		},
 		{
@@ -561,28 +561,28 @@ func TestPeerAPIBypass(t *testing.T) {
 				metrics: registerMetrics(reg),
 			},
 			filter: filter.NewAllowNone(logger.Discard, new(netipx.IPSet)),
-			pkt:    tcp4syn("1.2.3.4", "100.64.1.2", 1234, 60000),
+			pkt:    tcp4syn("1.2.3.4", "10.200.1.2", 1234, 60000),
 			want:   filter.Drop,
 		},
 		{
 			name:   "peerapi_bypass_filter",
 			w:      wrapperWithPeerAPI,
 			filter: filter.NewAllowNone(logger.Discard, new(netipx.IPSet)),
-			pkt:    tcp4syn("1.2.3.4", "100.64.1.2", 1234, 60000),
+			pkt:    tcp4syn("1.2.3.4", "10.200.1.2", 1234, 60000),
 			want:   filter.Accept,
 		},
 		{
 			name:   "peerapi_dont_bypass_filter_wrong_port",
 			w:      wrapperWithPeerAPI,
 			filter: filter.NewAllowNone(logger.Discard, new(netipx.IPSet)),
-			pkt:    tcp4syn("1.2.3.4", "100.64.1.2", 1234, 60001),
+			pkt:    tcp4syn("1.2.3.4", "10.200.1.2", 1234, 60001),
 			want:   filter.Drop,
 		},
 		{
 			name:   "peerapi_dont_bypass_filter_wrong_dst_ip",
 			w:      wrapperWithPeerAPI,
 			filter: filter.NewAllowNone(logger.Discard, new(netipx.IPSet)),
-			pkt:    tcp4syn("1.2.3.4", "100.64.1.3", 1234, 60000),
+			pkt:    tcp4syn("1.2.3.4", "10.200.1.3", 1234, 60000),
 			want:   filter.Drop,
 		},
 	}
@@ -665,13 +665,13 @@ func TestPeerCfg_NAT(t *testing.T) {
 		var (
 			noIP netip.Addr
 
-			selfNativeIP = netip.MustParseAddr("100.64.0.1")
-			selfEIP1     = netip.MustParseAddr("100.64.1.1")
-			selfEIP2     = netip.MustParseAddr("100.64.1.2")
+			selfNativeIP = netip.MustParseAddr("10.200.0.1")
+			selfEIP1     = netip.MustParseAddr("10.200.1.1")
+			selfEIP2     = netip.MustParseAddr("10.200.1.2")
 			selfAddrs    = []netip.Prefix{netip.PrefixFrom(selfNativeIP, selfNativeIP.BitLen())}
 
-			peer1IP = netip.MustParseAddr("100.64.0.2")
-			peer2IP = netip.MustParseAddr("100.64.0.3")
+			peer1IP = netip.MustParseAddr("10.200.0.2")
+			peer2IP = netip.MustParseAddr("10.200.0.3")
 
 			subnet   = netip.MustParsePrefix("192.168.0.0/24")
 			subnetIP = netip.MustParseAddr("192.168.0.1")
@@ -680,13 +680,13 @@ func TestPeerCfg_NAT(t *testing.T) {
 			publicIP  = netip.MustParseAddr("8.8.8.8")
 		)
 		if addrFam == ipproto.Version6 {
-			selfNativeIP = netip.MustParseAddr("fd7a:115c:a1e0::a")
-			selfEIP1 = netip.MustParseAddr("fd7a:115c:a1e0::1a")
-			selfEIP2 = netip.MustParseAddr("fd7a:115c:a1e0::1b")
+			selfNativeIP = netip.MustParseAddr("fd0d:e100:d3c5::a")
+			selfEIP1 = netip.MustParseAddr("fd0d:e100:d3c5::1a")
+			selfEIP2 = netip.MustParseAddr("fd0d:e100:d3c5::1b")
 			selfAddrs = []netip.Prefix{netip.PrefixFrom(selfNativeIP, selfNativeIP.BitLen())}
 
-			peer1IP = netip.MustParseAddr("fd7a:115c:a1e0::b")
-			peer2IP = netip.MustParseAddr("fd7a:115c:a1e0::c")
+			peer1IP = netip.MustParseAddr("fd0d:e100:d3c5::b")
+			peer2IP = netip.MustParseAddr("fd0d:e100:d3c5::c")
 
 			subnet = netip.MustParsePrefix("2001:db8::/32")
 			subnetIP = netip.MustParseAddr("2001:db8::FFFF")

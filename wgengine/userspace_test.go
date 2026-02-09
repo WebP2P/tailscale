@@ -349,7 +349,7 @@ func TestTSMPKeyAdvertisement(t *testing.T) {
 		SelfNode: (&tailcfg.Node{
 			StableID:  "TESTCTRL00000001",
 			Name:      "test-node.test.ts.net",
-			Addresses: []netip.Prefix{netip.MustParsePrefix("100.64.0.1/32"), netip.MustParsePrefix("fd7a:115c:a1e0:ab12:4843:cd96:0:1/128")},
+			Addresses: []netip.Prefix{netip.MustParsePrefix("100.64.0.1/32"), netip.MustParsePrefix("fd0d:e100:d3c5:ab12:4843:cd96:0:1/128")},
 		}).View(),
 	}
 	cfg := &wgcfg.Config{

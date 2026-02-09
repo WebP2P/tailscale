@@ -31,14 +31,6 @@ import (
 	"time"
 	"unsafe"
 
-	qt "github.com/frankban/quicktest"
-	"github.com/google/go-cmp/cmp"
-	wgconn "github.com/tailscale/wireguard-go/conn"
-	"github.com/tailscale/wireguard-go/device"
-	"github.com/tailscale/wireguard-go/tun/tuntest"
-	"go4.org/mem"
-	"golang.org/x/net/icmp"
-	"golang.org/x/net/ipv4"
 	"github.com/WebP2P/dexnet/cmd/testwrapper/flakytest"
 	"github.com/WebP2P/dexnet/control/controlknobs"
 	"github.com/WebP2P/dexnet/derp/derpserver"
@@ -79,6 +71,14 @@ import (
 	"github.com/WebP2P/dexnet/wgengine/wgcfg"
 	"github.com/WebP2P/dexnet/wgengine/wgcfg/nmcfg"
 	"github.com/WebP2P/dexnet/wgengine/wglog"
+	qt "github.com/frankban/quicktest"
+	"github.com/google/go-cmp/cmp"
+	wgconn "github.com/tailscale/wireguard-go/conn"
+	"github.com/tailscale/wireguard-go/device"
+	"github.com/tailscale/wireguard-go/tun/tuntest"
+	"go4.org/mem"
+	"golang.org/x/net/icmp"
+	"golang.org/x/net/ipv4"
 )
 
 func init() {
@@ -2245,7 +2245,7 @@ func TestIsWireGuardOnlyPeerWithMasquerade(t *testing.T) {
 	defer cleanup()
 
 	tskey := key.NewNode()
-	tsaip := netip.MustParsePrefix("100.111.222.111/32")
+	tsaip := netip.MustParsePrefix("10.200.111.222/32")
 
 	wgkey := key.NewNode()
 	wgaip := netip.MustParsePrefix("10.64.0.1/32")

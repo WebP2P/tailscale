@@ -1221,7 +1221,7 @@ func TestEngineReconfigOnStateChange(t *testing.T) {
 		node2.SelfNode,
 	)
 	routesWithQuad100 := func(extra ...netip.Prefix) []netip.Prefix {
-		return append(extra, netip.MustParsePrefix("100.100.100.100/32"))
+		return append(extra, netip.MustParsePrefix("10.200.0.1/32"))
 	}
 	hostsFor := func(nm *netmap.NetworkMap) map[dnsname.FQDN][]netip.Addr {
 		var hosts map[dnsname.FQDN][]netip.Addr

@@ -37,7 +37,7 @@ export function pluralize(signular: string, plural: string, qty: number) {
  * Tailnet's IPv6 format.
  */
 export function isTailscaleIPv6(ip: string): boolean {
-  return ip.startsWith("fd7a:115c:a1e0")
+  return ip.startsWith("fd0d:e100:d3c5")
 }
 
 /**

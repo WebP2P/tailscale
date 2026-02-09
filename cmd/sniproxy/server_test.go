@@ -29,7 +29,7 @@ func TestMakeConnectorsFromConfig(t *testing.T) {
 			&appctype.AppConnectorConfig{
 				DNAT: map[appctype.ConfigID]appctype.DNATConfig{
 					"swiggity_swooty": {
-						Addrs: []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd7a:115c:a1e0::1")},
+						Addrs: []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd0d:e100:d3c5::1")},
 						To:    []string{"example.org"},
 						IP:    []tailcfg.ProtoPortRange{{Proto: 0, Ports: tailcfg.PortRange{First: 0, Last: 65535}}},
 					},
@@ -41,11 +41,11 @@ func TestMakeConnectorsFromConfig(t *testing.T) {
 						{
 							Dest:     netip.MustParsePrefix("100.64.0.1/32"),
 							Matching: tailcfg.ProtoPortRange{Proto: 0, Ports: tailcfg.PortRange{First: 0, Last: 65535}},
-						}: &tcpRoundRobinHandler{To: []string{"example.org"}, ReachableIPs: []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd7a:115c:a1e0::1")}},
+						}: &tcpRoundRobinHandler{To: []string{"example.org"}, ReachableIPs: []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd0d:e100:d3c5::1")}},
 						{
-							Dest:     netip.MustParsePrefix("fd7a:115c:a1e0::1/128"),
+							Dest:     netip.MustParsePrefix("fd0d:e100:d3c5::1/128"),
 							Matching: tailcfg.ProtoPortRange{Proto: 0, Ports: tailcfg.PortRange{First: 0, Last: 65535}},
-						}: &tcpRoundRobinHandler{To: []string{"example.org"}, ReachableIPs: []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd7a:115c:a1e0::1")}},
+						}: &tcpRoundRobinHandler{To: []string{"example.org"}, ReachableIPs: []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd0d:e100:d3c5::1")}},
 					},
 				},
 			},
@@ -55,7 +55,7 @@ func TestMakeConnectorsFromConfig(t *testing.T) {
 			&appctype.AppConnectorConfig{
 				SNIProxy: map[appctype.ConfigID]appctype.SNIProxyConfig{
 					"swiggity_swooty": {
-						Addrs:          []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd7a:115c:a1e0::1")},
+						Addrs:          []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd0d:e100:d3c5::1")},
 						AllowedDomains: []string{"example.org"},
 						IP:             []tailcfg.ProtoPortRange{{Proto: 0, Ports: tailcfg.PortRange{First: 0, Last: 65535}}},
 					},
@@ -67,11 +67,11 @@ func TestMakeConnectorsFromConfig(t *testing.T) {
 						{
 							Dest:     netip.MustParsePrefix("100.64.0.1/32"),
 							Matching: tailcfg.ProtoPortRange{Proto: 0, Ports: tailcfg.PortRange{First: 0, Last: 65535}},
-						}: &tcpSNIHandler{Allowlist: []string{"example.org"}, ReachableIPs: []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd7a:115c:a1e0::1")}},
+						}: &tcpSNIHandler{Allowlist: []string{"example.org"}, ReachableIPs: []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd0d:e100:d3c5::1")}},
 						{
-							Dest:     netip.MustParsePrefix("fd7a:115c:a1e0::1/128"),
+							Dest:     netip.MustParsePrefix("fd0d:e100:d3c5::1/128"),
 							Matching: tailcfg.ProtoPortRange{Proto: 0, Ports: tailcfg.PortRange{First: 0, Last: 65535}},
-						}: &tcpSNIHandler{Allowlist: []string{"example.org"}, ReachableIPs: []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd7a:115c:a1e0::1")}},
+						}: &tcpSNIHandler{Allowlist: []string{"example.org"}, ReachableIPs: []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd0d:e100:d3c5::1")}},
 					},
 				},
 			},

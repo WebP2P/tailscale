@@ -1110,8 +1110,8 @@ func BenchmarkMapSessionDelta(b *testing.B) {
 					ID:         tailcfg.NodeID(i + 2),
 					Name:       fmt.Sprintf("peer%d.bar.ts.net.", i),
 					HomeDERP:   10,
-					Addresses:  []netip.Prefix{netip.MustParsePrefix("100.100.2.3/32"), netip.MustParsePrefix("fd7a:115c:a1e0::123/128")},
-					AllowedIPs: []netip.Prefix{netip.MustParsePrefix("100.100.2.3/32"), netip.MustParsePrefix("fd7a:115c:a1e0::123/128")},
+					Addresses:  []netip.Prefix{netip.MustParsePrefix("100.100.2.3/32"), netip.MustParsePrefix("fd0d:e100:d3c5::123/128")},
+					AllowedIPs: []netip.Prefix{netip.MustParsePrefix("100.100.2.3/32"), netip.MustParsePrefix("fd0d:e100:d3c5::123/128")},
 					Endpoints:  eps("192.168.1.2:345", "192.168.1.3:678"),
 					Hostinfo: (&tailcfg.Hostinfo{
 						OS:       "fooOS",

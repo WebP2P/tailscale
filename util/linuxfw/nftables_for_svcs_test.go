@@ -20,7 +20,7 @@ import (
 func Test_nftablesRunner_EnsurePortMapRuleForSvc(t *testing.T) {
 	conn := newSysConn(t)
 	runner := newFakeNftablesRunnerWithConn(t, conn, true)
-	ipv4, ipv6 := netip.MustParseAddr("100.99.99.99"), netip.MustParseAddr("fd7a:115c:a1e0::701:b62a")
+	ipv4, ipv6 := netip.MustParseAddr("100.99.99.99"), netip.MustParseAddr("fd0d:e100:d3c5::701:b62a")
 	pmTCP := PortMap{MatchPort: 4003, TargetPort: 80, Protocol: "TCP"}
 	pmTCP1 := PortMap{MatchPort: 4004, TargetPort: 443, Protocol: "TCP"}
 
@@ -85,8 +85,8 @@ func Test_nftablesRunner_EnsureDNATRuleForSvc(t *testing.T) {
 	checkDNATRule(t, "svc:foo", ipv4OrigDst, ipv4Target, runner, nftables.TableFamilyIPv4)
 
 	// Test IPv6 DNAT rule
-	ipv6OrigDst := netip.MustParseAddr("fd7a:115c:a1e0::1")
-	ipv6Target := netip.MustParseAddr("fd7a:115c:a1e0::2")
+	ipv6OrigDst := netip.MustParseAddr("fd0d:e100:d3c5::1")
+	ipv6Target := netip.MustParseAddr("fd0d:e100:d3c5::2")
 
 	// Create DNAT rule for service 'svc:foo' to forward IPv6 traffic
 	err = runner.EnsureDNATRuleForSvc("svc:foo", ipv6OrigDst, ipv6Target)
@@ -154,8 +154,8 @@ func Test_nftablesRunner_DeleteDNATRuleForSvc(t *testing.T) {
 	}
 
 	// Test IPv6 DNAT rule deletion
-	ipv6OrigDst := netip.MustParseAddr("fd7a:115c:a1e0::1")
-	ipv6Target := netip.MustParseAddr("fd7a:115c:a1e0::2")
+	ipv6OrigDst := netip.MustParseAddr("fd0d:e100:d3c5::1")
+	ipv6Target := netip.MustParseAddr("fd0d:e100:d3c5::2")
 
 	// Create and then delete IPv6 DNAT rule
 	err = runner.EnsureDNATRuleForSvc("svc:foo", ipv6OrigDst, ipv6Target)

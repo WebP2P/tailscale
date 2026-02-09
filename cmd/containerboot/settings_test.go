@@ -229,15 +229,15 @@ func TestValidateAuthMethods(t *testing.T) {
 }
 
 func TestHandlesKubeIPV6(t *testing.T) {
-	t.Setenv("TS_LOCAL_ADDR_PORT", "fd7a:115c:a1e0::6c34:352:9002")
-	t.Setenv("POD_IPS", "fd7a:115c:a1e0::6c34:352")
+	t.Setenv("TS_LOCAL_ADDR_PORT", "fd0d:e100:d3c5::6c34:352:9002")
+	t.Setenv("POD_IPS", "fd0d:e100:d3c5::6c34:352")
 
 	cfg, err := configFromEnv()
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	if cfg.LocalAddrPort != "[fd7a:115c:a1e0::6c34:352]:9002" {
+	if cfg.LocalAddrPort != "[fd0d:e100:d3c5::6c34:352]:9002" {
 		t.Errorf("LocalAddrPort is not set correctly")
 	}
 

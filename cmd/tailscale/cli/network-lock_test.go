@@ -220,8 +220,8 @@ func TestNetworkLockStatusOutput(t *testing.T) {
 
 	trustedNlPub := key.NLPublicFromEd25519Unsafe(bytes.Repeat([]byte{5}, 32))
 
-	tailnetIPv4_A, tailnetIPv6_A := netip.MustParseAddr("100.99.99.99"), netip.MustParseAddr("fd7a:115c:a1e0::701:b62a")
-	tailnetIPv4_B, tailnetIPv6_B := netip.MustParseAddr("100.88.88.88"), netip.MustParseAddr("fd7a:115c:a1e0::4101:512f")
+	tailnetIPv4_A, tailnetIPv6_A := netip.MustParseAddr("100.99.99.99"), netip.MustParseAddr("fd0d:e100:d3c5::701:b62a")
+	tailnetIPv4_B, tailnetIPv6_B := netip.MustParseAddr("100.88.88.88"), netip.MustParseAddr("fd0d:e100:d3c5::4101:512f")
 
 	t.Run("json-1", func(t *testing.T) {
 		for _, tt := range []struct {
@@ -323,7 +323,7 @@ func TestNetworkLockStatusOutput(t *testing.T) {
       "DNSName": "authentic-associate",
       "TailscaleIPs": [
         "100.99.99.99",
-        "fd7a:115c:a1e0::701:b62a"
+        "fd0d:e100:d3c5::701:b62a"
       ],
       "NodeKey": "nodekey:0202020202020202020202020202020202020202020202020202020202020202",
       "NodeKeySignature": {
@@ -341,7 +341,7 @@ func TestNetworkLockStatusOutput(t *testing.T) {
       "DNSName": "bogus-bandit",
       "TailscaleIPs": [
         "100.88.88.88",
-        "fd7a:115c:a1e0::4101:512f"
+        "fd0d:e100:d3c5::4101:512f"
       ],
       "NodeKey": "nodekey:0303030303030303030303030303030303030303030303030303030303030303"
     }

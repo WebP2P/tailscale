@@ -137,14 +137,14 @@ func TestKeepStateKeysUpdated(t *testing.T) {
 					SelfNode: (&tailcfg.Node{
 						StableID:  "TESTCTRL00000001",
 						Name:      "test-node.test.ts.net",
-						Addresses: []netip.Prefix{netip.MustParsePrefix("100.64.0.1/32"), netip.MustParsePrefix("fd7a:115c:a1e0:ab12:4843:cd96:0:1/128")},
+						Addresses: []netip.Prefix{netip.MustParsePrefix("100.64.0.1/32"), netip.MustParsePrefix("fd0d:e100:d3c5:ab12:4843:cd96:0:1/128")},
 					}).View(),
 				},
 			},
 			expected: []string{
 				fmt.Sprintf("%s=%s", keyDeviceID, "TESTCTRL00000001"),
 				fmt.Sprintf("%s=%s", keyDeviceFQDN, "test-node.test.ts.net"),
-				fmt.Sprintf("%s=%s", keyDeviceIPs, `["100.64.0.1","fd7a:115c:a1e0:ab12:4843:cd96:0:1"]`),
+				fmt.Sprintf("%s=%s", keyDeviceIPs, `["100.64.0.1","fd0d:e100:d3c5:ab12:4843:cd96:0:1"]`),
 			},
 		},
 		{

@@ -17,7 +17,7 @@ import (
 var golden = `{
   "dnat": {
     "opaqueid1": {
-      "addrs": ["100.64.0.1", "fd7a:115c:a1e0::1"],
+      "addrs": ["100.64.0.1", "fd0d:e100:d3c5::1"],
       "to": ["example.org"],
       "ip": ["*"]
     }
@@ -34,7 +34,7 @@ var golden = `{
 
 func TestGolden(t *testing.T) {
 	wantDNAT := map[ConfigID]DNATConfig{"opaqueid1": {
-		Addrs: []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd7a:115c:a1e0::1")},
+		Addrs: []netip.Addr{netip.MustParseAddr("100.64.0.1"), netip.MustParseAddr("fd0d:e100:d3c5::1")},
 		To:    []string{"example.org"},
 		IP:    []tailcfg.ProtoPortRange{{Proto: 0, Ports: tailcfg.PortRange{First: 0, Last: 65535}}},
 	}}

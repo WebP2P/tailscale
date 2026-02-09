@@ -7,10 +7,10 @@ import (
 	"net/netip"
 	"testing"
 
-	"github.com/google/go-cmp/cmp"
-	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/WebP2P/dexnet/net/netaddr"
 	"github.com/WebP2P/dexnet/types/views"
+	"github.com/google/go-cmp/cmp"
+	"github.com/google/go-cmp/cmp/cmpopts"
 )
 
 func TestInCrostiniRange(t *testing.T) {
@@ -36,7 +36,7 @@ func TestInCrostiniRange(t *testing.T) {
 
 func TestTailscaleServiceIP(t *testing.T) {
 	got := TailscaleServiceIP().String()
-	want := "100.100.100.100"
+	want := "10.200.0.1"
 	if got != want {
 		t.Errorf("got %q; want %q", got, want)
 	}
@@ -47,7 +47,7 @@ func TestTailscaleServiceIP(t *testing.T) {
 
 func TestTailscaleServiceIPv6(t *testing.T) {
 	got := TailscaleServiceIPv6().String()
-	want := "fd7a:115c:a1e0::53"
+	want := "fd0d:e100:d3c5:de1::1"
 	if got != want {
 		t.Errorf("got %q; want %q", got, want)
 	}
@@ -63,7 +63,7 @@ func TestChromeOSVMRange(t *testing.T) {
 }
 
 func TestCGNATRange(t *testing.T) {
-	if got, want := CGNATRange().String(), "100.64.0.0/10"; got != want {
+	if got, want := CGNATRange().String(), "10.200.0.0/16"; got != want {
 		t.Errorf("got %q; want %q", got, want)
 	}
 }
@@ -83,8 +83,8 @@ func TestUnmapVia(t *testing.T) {
 		want string
 	}{
 		{"1.2.3.4", "1.2.3.4"}, // unchanged v4
-		{"fd7a:115c:a1e0:b1a::bb:10.2.1.3", "10.2.1.3"},
-		{"fd7a:115c:a1e0:b1b::bb:10.2.1.4", "fd7a:115c:a1e0:b1b:0:bb:a02:104"}, // "b1b",not "bia"
+		{"fd0d:e100:d3c5:b1a::bb:10.2.1.3", "10.2.1.3"},
+		{"fd0d:e100:d3c5:b1b::bb:10.2.1.4", "fd0d:e100:d3c5:b1b:0:bb:a02:104"}, // "b1b",not "bia"
 	}
 	for _, tt := range tests {
 		if got := UnmapVia(netip.MustParseAddr(tt.ip)).String(); got != tt.want {
@@ -229,7 +229,11 @@ func TestIsTailscaleIPv4(t *testing.T) {
 		want bool
 	}{
 		{
-			in:   netip.MustParseAddr("100.67.19.57"),
+			in:   netip.MustParseAddr("10.200.0.5"),
+			want: true,
+		},
+		{
+			in:   netip.MustParseAddr("10.200.255.255"),
 			want: true,
 		},
 		{
@@ -237,8 +241,11 @@ func TestIsTailscaleIPv4(t *testing.T) {
 			want: false,
 		},
 		{
-
-			in:   netip.MustParseAddr("fd7a:115c:a1e0:3f2b:7a1d:4e88:9c2b:7f01"),
+			in:   netip.MustParseAddr("100.67.19.57"),
+			want: false,
+		},
+		{
+			in:   netip.MustParseAddr("fd0d:e100:d3c5:3f2b:7a1d:4e88:9c2b:7f01"),
 			want: false,
 		},
 		{
@@ -263,7 +270,7 @@ func TestIsTailscaleIP(t *testing.T) {
 		want bool
 	}{
 		{
-			in:   netip.MustParseAddr("100.67.19.57"),
+			in:   netip.MustParseAddr("10.200.0.5"),
 			want: true,
 		},
 		{
@@ -271,8 +278,11 @@ func TestIsTailscaleIP(t *testing.T) {
 			want: false,
 		},
 		{
-
-			in:   netip.MustParseAddr("fd7a:115c:a1e0:3f2b:7a1d:4e88:9c2b:7f01"),
+			in:   netip.MustParseAddr("100.67.19.57"),
+			want: false,
+		},
+		{
+			in:   netip.MustParseAddr("fd0d:e100:d3c5:3f2b:7a1d:4e88:9c2b:7f01"),
 			want: true,
 		},
 		{

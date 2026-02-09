@@ -209,7 +209,7 @@ func TestIsUsableV6(t *testing.T) {
 		want bool
 	}{
 		{"first ULA", "fc00::1", true},
-		{"Tailscale", "fd7a:115c:a1e0::1", false},
+		{"Tailscale", "fd0d:e100:d3c5::1", false},
 		{"Cloud Run", "fddf:3978:feb1:d745::1", true},
 		{"zeros", "0::0", false},
 		{"Link Local", "fe80::1", false},
@@ -377,7 +377,7 @@ func TestEqual(t *testing.T) {
 				InterfaceIPs: map[string][]netip.Prefix{
 					"rmnet16":    pfxs("2607:1111:2222:3333:4444:5555:6666:7777/64"),
 					"rmnet17":    pfxs("2607:9999:8888:7777:666:5555:4444:3333/64"),
-					"tun0":       pfxs("100.64.1.2/32", "fd7a:115c:a1e0::1/128"),
+					"tun0":       pfxs("100.64.1.2/32", "fd0d:e100:d3c5::1/128"),
 					"v4-rmnet16": pfxs("192.0.0.4/32"),
 					"wlan0":      pfxs("10.0.0.111/24"), // removed below
 				},
@@ -386,7 +386,7 @@ func TestEqual(t *testing.T) {
 				InterfaceIPs: map[string][]netip.Prefix{
 					"rmnet16":    pfxs("2607:1111:2222:3333:4444:5555:6666:7777/64"),
 					"rmnet17":    pfxs("2607:9999:8888:7777:666:5555:4444:3333/64"),
-					"tun0":       pfxs("100.64.1.2/32", "fd7a:115c:a1e0::1/128"),
+					"tun0":       pfxs("100.64.1.2/32", "fd0d:e100:d3c5::1/128"),
 					"v4-rmnet16": pfxs("192.0.0.4/32"),
 				},
 			},

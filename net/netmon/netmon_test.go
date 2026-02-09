@@ -468,7 +468,7 @@ func TestRebindRequired(t *testing.T) {
 				DefaultRouteInterface: "bar",
 				InterfaceIPs: map[string][]netip.Prefix{
 					"bar":    {netip.MustParsePrefix("192.168.0.1/16")},
-					"boring": {netip.MustParsePrefix("fd7a:115c:a1e0:ab12:4843:cd96:625e:13ce/64")},
+					"boring": {netip.MustParsePrefix("fd0d:e100:d3c5:ab12:4843:cd96:625e:13ce/64")},
 				},
 			},
 			want: false,

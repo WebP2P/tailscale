@@ -99,7 +99,7 @@ func TestRouteEntryFromMsg(t *testing.T) {
 				Version: 3,
 				Type:    rmExpectedType,
 				Addrs: []route.Addr{
-					ip6("fd7a:115c:a1e0::"), // dst
+					ip6("fd0d:e100:d3c5::"), // dst
 					ip6("1234::"),           // gateway
 					ip6("ffff:ffff:ffff::"), // netmask
 				},
@@ -107,7 +107,7 @@ func TestRouteEntryFromMsg(t *testing.T) {
 			want: RouteEntry{
 				Family:  6,
 				Type:    RouteTypeUnicast,
-				Dst:     RouteDestination{Prefix: netip.MustParsePrefix("fd7a:115c:a1e0::/48")},
+				Dst:     RouteDestination{Prefix: netip.MustParsePrefix("fd0d:e100:d3c5::/48")},
 				Gateway: netip.MustParseAddr("1234::"),
 				Sys:     RouteEntryBSD{},
 			},
@@ -392,14 +392,14 @@ func TestRouteEntryFormatting(t *testing.T) {
 			re: RouteEntry{
 				Family:    6,
 				Type:      RouteTypeUnicast,
-				Dst:       RouteDestination{Prefix: netip.MustParsePrefix("fd7a:115c:a1e0::/24")},
+				Dst:       RouteDestination{Prefix: netip.MustParsePrefix("fd0d:e100:d3c5::/24")},
 				Interface: "en0",
 				Sys: RouteEntryBSD{
 					GatewayIdx: 3,
 					Flags:      []string{"static", "up"},
 				},
 			},
-			want: `{Family: IPv6, Dst: fd7a:115c:a1e0::/24, Interface: en0, Sys: {GatewayIdx: 3, Flags: [static up]}}`,
+			want: `{Family: IPv6, Dst: fd0d:e100:d3c5::/24, Interface: en0, Sys: {GatewayIdx: 3, Flags: [static up]}}`,
 		},
 	}
 	for _, tc := range testCases {

@@ -289,7 +289,7 @@ type connector struct {
 // The 8th and 9th bytes are used to encode the site ID which allows for
 // multiple proxies to act in a HA configuration.
 // mnemonic: a99c = appc
-var v6ULA = netip.MustParsePrefix("fd7a:115c:a1e0:a99c::/64")
+var v6ULA = netip.MustParsePrefix("fd0d:e100:d3c5:a99c::/64")
 
 func ula(siteID uint16) netip.Prefix {
 	as16 := v6ULA.Addr().As16()

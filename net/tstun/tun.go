@@ -105,7 +105,7 @@ func cleanUpPlan9Interfaces() {
 		}
 		status := string(b)
 		if !(strings.HasPrefix(status, "device  maxtu ") ||
-			strings.Contains(status, "fd7a:115c:a1e0:")) {
+			strings.Contains(status, "fd0d:e100:d3c5:")) {
 			return
 		}
 		f, err := os.OpenFile(fmt.Sprintf("/net/ipifc/%d/ctl", n), os.O_RDWR, 0)

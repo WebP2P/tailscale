@@ -1367,7 +1367,7 @@ func TestMessageForPort(t *testing.T) {
 	svcIPMap := tailcfg.ServiceIPMappings{
 		"svc:foo": []netip.Addr{
 			netip.MustParseAddr("100.101.101.101"),
-			netip.MustParseAddr("fd7a:115c:a1e0:ab12:4843:cd96:6565:6565"),
+			netip.MustParseAddr("fd0d:e100:d3c5:ab12:4843:cd96:6565:6565"),
 		},
 	}
 	svcIPMapJSON, _ := json.Marshal(svcIPMap)
@@ -1604,7 +1604,7 @@ func TestMessageForPort(t *testing.T) {
 				"",
 				"|-- tcp://foo.test.ts.net:2200 (TLS over TCP)",
 				"|-- tcp://100.101.101.101:2200",
-				"|-- tcp://[fd7a:115c:a1e0:ab12:4843:cd96:6565:6565]:2200",
+				"|-- tcp://[fd0d:e100:d3c5:ab12:4843:cd96:6565:6565]:2200",
 				"|--> tcp://localhost:3000",
 				"",
 				fmt.Sprintf(msgRunningInBackground, "Serve"),

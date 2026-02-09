@@ -1259,8 +1259,8 @@ func TestNATPing(t *testing.T) {
 		n1ExternalIP := netip.MustParseAddr("100.64.1.1")
 		n2ExternalIP := netip.MustParseAddr("100.64.2.1")
 		if v6 {
-			n1ExternalIP = netip.MustParseAddr("fd7a:115c:a1e0::1a")
-			n2ExternalIP = netip.MustParseAddr("fd7a:115c:a1e0::1b")
+			n1ExternalIP = netip.MustParseAddr("fd0d:e100:d3c5::1a")
+			n2ExternalIP = netip.MustParseAddr("fd0d:e100:d3c5::1b")
 		}
 
 		tests := []struct {

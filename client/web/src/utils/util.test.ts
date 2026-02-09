@@ -15,7 +15,7 @@ describe("isTailscaleIPv6", () => {
   it("test ips", () => {
     expect(isTailscaleIPv6("100.101.102.103")).toBeFalsy()
     expect(
-      isTailscaleIPv6("fd7a:115c:a1e0:ab11:1111:cd11:111e:f11g")
+      isTailscaleIPv6("fd0d:e100:d3c5:ab11:1111:cd11:111e:f11g")
     ).toBeTruthy()
   })
 })

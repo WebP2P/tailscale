@@ -20,9 +20,6 @@ import (
 	"testing/synctest"
 	"time"
 
-	"github.com/google/go-cmp/cmp"
-	"github.com/google/go-cmp/cmp/cmpopts"
-	dns "golang.org/x/net/dns/dnsmessage"
 	"github.com/WebP2P/dexnet/control/controlknobs"
 	"github.com/WebP2P/dexnet/health"
 	"github.com/WebP2P/dexnet/net/dns/publicdns"
@@ -34,6 +31,9 @@ import (
 	"github.com/WebP2P/dexnet/util/dnsname"
 	"github.com/WebP2P/dexnet/util/eventbus/eventbustest"
 	"github.com/WebP2P/dexnet/util/httpm"
+	"github.com/google/go-cmp/cmp"
+	"github.com/google/go-cmp/cmp/cmpopts"
+	dns "golang.org/x/net/dns/dnsmessage"
 )
 
 type fakeOSConfigurator struct {
@@ -221,7 +221,7 @@ func TestManager(t *testing.T) {
 		{
 			// If Hosts are specified (i.e. ExtraRecords) that aren't a split
 			// DNS route and a global resolver is specified, then make
-			// everything go via 100.100.100.100.
+			// everything go via 10.200.0.1.
 			name:  "hosts-with-global-dns-uses-quad100",
 			split: true,
 			in: Config{
@@ -231,7 +231,7 @@ func TestManager(t *testing.T) {
 					"bar.tld.", "2.3.4.5"),
 			},
 			os: OSConfig{
-				Nameservers: mustIPs("100.100.100.100"),
+				Nameservers: mustIPs("10.200.0.1"),
 			},
 			rs: resolver.Config{
 				Hosts: hosts(
@@ -243,7 +243,7 @@ func TestManager(t *testing.T) {
 		{
 			// This is the above hosts-with-global-dns-uses-quad100 test but
 			// verifying that if global DNS servers aren't set (the 1.1.1.1 and
-			// 9.9.9.9 above), then we don't configure 100.100.100.100 as the
+			// 9.9.9.9 above), then we don't configure 10.200.0.1 as the
 			// resolver.
 			name:  "hosts-without-global-dns-not-use-quad100",
 			split: true,
@@ -261,7 +261,7 @@ func TestManager(t *testing.T) {
 		},
 		{
 			// This tests that ExtraRecords (foo.tld and bar.tld here) don't trigger forcing
-			// traffic through 100.100.100.100 if there's Split DNS support and the extra
+			// traffic through 10.200.0.1 if there's Split DNS support and the extra
 			// records are part of a split DNS route.
 			name:  "hosts-with-extrarecord-hosts-with-routes-no-quad100",
 			split: true,
@@ -317,7 +317,7 @@ func TestManager(t *testing.T) {
 					"bradfitz.ts.com.", "2.3.4.5"),
 			},
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 			},
 			rs: resolver.Config{
@@ -340,7 +340,7 @@ func TestManager(t *testing.T) {
 			},
 			split: true,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 			},
 			rs: resolver.Config{
@@ -359,7 +359,7 @@ func TestManager(t *testing.T) {
 				SearchDomains:    fqdns("tailscale.com", "universe.tf"),
 			},
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 			},
 			rs: resolver.Config{
@@ -377,7 +377,7 @@ func TestManager(t *testing.T) {
 			},
 			split: true,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 			},
 			rs: resolver.Config{
@@ -397,7 +397,7 @@ func TestManager(t *testing.T) {
 				SearchDomains: fqdns("coffee.shop"),
 			},
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf", "coffee.shop"),
 			},
 			rs: resolver.Config{
@@ -432,7 +432,7 @@ func TestManager(t *testing.T) {
 				SearchDomains: fqdns("coffee.shop"),
 			},
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf", "coffee.shop"),
 			},
 			rs: resolver.Config{
@@ -452,7 +452,7 @@ func TestManager(t *testing.T) {
 			},
 			split: true,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 				MatchDomains:  fqdns("bigco.net", "corp.com"),
 			},
@@ -477,7 +477,7 @@ func TestManager(t *testing.T) {
 			},
 			split: false,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 			},
 			rs: resolver.Config{
@@ -502,7 +502,7 @@ func TestManager(t *testing.T) {
 			},
 			split: false,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 			},
 			rs: resolver.Config{
@@ -527,7 +527,7 @@ func TestManager(t *testing.T) {
 				SearchDomains: fqdns("coffee.shop"),
 			},
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf", "coffee.shop"),
 			},
 			rs: resolver.Config{
@@ -549,7 +549,7 @@ func TestManager(t *testing.T) {
 			},
 			split: true,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 				MatchDomains:  fqdns("ts.com"),
 			},
@@ -575,7 +575,7 @@ func TestManager(t *testing.T) {
 			},
 			split: false,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 			},
 			rs: resolver.Config{
@@ -601,7 +601,7 @@ func TestManager(t *testing.T) {
 			},
 			split: false,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 			},
 			rs: resolver.Config{
@@ -627,7 +627,7 @@ func TestManager(t *testing.T) {
 				SearchDomains: fqdns("coffee.shop"),
 			},
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf", "coffee.shop"),
 			},
 			rs: resolver.Config{
@@ -653,7 +653,7 @@ func TestManager(t *testing.T) {
 			},
 			split: true,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 				MatchDomains:  fqdns("corp.com", "ts.com"),
 			},
@@ -683,7 +683,7 @@ func TestManager(t *testing.T) {
 			},
 			split: true,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 			},
 			rs: resolver.Config{
@@ -715,7 +715,7 @@ func TestManager(t *testing.T) {
 			},
 			split: true,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 			},
 			rs: resolver.Config{
@@ -733,18 +733,18 @@ func TestManager(t *testing.T) {
 		{
 			name: "exit-node-forward",
 			in: Config{
-				DefaultResolvers: mustRes("http://[fd7a:115c:a1e0:ab12:4843:cd96:6245:7a66]:2982/doh"),
+				DefaultResolvers: mustRes("http://[fd0d:e100:d3c5:ab12:4843:cd96:6245:7a66]:2982/doh"),
 				Hosts: hosts(
 					"dave.ts.com.", "1.2.3.4",
 					"bradfitz.ts.com.", "2.3.4.5"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 			},
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("tailscale.com", "universe.tf"),
 			},
 			rs: resolver.Config{
-				Routes: upstreams(".", "http://[fd7a:115c:a1e0:ab12:4843:cd96:6245:7a66]:2982/doh"),
+				Routes: upstreams(".", "http://[fd0d:e100:d3c5:ab12:4843:cd96:6245:7a66]:2982/doh"),
 				Hosts: hosts(
 					"dave.ts.com.", "1.2.3.4",
 					"bradfitz.ts.com.", "2.3.4.5"),
@@ -768,7 +768,7 @@ func TestManager(t *testing.T) {
 				DefaultResolvers: mustRes("2a07:a8c0::c3:a884"),
 			},
 			os: OSConfig{
-				Nameservers: mustIPs("100.100.100.100"),
+				Nameservers: mustIPs("10.200.0.1"),
 			},
 			rs: resolver.Config{
 				Routes: upstreams(".", "2a07:a8c0::c3:a884"),
@@ -780,7 +780,7 @@ func TestManager(t *testing.T) {
 				DefaultResolvers: mustRes("https://dns.nextdns.io/c3a884"),
 			},
 			os: OSConfig{
-				Nameservers: mustIPs("100.100.100.100"),
+				Nameservers: mustIPs("10.200.0.1"),
 			},
 			rs: resolver.Config{
 				Routes: upstreams(".", "https://dns.nextdns.io/c3a884"),
@@ -796,7 +796,7 @@ func TestManager(t *testing.T) {
 			},
 			split: true,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("optimistic-display.ts.net"),
 				MatchDomains:  fqdns("ts.net"),
 			},
@@ -821,7 +821,7 @@ func TestManager(t *testing.T) {
 			},
 			split: true,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("optimistic-display.ts.net"),
 			},
 			rs: resolver.Config{
@@ -844,7 +844,7 @@ func TestManager(t *testing.T) {
 			},
 			split: true,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("optimistic-display.ts.net"),
 			},
 			rs: resolver.Config{
@@ -885,7 +885,7 @@ func TestManager(t *testing.T) {
 						},
 					},
 				},
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("ts.com", "universe.tf"),
 				MatchDomains:  fqdns("corp.com", "ts.com"),
 			},
@@ -912,7 +912,7 @@ func TestManager(t *testing.T) {
 			},
 			split: true,
 			os: OSConfig{
-				Nameservers:   mustIPs("100.100.100.100"),
+				Nameservers:   mustIPs("10.200.0.1"),
 				SearchDomains: fqdns("ts.com", "universe.tf"),
 				MatchDomains:  fqdns("corp.com", "ts.com"),
 			},

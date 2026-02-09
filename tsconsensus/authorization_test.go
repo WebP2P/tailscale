@@ -32,7 +32,7 @@ func makeAuthTestPeer(i int, tags views.Slice[string]) *ipnstate.PeerStatus {
 		Tags: &tags,
 		TailscaleIPs: []netip.Addr{
 			netip.AddrFrom4([4]byte{100, 0, 0, byte(i)}),
-			netip.MustParseAddr(fmt.Sprintf("fd7a:115c:a1e0:0::%d", i)),
+			netip.MustParseAddr(fmt.Sprintf("fd0d:e100:d3c5:0::%d", i)),
 		},
 	}
 }

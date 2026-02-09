@@ -1084,7 +1084,7 @@ func benchmarkFile(b *testing.B, file string, opt benchOpt) {
 	var localNets netipx.IPSetBuilder
 	pfx := []netip.Prefix{
 		netip.MustParsePrefix("100.96.14.120/32"),
-		netip.MustParsePrefix("fd7a:115c:a1e0:ab12:4843:cd96:6260:e78/128"),
+		netip.MustParsePrefix("fd0d:e100:d3c5:ab12:4843:cd96:6260:e78/128"),
 	}
 	for _, p := range pfx {
 		localNets.AddPrefix(p)

@@ -16,7 +16,7 @@ func newFakeIPTablesRunner() *iptablesRunner {
 
 func Test_iptablesRunner_EnsurePortMapRuleForSvc(t *testing.T) {
 	v4Addr := netip.MustParseAddr("10.0.0.4")
-	v6Addr := netip.MustParseAddr("fd7a:115c:a1e0::701:b62a")
+	v6Addr := netip.MustParseAddr("fd0d:e100:d3c5::701:b62a")
 	testPM := PortMap{Protocol: "tcp", MatchPort: 4003, TargetPort: 80}
 	testPM2 := PortMap{Protocol: "udp", MatchPort: 4004, TargetPort: 53}
 	v4Rule := argsForPortMapRule("test-svc", "tailscale0", v4Addr, testPM)
@@ -71,7 +71,7 @@ func Test_iptablesRunner_EnsurePortMapRuleForSvc(t *testing.T) {
 
 func Test_iptablesRunner_DeletePortMapRuleForSvc(t *testing.T) {
 	v4Addr := netip.MustParseAddr("10.0.0.4")
-	v6Addr := netip.MustParseAddr("fd7a:115c:a1e0::701:b62a")
+	v6Addr := netip.MustParseAddr("fd0d:e100:d3c5::701:b62a")
 	testPM := PortMap{Protocol: "tcp", MatchPort: 4003, TargetPort: 80}
 	v4Rule := argsForPortMapRule("test", "tailscale0", v4Addr, testPM)
 	v6Rule := argsForPortMapRule("test", "tailscale0", v6Addr, testPM)
@@ -129,7 +129,7 @@ func Test_iptablesRunner_DeletePortMapRuleForSvc(t *testing.T) {
 
 func Test_iptablesRunner_DeleteSvc(t *testing.T) {
 	v4Addr := netip.MustParseAddr("10.0.0.4")
-	v6Addr := netip.MustParseAddr("fd7a:115c:a1e0::701:b62a")
+	v6Addr := netip.MustParseAddr("fd0d:e100:d3c5::701:b62a")
 	testPM := PortMap{Protocol: "tcp", MatchPort: 4003, TargetPort: 80}
 	iptr := newFakeIPTablesRunner()
 
@@ -160,8 +160,8 @@ func Test_iptablesRunner_DeleteSvc(t *testing.T) {
 func Test_iptablesRunner_EnsureDNATRuleForSvc(t *testing.T) {
 	v4OrigDst := netip.MustParseAddr("10.0.0.1")
 	v4Target := netip.MustParseAddr("10.0.0.2")
-	v6OrigDst := netip.MustParseAddr("fd7a:115c:a1e0::1")
-	v6Target := netip.MustParseAddr("fd7a:115c:a1e0::2")
+	v6OrigDst := netip.MustParseAddr("fd0d:e100:d3c5::1")
+	v6Target := netip.MustParseAddr("fd0d:e100:d3c5::2")
 	v4Rule := argsForIngressRule("svc:test", v4OrigDst, v4Target)
 
 	tests := []struct {
@@ -216,8 +216,8 @@ func Test_iptablesRunner_EnsureDNATRuleForSvc(t *testing.T) {
 func Test_iptablesRunner_DeleteDNATRuleForSvc(t *testing.T) {
 	v4OrigDst := netip.MustParseAddr("10.0.0.1")
 	v4Target := netip.MustParseAddr("10.0.0.2")
-	v6OrigDst := netip.MustParseAddr("fd7a:115c:a1e0::1")
-	v6Target := netip.MustParseAddr("fd7a:115c:a1e0::2")
+	v6OrigDst := netip.MustParseAddr("fd0d:e100:d3c5::1")
+	v6Target := netip.MustParseAddr("fd0d:e100:d3c5::2")
 	v4Rule := argsForIngressRule("svc:test", v4OrigDst, v4Target)
 	v6Rule := argsForIngressRule("svc:test", v6OrigDst, v6Target)
 

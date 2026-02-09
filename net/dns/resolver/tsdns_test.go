@@ -21,8 +21,6 @@ import (
 	"testing"
 	"time"
 
-	miekdns "github.com/miekg/dns"
-	dns "golang.org/x/net/dns/dnsmessage"
 	"github.com/WebP2P/dexnet/health"
 	"github.com/WebP2P/dexnet/net/netaddr"
 	"github.com/WebP2P/dexnet/net/netmon"
@@ -33,6 +31,8 @@ import (
 	"github.com/WebP2P/dexnet/util/dnsname"
 	"github.com/WebP2P/dexnet/util/eventbus/eventbustest"
 	"github.com/WebP2P/dexnet/util/set"
+	miekdns "github.com/miekg/dns"
+	dns "golang.org/x/net/dns/dnsmessage"
 )
 
 var (
@@ -389,21 +389,21 @@ func TestResolveLocal(t *testing.T) {
 		{"mx-nxdomain", "test3.ipn.dev.", dns.TypeMX, netip.Addr{}, dns.RCodeNameError},
 		{"ns-nxdomain", "test3.ipn.dev.", dns.TypeNS, netip.Addr{}, dns.RCodeNameError},
 		{"onion-domain", "footest.onion.", dns.TypeA, netip.Addr{}, dns.RCodeNameError},
-		{"magicdns", dnsSymbolicFQDN, dns.TypeA, netip.MustParseAddr("100.100.100.100"), dns.RCodeSuccess},
-		{"via_hex", dnsname.FQDN("via-0xff.1.2.3.4."), dns.TypeAAAA, netip.MustParseAddr("fd7a:115c:a1e0:b1a:0:ff:1.2.3.4"), dns.RCodeSuccess},
-		{"via_dec", dnsname.FQDN("via-1.10.0.0.1."), dns.TypeAAAA, netip.MustParseAddr("fd7a:115c:a1e0:b1a:0:1:10.0.0.1"), dns.RCodeSuccess},
-		{"x_via_hex", dnsname.FQDN("4.3.2.1.via-0xff."), dns.TypeAAAA, netip.MustParseAddr("fd7a:115c:a1e0:b1a:0:ff:4.3.2.1"), dns.RCodeSuccess},
-		{"x_via_dec", dnsname.FQDN("1.0.0.10.via-1."), dns.TypeAAAA, netip.MustParseAddr("fd7a:115c:a1e0:b1a:0:1:1.0.0.10"), dns.RCodeSuccess},
+		{"magicdns", dnsSymbolicFQDN, dns.TypeA, netip.MustParseAddr("10.200.0.1"), dns.RCodeSuccess},
+		{"via_hex", dnsname.FQDN("via-0xff.1.2.3.4."), dns.TypeAAAA, netip.MustParseAddr("fd0d:e100:d3c5:b1a:0:ff:1.2.3.4"), dns.RCodeSuccess},
+		{"via_dec", dnsname.FQDN("via-1.10.0.0.1."), dns.TypeAAAA, netip.MustParseAddr("fd0d:e100:d3c5:b1a:0:1:10.0.0.1"), dns.RCodeSuccess},
+		{"x_via_hex", dnsname.FQDN("4.3.2.1.via-0xff."), dns.TypeAAAA, netip.MustParseAddr("fd0d:e100:d3c5:b1a:0:ff:4.3.2.1"), dns.RCodeSuccess},
+		{"x_via_dec", dnsname.FQDN("1.0.0.10.via-1."), dns.TypeAAAA, netip.MustParseAddr("fd0d:e100:d3c5:b1a:0:1:1.0.0.10"), dns.RCodeSuccess},
 		{"via_invalid", dnsname.FQDN("via-."), dns.TypeAAAA, netip.Addr{}, dns.RCodeRefused},
 		{"via_invalid_2", dnsname.FQDN("2.3.4.5.via-."), dns.TypeAAAA, netip.Addr{}, dns.RCodeRefused},
 
 		// Hyphenated 4via6 format.
 		// Without any suffix domain:
-		{"via_form3_hex_bare", dnsname.FQDN("1-2-3-4-via-0xff."), dns.TypeAAAA, netip.MustParseAddr("fd7a:115c:a1e0:b1a:0:ff:1.2.3.4"), dns.RCodeSuccess},
-		{"via_form3_dec_bare", dnsname.FQDN("1-2-3-4-via-1."), dns.TypeAAAA, netip.MustParseAddr("fd7a:115c:a1e0:b1a:0:1:1.2.3.4"), dns.RCodeSuccess},
+		{"via_form3_hex_bare", dnsname.FQDN("1-2-3-4-via-0xff."), dns.TypeAAAA, netip.MustParseAddr("fd0d:e100:d3c5:b1a:0:ff:1.2.3.4"), dns.RCodeSuccess},
+		{"via_form3_dec_bare", dnsname.FQDN("1-2-3-4-via-1."), dns.TypeAAAA, netip.MustParseAddr("fd0d:e100:d3c5:b1a:0:1:1.2.3.4"), dns.RCodeSuccess},
 		// With a Tailscale domain:
-		{"via_form3_dec_ts.net", dnsname.FQDN("1-2-3-4-via-1.foo.ts.net."), dns.TypeAAAA, netip.MustParseAddr("fd7a:115c:a1e0:b1a:0:1:1.2.3.4"), dns.RCodeSuccess},
-		{"via_form3_dec_tailscale.net", dnsname.FQDN("1-2-3-4-via-1.foo.tailscale.net."), dns.TypeAAAA, netip.MustParseAddr("fd7a:115c:a1e0:b1a:0:1:1.2.3.4"), dns.RCodeSuccess},
+		{"via_form3_dec_ts.net", dnsname.FQDN("1-2-3-4-via-1.foo.ts.net."), dns.TypeAAAA, netip.MustParseAddr("fd0d:e100:d3c5:b1a:0:1:1.2.3.4"), dns.RCodeSuccess},
+		{"via_form3_dec_tailscale.net", dnsname.FQDN("1-2-3-4-via-1.foo.tailscale.net."), dns.TypeAAAA, netip.MustParseAddr("fd0d:e100:d3c5:b1a:0:1:1.2.3.4"), dns.RCodeSuccess},
 		// Non-Tailscale domain suffixes aren't allowed for now: (the allowed
 		// suffixes are currently hard-coded and not plumbed via the netmap)
 		{"via_form3_dec_example.com", dnsname.FQDN("1-2-3-4-via-1.example.com."), dns.TypeAAAA, netip.Addr{}, dns.RCodeRefused},
@@ -412,7 +412,7 @@ func TestResolveLocal(t *testing.T) {
 		// Resolve A and ALL types of resource records.
 		{"via_type_a", dnsname.FQDN("1-2-3-4-via-1."), dns.TypeA, netip.Addr{}, dns.RCodeSuccess},
 		{"via_invalid_type_a", dnsname.FQDN("1-2-3-4-via-."), dns.TypeA, netip.Addr{}, dns.RCodeRefused},
-		{"via_type_all", dnsname.FQDN("1-2-3-4-via-1."), dns.TypeALL, netip.MustParseAddr("fd7a:115c:a1e0:b1a:0:1:1.2.3.4"), dns.RCodeSuccess},
+		{"via_type_all", dnsname.FQDN("1-2-3-4-via-1."), dns.TypeALL, netip.MustParseAddr("fd0d:e100:d3c5:b1a:0:1:1.2.3.4"), dns.RCodeSuccess},
 		{"via_invalid_type_all", dnsname.FQDN("1-2-3-4-via-."), dns.TypeALL, netip.Addr{}, dns.RCodeRefused},
 	}
 
@@ -497,8 +497,8 @@ func TestResolveLocalReverse(t *testing.T) {
 		{"ipv4_nxdomain", dnsname.FQDN("5.3.2.1.in-addr.arpa."), "", dns.RCodeNameError},
 		{"ipv6_nxdomain", dnsname.FQDN("0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.0.0.0.ip6.arpa."), "", dns.RCodeNameError},
 		{"nxdomain", dnsname.FQDN("2.3.4.5.in-addr.arpa."), "", dns.RCodeRefused},
-		{"magicdns", dnsname.FQDN("100.100.100.100.in-addr.arpa."), dnsSymbolicFQDN, dns.RCodeSuccess},
-		{"ipv6_4to6", dnsname.FQDN("4.6.4.6.4.6.2.6.6.9.d.c.3.4.8.4.2.1.b.a.0.e.1.a.c.5.1.1.a.7.d.f.ip6.arpa."), dnsSymbolicFQDN, dns.RCodeSuccess},
+		{"magicdns", dnsname.FQDN("1.0.200.10.in-addr.arpa."), dnsSymbolicFQDN, dns.RCodeSuccess},
+		{"ipv6_4to6", dnsname.FQDN("1.0.0.0.8.c.2.6.6.9.d.c.3.4.8.4.2.1.b.a.5.c.3.d.0.0.1.e.d.0.d.f.ip6.arpa."), dnsSymbolicFQDN, dns.RCodeSuccess},
 	}
 
 	for _, tt := range tests {
